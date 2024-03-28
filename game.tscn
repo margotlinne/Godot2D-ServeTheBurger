@@ -1,0 +1,175 @@
+[gd_scene load_steps=10 format=3 uid="uid://b4uagblyvs3mr"]
+
+[ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://bg.png" id="1_upy37"]
+[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://burger_img.png" id="2_q3nj5"]
+[ext_resource type="Script" path="res://Setting.gd" id="3_bmn8j"]
+[ext_resource type="Script" path="res://Score.gd" id="4_5n3pk"]
+[ext_resource type="Texture2D" uid="uid://crvjsu84ytsh4" path="res://hand.png" id="4_8bbq5"]
+[ext_resource type="Texture2D" uid="uid://co80fcdpqmdoo" path="res://plate.png" id="5_fcjtp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf5h4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_upy37")
+stretch_mode = 1
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Setting Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_right = -17.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(1.43075, 1.52523)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
+
+[node name="Setting sprite" type="Sprite2D" parent="UI/Setting Panel"]
+position = Vector2(20.4453, 19.0825)
+scale = Vector2(0.141117, 0.124015)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(806.161, 2.64856, 269.622, 356.965)
+script = ExtResource("3_bmn8j")
+
+[node name="Button" type="Button" parent="UI/Setting Panel/Setting sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.5892
+offset_top = -26.9896
+offset_right = -70.5892
+offset_bottom = -26.9896
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.513915, 0.510402)
+theme_override_styles/normal = SubResource("StyleBoxFlat_rf5h4")
+
+[node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+position = Vector2(-1.24915, 62.8855)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
+
+[node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+visible = false
+position = Vector2(-1.24915, 52.3119)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
+
+[node name="Score Panel" type="Panel" parent="UI"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.65875, 1.59832)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
+
+[node name="4th chips" type="Sprite2D" parent="UI/Score Panel"]
+position = Vector2(16.8802, 10.6362)
+scale = Vector2(0.112536, 0.0944174)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(569.684, 382.867, 220.79, 182.205)
+
+[node name="3rd chips" type="Sprite2D" parent="UI/Score Panel"]
+position = Vector2(18.6888, 10.0105)
+scale = Vector2(0.119148, 0.113754)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(1217.04, 412.874, 250.8, 109.323)
+
+[node name="2nd chips" type="Sprite2D" parent="UI/Score Panel"]
+position = Vector2(20.4974, 13.7644)
+scale = Vector2(0.119148, 0.113754)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(1234.69, 233.514, 222.933, 124.328)
+
+[node name="1st chips" type="Sprite2D" parent="UI/Score Panel"]
+position = Vector2(18.0859, 13.7644)
+scale = Vector2(0.119148, 0.113754)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(1230.15, 89.6667, 210.462, 95.4872)
+
+[node name="Score sprite" type="Sprite2D" parent="UI/Score Panel"]
+position = Vector2(19.2605, 26.3932)
+scale = Vector2(0.119148, 0.113754)
+texture = ExtResource("2_q3nj5")
+region_enabled = true
+region_rect = Rect2(524.302, 134.079, 222.543, 209.366)
+
+[node name="Score Label" type="Label" parent="UI/Score Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.957
+offset_top = 0.0209923
+offset_right = 29.043
+offset_bottom = 26.021
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.513959, 0.503864)
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("4_5n3pk")
+
+[node name="Game" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hand Panel" type="Panel" parent="Game"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Hand Panel"]
+position = Vector2(-6, -9)
+scale = Vector2(0.560001, 0.564523)
+texture = ExtResource("4_8bbq5")
+region_rect = Rect2(174.21, 147.46, 193.6, 415.03)
+
+[node name="Plate Sprite" type="Sprite2D" parent="Game/Hand Panel"]
+position = Vector2(-7, -62)
+scale = Vector2(0.560001, 0.564523)
+texture = ExtResource("5_fcjtp")
+region_rect = Rect2(174.21, 147.46, 193.6, 415.03)
+
+[connection signal="pressed" from="UI/Setting Panel/Setting sprite/Button" to="UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
