@@ -1,6 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://dani1h6ti56p5"]
+[gd_scene load_steps=22 format=3 uid="uid://dani1h6ti56p5"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_3dha5"]
+[ext_resource type="Script" path="res://script/Menu.gd" id="1_8g257"]
+[ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_ght0l"]
+[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://image/burger_img.png" id="3_sbuyu"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_66tjn"]
+[ext_resource type="Texture2D" uid="uid://38q8qkygc3nw" path="res://image/title.png" id="7_gs4ay"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3pwh"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(554, 646, 260, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ydn7"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(554, 646, 260, 112)
+modulate_color = Color(0.672461, 0.338338, 0.225091, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2s46i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pxxjw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hthe1"]
+texture = ExtResource("4_66tjn")
+region_rect = Rect2(1203, 226, 147, 75)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrmv2"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(887, 654, 260, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ka31"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(887, 654, 260, 112)
+modulate_color = Color(0.266667, 0.639216, 0.505882, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yahwk"]
+texture = ExtResource("4_66tjn")
+region_rect = Rect2(1200, 324, 237, 68)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqld7"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(1206, 656, 260, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mw34h"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(1206, 656, 260, 112)
+modulate_color = Color(0.560784, 0.25098, 0.627451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2qrp"]
+texture = ExtResource("3_sbuyu")
+region_rect = Rect2(1206, 656, 260, 112)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t464k"]
+texture = ExtResource("4_66tjn")
+region_rect = Rect2(1197, 417, 161, 73)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iw5re"]
+texture = ExtResource("4_66tjn")
+region_rect = Rect2(1991, 1028, 280, 231)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g75cv"]
+texture = ExtResource("4_66tjn")
+region_rect = Rect2(1991, 1028, 280, 231)
+modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gxtg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0mtl"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,28 +73,240 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_3dha5")
+script = ExtResource("1_8g257")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ght0l")
+stretch_mode = 1
+
+[node name="Buttons Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -146.0
+offset_right = -18.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2.87288, 3.56734)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons Container"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="Buttons Container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_o3pwh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4ydn7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o3pwh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2s46i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pxxjw")
+
+[node name="Panel" type="Panel" parent="Buttons Container/VBoxContainer/PlayBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -3.0
+offset_right = 9.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hthe1")
+
+[node name="OptionBtn" type="Button" parent="Buttons Container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_rrmv2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5ka31")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rrmv2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2s46i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pxxjw")
+
+[node name="Panel" type="Panel" parent="Buttons Container/VBoxContainer/OptionBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.5
+offset_top = -3.0
+offset_right = 14.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yahwk")
+
+[node name="ExitBtn" type="Button" parent="Buttons Container/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_xqld7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_mw34h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b2qrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2s46i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pxxjw")
+
+[node name="Panel" type="Panel" parent="Buttons Container/VBoxContainer/ExitBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -3.0
+offset_right = 9.5
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t464k")
+
+[node name="Burger Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_right = -162.0
 offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(5.01976, 8.55165)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="Hand Sprite" type="Sprite2D" parent="Burger Container"]
+position = Vector2(84.8645, 51.3351)
+rotation = -0.5308
+scale = Vector2(0.0583947, 0.0675331)
+skew = -0.509194
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(2690, 785, 217, 2015)
+
+[node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+texture_filter = 1
+position = Vector2(1.97678, -997.077)
+scale = Vector2(0.834126, 0.853693)
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(118, 70, 320, 77)
+
+[node name="Burger Sprite1" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(-11.8685, -1029.57)
+rotation = 0.227673
+scale = Vector2(0.842172, 0.831628)
+skew = 0.0728246
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(172, 2633, 215, 55)
+
+[node name="Burger Sprite2" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(-17.8023, -1072.33)
+rotation = 0.227673
+scale = Vector2(0.842172, 0.831628)
+skew = 0.0728246
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(160, 2359, 238, 87)
+
+[node name="Burger Sprite3" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(-3.95709, -1139.03)
+rotation = 0.463026
+scale = Vector2(0.822155, 0.856374)
+skew = 0.125693
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(153, 938, 252, 67)
+
+[node name="Burger Sprite4" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(17.7997, -1185.2)
+rotation = 0.982075
+scale = Vector2(0.764799, 0.920597)
+skew = 0.125693
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(165, 1155, 228, 67)
+
+[node name="Burger Sprite5" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(17.7996, -1270.72)
+rotation = 0.227673
+scale = Vector2(0.842172, 0.831628)
+skew = 0.0728246
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(149, 735, 260, 58)
+
+[node name="Burger Sprite6" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(-27.6921, -1327.16)
+rotation = 0.463026
+scale = Vector2(0.822155, 0.856374)
+skew = 0.125693
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(145, 826, 269, 78)
+
+[node name="Burger Sprite7" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+position = Vector2(-63.2945, -1422.93)
+scale = Vector2(0.849381, 0.822384)
+texture = ExtResource("4_66tjn")
+region_enabled = true
+region_rect = Rect2(146, 609, 266, 90)
+
+[node name="Title Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title Sprite" type="Sprite2D" parent="Title Container"]
+position = Vector2(29, 0)
+scale = Vector2(0.853492, 0.781641)
+texture = ExtResource("7_gs4ay")
+
+[node name="Equip Button Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -46.0
+offset_right = -18.0
+offset_bottom = -5.99997
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.41629, 1.11668)
+
+[node name="Button" type="Button" parent="Equip Button Container"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_iw5re")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g75cv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_iw5re")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5gxtg")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t0mtl")
 
-[node name="PlayBtn" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="OptionsBtn" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
-[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="Buttons Container/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Buttons Container/VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="Buttons Container/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

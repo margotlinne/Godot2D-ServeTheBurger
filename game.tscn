@@ -1,21 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4uagblyvs3mr"]
+[gd_scene load_steps=19 format=3 uid="uid://b4uagblyvs3mr"]
 
-[ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://bg.png" id="1_upy37"]
-[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://burger_img.png" id="2_q3nj5"]
-[ext_resource type="Script" path="res://Setting.gd" id="3_bmn8j"]
-[ext_resource type="Script" path="res://Score.gd" id="4_5n3pk"]
-[ext_resource type="Texture2D" uid="uid://crvjsu84ytsh4" path="res://hand.png" id="4_8bbq5"]
-[ext_resource type="Texture2D" uid="uid://co80fcdpqmdoo" path="res://plate.png" id="5_fcjtp"]
+[ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_m12ql"]
+[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://image/burger_img.png" id="2_oo1cp"]
+[ext_resource type="Script" path="res://script/Setting.gd" id="3_0y15c"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_5gysj"]
+[ext_resource type="Script" path="res://script/Score.gd" id="4_7pq3v"]
+[ext_resource type="FontFile" uid="uid://bnvc0l0r7xiyb" path="res://font/SCDream7.otf" id="5_8cngf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rf5h4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7mko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe701"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lbop1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy0mo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_la7n3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbgy4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdy1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxp48"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apsrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqxhm"]
 
 [node name="Node" type="Node"]
 
@@ -25,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_upy37")
+texture = ExtResource("1_m12ql")
 stretch_mode = 1
 
 [node name="UI" type="Control" parent="."]
@@ -51,10 +68,25 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 [node name="Setting sprite" type="Sprite2D" parent="UI/Setting Panel"]
 position = Vector2(20.4453, 19.0825)
 scale = Vector2(0.141117, 0.124015)
-texture = ExtResource("2_q3nj5")
+texture = ExtResource("2_oo1cp")
 region_enabled = true
 region_rect = Rect2(806.161, 2.64856, 269.622, 356.965)
-script = ExtResource("3_bmn8j")
+script = ExtResource("3_0y15c")
+
+[node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+visible = false
+position = Vector2(-1.24915, 52.3119)
+scale = Vector2(1, 1)
+texture = ExtResource("2_oo1cp")
+region_enabled = true
+region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
+
+[node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+position = Vector2(-1.24915, 62.8855)
+scale = Vector2(1, 1)
+texture = ExtResource("2_oo1cp")
+region_enabled = true
+region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
 
 [node name="Button" type="Button" parent="UI/Setting Panel/Setting sprite"]
 anchors_preset = 15
@@ -67,20 +99,11 @@ offset_bottom = -26.9896
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.513915, 0.510402)
-theme_override_styles/normal = SubResource("StyleBoxFlat_rf5h4")
-
-[node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
-position = Vector2(-1.24915, 62.8855)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
-
-[node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
-visible = false
-position = Vector2(-1.24915, 52.3119)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h7mko")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fe701")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
 [node name="Score Panel" type="Panel" parent="UI"]
 layout_mode = 1
@@ -89,38 +112,10 @@ offset_bottom = 40.0
 scale = Vector2(1.65875, 1.59832)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="4th chips" type="Sprite2D" parent="UI/Score Panel"]
-position = Vector2(16.8802, 10.6362)
-scale = Vector2(0.112536, 0.0944174)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(569.684, 382.867, 220.79, 182.205)
-
-[node name="3rd chips" type="Sprite2D" parent="UI/Score Panel"]
-position = Vector2(18.6888, 10.0105)
-scale = Vector2(0.119148, 0.113754)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(1217.04, 412.874, 250.8, 109.323)
-
-[node name="2nd chips" type="Sprite2D" parent="UI/Score Panel"]
-position = Vector2(20.4974, 13.7644)
-scale = Vector2(0.119148, 0.113754)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(1234.69, 233.514, 222.933, 124.328)
-
-[node name="1st chips" type="Sprite2D" parent="UI/Score Panel"]
-position = Vector2(18.0859, 13.7644)
-scale = Vector2(0.119148, 0.113754)
-texture = ExtResource("2_q3nj5")
-region_enabled = true
-region_rect = Rect2(1230.15, 89.6667, 210.462, 95.4872)
-
 [node name="Score sprite" type="Sprite2D" parent="UI/Score Panel"]
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.119148, 0.113754)
-texture = ExtResource("2_q3nj5")
+texture = ExtResource("4_5gysj")
 region_enabled = true
 region_rect = Rect2(524.302, 134.079, 222.543, 209.366)
 
@@ -132,15 +127,57 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -10.957
-offset_top = 0.0209923
+offset_top = 2.52365
 offset_right = 29.043
-offset_bottom = 26.021
+offset_bottom = 28.5237
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.513959, 0.503864)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_8cngf")
 text = "0"
 horizontal_alignment = 1
-script = ExtResource("4_5n3pk")
+script = ExtResource("4_7pq3v")
+
+[node name="Collection Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_right = -76.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(1.59639, 1.38952)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
+
+[node name="Book Sprite" type="Sprite2D" parent="UI/Collection Panel"]
+position = Vector2(19.2605, 26.3932)
+scale = Vector2(0.118961, 0.099003)
+texture = ExtResource("4_5gysj")
+region_enabled = true
+region_rect = Rect2(1652, 75, 232, 320)
+
+[node name="OpenBook Sprite" type="Sprite2D" parent="UI/Collection Panel"]
+visible = false
+position = Vector2(19.2605, 26.3932)
+scale = Vector2(0.100262, 0.113256)
+texture = ExtResource("4_5gysj")
+region_enabled = true
+region_rect = Rect2(1920, 176, 355, 230)
+
+[node name="Button" type="Button" parent="UI/Collection Panel"]
+layout_mode = 0
+offset_left = 6.26414
+offset_top = 11.5148
+offset_right = 14.2641
+offset_bottom = 19.5148
+scale = Vector2(2.81867, 3.57509)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fbgy4")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_wdy1m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
 
 [node name="Game" type="Control" parent="."]
 layout_mode = 3
@@ -160,16 +197,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Hand Sprite" type="Sprite2D" parent="Game/Hand Panel"]
-position = Vector2(-6, -9)
-scale = Vector2(0.560001, 0.564523)
-texture = ExtResource("4_8bbq5")
-region_rect = Rect2(174.21, 147.46, 193.6, 415.03)
-
 [node name="Plate Sprite" type="Sprite2D" parent="Game/Hand Panel"]
-position = Vector2(-7, -62)
-scale = Vector2(0.560001, 0.564523)
-texture = ExtResource("5_fcjtp")
-region_rect = Rect2(174.21, 147.46, 193.6, 415.03)
+position = Vector2(-7, -55)
+scale = Vector2(0.333126, 0.321223)
+texture = ExtResource("4_5gysj")
+region_enabled = true
+region_rect = Rect2(118, 70, 320, 77)
+
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Hand Panel"]
+position = Vector2(-6, 231)
+scale = Vector2(0.289217, 0.282261)
+texture = ExtResource("4_5gysj")
+region_enabled = true
+region_rect = Rect2(2690, 785, 217, 2015)
 
 [connection signal="pressed" from="UI/Setting Panel/Setting sprite/Button" to="UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
