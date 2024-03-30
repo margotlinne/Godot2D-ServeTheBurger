@@ -76,14 +76,12 @@ script = ExtResource("3_0y15c")
 [node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
 visible = false
 position = Vector2(-1.24915, 52.3119)
-scale = Vector2(1, 1)
 texture = ExtResource("2_oo1cp")
 region_enabled = true
 region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
 
 [node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
 position = Vector2(-1.24915, 62.8855)
-scale = Vector2(1, 1)
 texture = ExtResource("2_oo1cp")
 region_enabled = true
 region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
