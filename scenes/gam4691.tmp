@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4uagblyvs3mr"]
+[gd_scene load_steps=27 format=3 uid="uid://b4uagblyvs3mr"]
 
-[ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_m12ql"]
-[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://image/burger_img.png" id="2_oo1cp"]
-[ext_resource type="Script" path="res://script/Setting.gd" id="3_0y15c"]
-[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_5gysj"]
-[ext_resource type="Script" path="res://script/Score.gd" id="4_7pq3v"]
-[ext_resource type="FontFile" uid="uid://bnvc0l0r7xiyb" path="res://font/SCDream7.otf" id="5_8cngf"]
-[ext_resource type="Script" path="res://script/Hand Panel.gd" id="7_gp4r5"]
+[ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
+[ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://image/burger_img.png" id="2_b3c4e"]
+[ext_resource type="Script" path="res://script/Setting.gd" id="3_axqnn"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_0wbe3"]
+[ext_resource type="FontFile" uid="uid://bnvc0l0r7xiyb" path="res://font/SCDream7.otf" id="5_m43rl"]
+[ext_resource type="Script" path="res://script/Score.gd" id="6_ef2qw"]
+[ext_resource type="Script" path="res://script/Spawn Ingredients.gd" id="7_d1p2q"]
+[ext_resource type="Script" path="res://script/Hand Panel.gd" id="8_ysorf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -35,6 +36,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqxhm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwbbv"]
+size = Vector2(312.097, 62.1826)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op6g6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0lr6"]
@@ -53,8 +57,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_m12ql")
+texture = ExtResource("1_180qy")
 stretch_mode = 1
+
+[node name="Ingredient" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -79,21 +89,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 [node name="Setting sprite" type="Sprite2D" parent="UI/Setting Panel"]
 position = Vector2(20.4453, 19.0825)
 scale = Vector2(0.141117, 0.124015)
-texture = ExtResource("2_oo1cp")
+texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(806.161, 2.64856, 269.622, 356.965)
-script = ExtResource("3_0y15c")
+script = ExtResource("3_axqnn")
 
 [node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
 visible = false
 position = Vector2(-1.24915, 52.3119)
-texture = ExtResource("2_oo1cp")
+texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
 
 [node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
 position = Vector2(-1.24915, 62.8855)
-texture = ExtResource("2_oo1cp")
+texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
 
@@ -124,7 +134,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 [node name="Score sprite" type="Sprite2D" parent="UI/Score Panel"]
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.119148, 0.113754)
-texture = ExtResource("4_5gysj")
+texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(524.302, 134.079, 222.543, 209.366)
 
@@ -143,10 +153,10 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.513959, 0.503864)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_8cngf")
+theme_override_fonts/font = ExtResource("5_m43rl")
 text = "0"
 horizontal_alignment = 1
-script = ExtResource("4_7pq3v")
+script = ExtResource("6_ef2qw")
 
 [node name="Collection Panel" type="Panel" parent="UI"]
 layout_mode = 1
@@ -163,7 +173,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 [node name="Book Sprite" type="Sprite2D" parent="UI/Collection Panel"]
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.118961, 0.099003)
-texture = ExtResource("4_5gysj")
+texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1652, 75, 232, 320)
 
@@ -171,7 +181,7 @@ region_rect = Rect2(1652, 75, 232, 320)
 visible = false
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.100262, 0.113256)
-texture = ExtResource("4_5gysj")
+texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1920, 176, 355, 230)
 
@@ -195,6 +205,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_d1p2q")
 
 [node name="Hand Panel" type="Panel" parent="Game"]
 layout_mode = 1
@@ -207,19 +218,30 @@ offset_top = 8.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("7_gp4r5")
+script = ExtResource("8_ysorf")
 
-[node name="Plate Sprite" type="Sprite2D" parent="Game/Hand Panel"]
+[node name="RigidBody2D" type="RigidBody2D" parent="Game/Hand Panel"]
 position = Vector2(-7, -55)
 scale = Vector2(0.253126, 0.241225)
-texture = ExtResource("4_5gysj")
+collision_mask = 2
+freeze = true
+
+[node name="Plate Sprite" type="Sprite2D" parent="Game/Hand Panel/RigidBody2D"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/RigidBody2D"]
+visibility_layer = 2
+position = Vector2(1.97559, -2.07275)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kwbbv")
 
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Hand Panel"]
 position = Vector2(-8, 150)
 scale = Vector2(0.209217, 0.202261)
-texture = ExtResource("4_5gysj")
+texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
@@ -240,6 +262,9 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_l0lr6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qlu28")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r3m2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1i3tt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game"]
+position = Vector2(250, -24)
 
 [connection signal="pressed" from="UI/Setting Panel/Setting sprite/Button" to="UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
 [connection signal="button_down" from="Game/Hand Panel/Detect Btn" to="Game/Hand Panel" method="_on_detect_btn_button_down"]

@@ -1,20 +1,20 @@
 [gd_scene load_steps=36 format=3 uid="uid://dani1h6ti56p5"]
 
-[ext_resource type="Script" path="res://script/Menu.gd" id="1_8g257"]
-[ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_ght0l"]
-[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_66tjn"]
-[ext_resource type="Script" path="res://script/AnimationPlayer.gd" id="5_xgby3"]
-[ext_resource type="Texture2D" uid="uid://38q8qkygc3nw" path="res://image/title.png" id="7_gs4ay"]
-[ext_resource type="Script" path="res://script/Title Animation.gd" id="7_qqot2"]
-[ext_resource type="Texture2D" uid="uid://b2yenh0bblrrj" path="res://image/bg4.png" id="8_dnann"]
-[ext_resource type="Script" path="res://script/Equip Button Container.gd" id="9_ohb5y"]
+[ext_resource type="Script" path="res://script/Menu.gd" id="1_gkag3"]
+[ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_lpweo"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="3_upylm"]
+[ext_resource type="Script" path="res://script/AnimationPlayer.gd" id="4_v2w3u"]
+[ext_resource type="Texture2D" uid="uid://38q8qkygc3nw" path="res://image/title.png" id="5_ippr8"]
+[ext_resource type="Script" path="res://script/Title Animation.gd" id="6_e8x73"]
+[ext_resource type="Texture2D" uid="uid://b2yenh0bblrrj" path="res://image/bg4.png" id="7_n2h5p"]
+[ext_resource type="Script" path="res://script/Equip Button Container.gd" id="8_wrxui"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoox1"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(554, 646, 260, 112)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hthe1"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1203, 226, 147, 75)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f52jx"]
@@ -27,22 +27,22 @@ bg_color = Color(0, 0, 0, 0.588235)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77dwk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h43uc"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(887, 654, 260, 112)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wuctj"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1200, 324, 237, 68)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oe6p"]
 bg_color = Color(0, 0, 0, 0.588235)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfuw6"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1206, 656, 260, 112)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82p23"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1197, 417, 161, 73)
 
 [sub_resource type="Animation" id="Animation_8ycdp"]
@@ -342,16 +342,16 @@ _data = {
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxbch"]
-texture = ExtResource("8_dnann")
+texture = ExtResource("7_n2h5p")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iw5re"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1991, 1028, 280, 231)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g75cv"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(1991, 1028, 280, 231)
 modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
 
@@ -372,7 +372,7 @@ func _ready():
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7e3c2"]
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_rect = Rect2(907, 518, 79, 81)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_must2"]
@@ -392,7 +392,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8g257")
+script = ExtResource("1_gkag3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -401,7 +401,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ght0l")
+texture = ExtResource("2_lpweo")
 stretch_mode = 1
 
 [node name="Buttons Container" type="MarginContainer" parent="."]
@@ -552,7 +552,7 @@ position = Vector2(87.4736, 52.6591)
 rotation = -0.5308
 scale = Vector2(0.0583947, 0.0675331)
 skew = -0.509194
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
@@ -560,13 +560,13 @@ region_rect = Rect2(2690, 785, 217, 2015)
 libraries = {
 "": SubResource("AnimationLibrary_l8ina")
 }
-script = ExtResource("5_xgby3")
+script = ExtResource("4_v2w3u")
 
 [node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Hand Sprite"]
 texture_filter = 1
 position = Vector2(1.97678, -997.077)
 scale = Vector2(0.834126, 0.853693)
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
@@ -574,7 +574,7 @@ region_rect = Rect2(118, 70, 320, 77)
 position = Vector2(-16.599, -42.987)
 scale = Vector2(1.00848, 0.976177)
 skew = 0.084489
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(172, 2633, 215, 55)
 
@@ -582,7 +582,7 @@ region_rect = Rect2(172, 2633, 215, 55)
 position = Vector2(-18.6227, -65.9299)
 scale = Vector2(1.00848, 0.976177)
 skew = 0.0844889
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(160, 2359, 238, 87)
 
@@ -590,7 +590,7 @@ region_rect = Rect2(160, 2359, 238, 87)
 position = Vector2(-15.5874, -97.0527)
 scale = Vector2(0.986977, 1.00341)
 skew = 0.137899
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(153, 938, 252, 67)
 
@@ -598,7 +598,7 @@ region_rect = Rect2(153, 938, 252, 67)
 position = Vector2(-17.3982, -112.893)
 scale = Vector2(0.918122, 1.07866)
 skew = 0.137899
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(165, 1155, 228, 67)
 
@@ -607,7 +607,7 @@ position = Vector2(-24.7767, -126.463)
 rotation = -0.0287032
 scale = Vector2(1.01128, 0.973273)
 skew = 0.0820464
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(149, 735, 260, 58)
 
@@ -616,7 +616,7 @@ position = Vector2(-18.5183, -158.266)
 rotation = 0.0345641
 scale = Vector2(0.986977, 1.00341)
 skew = 0.137898
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(145, 826, 269, 78)
 
@@ -624,7 +624,7 @@ region_rect = Rect2(145, 826, 269, 78)
 position = Vector2(-29.6082, -212.679)
 scale = Vector2(1.01966, 0.962068)
 skew = 0.00910711
-texture = ExtResource("4_66tjn")
+texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(146, 609, 266, 90)
 
@@ -645,13 +645,13 @@ grow_vertical = 2
 [node name="Title Sprite" type="Sprite2D" parent="Title Container"]
 position = Vector2(29, 0)
 scale = Vector2(0.853492, 0.781641)
-texture = ExtResource("7_gs4ay")
+texture = ExtResource("5_ippr8")
 
 [node name="Title Animation" type="AnimationPlayer" parent="Title Container/Title Sprite"]
 libraries = {
 "": SubResource("AnimationLibrary_d8ess")
 }
-script = ExtResource("7_qqot2")
+script = ExtResource("6_e8x73")
 
 [node name="Equip" type="Control" parent="."]
 visible = false
@@ -693,7 +693,7 @@ offset_bottom = -5.99997
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(1.41629, 1.11668)
-script = ExtResource("9_ohb5y")
+script = ExtResource("8_wrxui")
 
 [node name="Button" type="Button" parent="Equip Button Container"]
 custom_minimum_size = Vector2(0, 10)

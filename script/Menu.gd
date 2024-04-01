@@ -4,7 +4,7 @@ extends Control
 @onready var optionCanvas = get_node("/root/Menu/Option")
 
 func _on_play_btn_pressed():
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 
