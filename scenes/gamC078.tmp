@@ -228,6 +228,9 @@ texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
+[node name="Next Spawn" type="Node2D" parent="Hamburger/Plate Sprite"]
+position = Vector2(0, -65)
+
 [node name="Game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15

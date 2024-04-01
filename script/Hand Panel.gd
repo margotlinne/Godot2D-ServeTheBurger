@@ -3,7 +3,6 @@ extends Panel
 var is_mouse_pressed = false
 var original_position = Vector2.ZERO
 
-@onready var collision = get_node("/root/Node/Game/Hand Panel/Plate Sprite/RigidBody2D/CollisionShape2D")
 
 func _ready():
 	# 시작 시 원래 위치 저장
@@ -30,8 +29,6 @@ func _on_detect_btn_button_up():
 	is_mouse_pressed = false
 
 #func _on_CollisionShape2D_body_entered(body):
-
-
 
 
 

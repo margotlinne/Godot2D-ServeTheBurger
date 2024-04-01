@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://script/Hand Panel.gd" id="8_ysorf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xykb2"]
-size = Vector2(289.5, 51)
+size = Vector2(289, 588)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -67,12 +67,11 @@ grow_vertical = 2
 texture = ExtResource("1_180qy")
 stretch_mode = 1
 
-[node name="Delete Zone" type="RigidBody2D" parent="." groups=["delete"]]
+[node name="Delete Zone" type="Area2D" parent="." groups=["delete"]]
 position = Vector2(0, 512)
-freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Delete Zone"]
-position = Vector2(144, 60)
+position = Vector2(144, 262)
 shape = SubResource("RectangleShape2D_xykb2")
 script = ExtResource("2_t8epd")
 
@@ -216,18 +215,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
 
-[node name="Hamburger" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Plate Sprite" type="Sprite2D" parent="Hamburger"]
-position = Vector2(144, 356)
-texture = ExtResource("4_0wbe3")
-region_enabled = true
-region_rect = Rect2(118, 70, 320, 77)
-
 [node name="Game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -250,26 +237,23 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("8_ysorf")
 
-[node name="Player Plate" type="Sprite2D" parent="Game/Hand Panel"]
+[node name="Plate Sprite" type="Sprite2D" parent="Game/Hand Panel"]
 position = Vector2(-7, -55)
 scale = Vector2(0.253126, 0.241225)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="SpawnPos" type="Node2D" parent="Game/Hand Panel/Player Plate"]
-scale = Vector2(1, 1)
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Hand Panel/Plate Sprite" groups=["player"]]
 
-[node name="Player Physics" type="CharacterBody2D" parent="Game/Hand Panel/Player Plate" groups=["player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Player Plate/Player Physics"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Plate Sprite/Player Physics"]
 position = Vector2(1.97546, -2.07275)
 shape = SubResource("RectangleShape2D_kwbbv")
 
-[node name="center" type="CharacterBody2D" parent="Game/Hand Panel/Player Plate" groups=["center"]]
+[node name="center" type="CharacterBody2D" parent="Game/Hand Panel/Plate Sprite" groups=["center"]]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Player Plate/center"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Plate Sprite/center"]
 scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
