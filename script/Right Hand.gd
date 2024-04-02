@@ -1,0 +1,40 @@
+extends Control
+
+@onready var hand = get_node("/root/Node/Game/Right Hand/Move")
+# 이동 속도
+var move_speed = 150
+# 이동 방향 (1: 오른쪽, -1: 왼쪽)
+var move_direction = -1
+var instance = null
+
+var moving = false
+
+func _ready():
+	if instance == null:
+		instance = self
+	else:
+		queue_free()
+		
+func _process(delta):
+	var window_width = get_viewport().size.x
+	var left_edge = (window_width * -1) + 60
+	var left_gap = int(hand.position.x) - left_edge
+	var right_gap = int(hand.position.x)
+	var tolerance = 5
+	
+	
+	if !moving:
+		hand.position = hand.position
+	else:
+		hand.position.x += move_speed * move_direction * delta
+		if move_direction == -1 && left_gap >= 0 && left_gap <= 5:		
+			move_direction *= -1
+		if move_direction == 1 && right_gap >= 0 && right_gap <= 5:
+			move_direction *= -1
+		
+func set_default():
+	hand.position = Vector2(60, 0)
+	
+func move_hand():
+	moving = true
+

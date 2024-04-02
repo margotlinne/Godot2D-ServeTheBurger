@@ -1,24 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://c71qmvw2lg8sn"]
+[gd_scene load_steps=4 format=3 uid="uid://cko33e3oajyme"]
 
-[ext_resource type="Script" path="res://script/Ingredients.gd" id="1_aotjo"]
-[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="1_p8ge7"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="2_p6asv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_533rj"]
 size = Vector2(234.436, 33.1034)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1gcy"]
 
-[node name="Main" type="RigidBody2D" groups=["ingredient", "patty"]]
+[node name="Main" type="RigidBody2D" groups=["ingredient", "start"]]
 max_contacts_reported = 2
 contact_monitor = true
+freeze = true
 angular_damp = 31.841
-script = ExtResource("1_aotjo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.243137, 0.3625)
-texture = ExtResource("1_p8ge7")
+scale = Vector2(0.310721, 0.364469)
+texture = ExtResource("2_p6asv")
 region_enabled = true
-region_rect = Rect2(150, 735, 259, 55)
+region_rect = Rect2(175, 2634, 211, 51)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -8.34465e-07)
@@ -32,7 +31,7 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="middle"]
 position = Vector2(0, -5)
-scale = Vector2(0.158198, 0.467758)
+scale = Vector2(0.118199, 0.467758)
 shape = SubResource("CircleShape2D_a1gcy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

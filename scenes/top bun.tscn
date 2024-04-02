@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b16uaoqf34cdb"]
+
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="1_gs5pa"]
+[ext_resource type="Script" path="res://script/Ingredients.gd" id="1_qfjqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_533rj"]
+size = Vector2(211.448, 10.2178)
+
+[node name="Main" type="RigidBody2D" groups=["ingredient", "top"]]
+max_contacts_reported = 2
+contact_monitor = true
+freeze = true
+angular_damp = 31.841
+script = ExtResource("1_qfjqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.244211, 0.219508)
+texture = ExtResource("1_gs5pa")
+region_enabled = true
+region_rect = Rect2(143, 616, 273, 81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.38681)
+scale = Vector2(0.297946, 0.315762)
+shape = SubResource("RectangleShape2D_533rj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

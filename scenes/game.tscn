@@ -1,14 +1,24 @@
-[gd_scene load_steps=30 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=38 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
+[ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
 [ext_resource type="Texture2D" uid="uid://dgna15nk2780g" path="res://image/burger_img.png" id="2_b3c4e"]
-[ext_resource type="Script" path="res://script/Delete Zone.gd" id="2_t8epd"]
 [ext_resource type="Script" path="res://script/Setting.gd" id="3_axqnn"]
+[ext_resource type="Script" path="res://script/Delete Height.gd" id="3_m0pgn"]
 [ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="4_0wbe3"]
 [ext_resource type="FontFile" uid="uid://bnvc0l0r7xiyb" path="res://font/SCDream7.otf" id="5_m43rl"]
 [ext_resource type="Script" path="res://script/Score.gd" id="6_ef2qw"]
-[ext_resource type="Script" path="res://script/Spawn Ingredients.gd" id="7_d1p2q"]
-[ext_resource type="Script" path="res://script/Hand Panel.gd" id="8_ysorf"]
+[ext_resource type="Script" path="res://script/Ingredient Manager.gd" id="8_fn0bu"]
+[ext_resource type="Script" path="res://script/Player Movement.gd" id="10_crpuk"]
+[ext_resource type="Script" path="res://script/Right Hand.gd" id="11_xmaf4"]
+[ext_resource type="Texture2D" uid="uid://b3muw8aqafg0w" path="res://image/result bg.png" id="12_ogh4n"]
+[ext_resource type="FontFile" uid="uid://cwjysub8dalup" path="res://font/SCDream5.otf" id="13_6t7xl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vixve"]
+size = Vector2(63, 30.9745)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0aos"]
+size = Vector2(72, 537)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xykb2"]
 size = Vector2(289.5, 51)
@@ -26,6 +36,11 @@ corner_detail = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vy0mo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_la7n3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucu3y"]
+bg_color = Color(0.6, 0.6, 0.6, 0.282353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7xru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -46,7 +61,7 @@ size = Vector2(312.097, 62.1826)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck74t"]
 radius = 6.48997
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_op6g6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjh5e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0lr6"]
 
@@ -67,16 +82,67 @@ grow_vertical = 2
 texture = ExtResource("1_180qy")
 stretch_mode = 1
 
-[node name="Delete Zone" type="RigidBody2D" parent="." groups=["delete"]]
-position = Vector2(0, 512)
+[node name="Delete Left" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Left" groups=["delete"]]
 freeze = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Delete Zone"]
-position = Vector2(144, 60)
+[node name="Left Height" type="CollisionShape2D" parent="Delete Left/Delete Zone"]
+position = Vector2(-63, 20)
+scale = Vector2(1, 17.24)
+shape = SubResource("RectangleShape2D_vixve")
+script = ExtResource("3_m0pgn")
+
+[node name="Delete Right" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Right" groups=["delete"]]
+position = Vector2(39, 0)
+freeze = true
+
+[node name="Right Height" type="CollisionShape2D" parent="Delete Right/Delete Zone"]
+position = Vector2(68, 17)
+shape = SubResource("RectangleShape2D_k0aos")
+script = ExtResource("3_m0pgn")
+
+[node name="Delete Width" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Width" groups=["delete"]]
+position = Vector2(0, 28)
+freeze = true
+
+[node name="Width" type="CollisionShape2D" parent="Delete Width/Delete Zone"]
 shape = SubResource("RectangleShape2D_xykb2")
-script = ExtResource("2_t8epd")
+script = ExtResource("2_16bcx")
 
 [node name="Ingredient" type="Control" parent="."]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,15 +150,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UI" type="Control" parent="."]
+[node name="Game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_fn0bu")
 
-[node name="Setting Panel" type="Panel" parent="UI"]
+[node name="UI" type="Control" parent="Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Setting Panel" type="Panel" parent="Game/UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -104,7 +179,7 @@ grow_horizontal = 0
 scale = Vector2(1.43075, 1.52523)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 
-[node name="Setting sprite" type="Sprite2D" parent="UI/Setting Panel"]
+[node name="Setting sprite" type="Sprite2D" parent="Game/UI/Setting Panel"]
 position = Vector2(20.4453, 19.0825)
 scale = Vector2(0.141117, 0.124015)
 texture = ExtResource("2_b3c4e")
@@ -112,20 +187,20 @@ region_enabled = true
 region_rect = Rect2(806.161, 2.64856, 269.622, 356.965)
 script = ExtResource("3_axqnn")
 
-[node name="Setting Continue Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+[node name="Setting Continue Sprite" type="Sprite2D" parent="Game/UI/Setting Panel/Setting sprite"]
 visible = false
 position = Vector2(-1.24915, 52.3119)
 texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
 
-[node name="Setting Pause Sprite" type="Sprite2D" parent="UI/Setting Panel/Setting sprite"]
+[node name="Setting Pause Sprite" type="Sprite2D" parent="Game/UI/Setting Panel/Setting sprite"]
 position = Vector2(-1.24915, 62.8855)
 texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
 
-[node name="Button" type="Button" parent="UI/Setting Panel/Setting sprite"]
+[node name="Button" type="Button" parent="Game/UI/Setting Panel/Setting sprite"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -142,31 +217,105 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
-[node name="Score Panel" type="Panel" parent="UI"]
+[node name="Finish Button" type="Panel" parent="Game/UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -64.0
+offset_right = -17.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.43075, 1.52523)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
+
+[node name="Setting sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
+position = Vector2(20.4453, 19.0825)
+scale = Vector2(0.547435, 0.531856)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(2752, 515, 60, 50)
+
+[node name="Button" type="Button" parent="Game/UI/Finish Button/Setting sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -29.687
+offset_top = -23.5517
+offset_right = -29.687
+offset_bottom = -23.5517
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.983188, 0.964897)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucu3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u7xru")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
+
+[node name="Money Panel" type="Panel" parent="Game/UI"]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(1.65875, 1.59832)
+scale = Vector2(1.33101, 1.22659)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Score sprite" type="Sprite2D" parent="UI/Score Panel"]
-position = Vector2(19.2605, 26.3932)
-scale = Vector2(0.119148, 0.113754)
+[node name="Score sprite" type="Sprite2D" parent="Game/UI/Money Panel"]
+position = Vector2(21.7922, 20.3517)
+scale = Vector2(0.152238, 0.1516)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(524.302, 134.079, 222.543, 209.366)
 
-[node name="Score Label" type="Label" parent="UI/Score Panel"]
+[node name="Score Label" type="Label" parent="Game/UI/Money Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.957
-offset_top = 2.52365
-offset_right = 29.043
-offset_bottom = 28.5237
+offset_left = -8.4253
+offset_top = -3.51781
+offset_right = 31.5747
+offset_bottom = 22.4822
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.513959, 0.503864)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_m43rl")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Score Panel" type="Panel" parent="Game/UI"]
+layout_mode = 1
+offset_left = 66.0
+offset_right = 106.0
+offset_bottom = 40.0
+scale = Vector2(1.37614, 1.21217)
+theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
+
+[node name="Score sprite" type="Sprite2D" parent="Game/UI/Score Panel"]
+position = Vector2(15.3701, 21.5579)
+scale = Vector2(0.119148, 0.113754)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(1870, 669, 258, 292)
+
+[node name="Score Label" type="Label" parent="Game/UI/Score Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.8474
+offset_top = -2.31165
+offset_right = 25.1526
+offset_bottom = 23.6884
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.513959, 0.503864)
@@ -176,7 +325,7 @@ text = "0"
 horizontal_alignment = 1
 script = ExtResource("6_ef2qw")
 
-[node name="Collection Panel" type="Panel" parent="UI"]
+[node name="Collection Panel" type="Panel" parent="Game/UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -188,14 +337,14 @@ grow_horizontal = 0
 scale = Vector2(1.59639, 1.38952)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Book Sprite" type="Sprite2D" parent="UI/Collection Panel"]
+[node name="Book Sprite" type="Sprite2D" parent="Game/UI/Collection Panel"]
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.118961, 0.099003)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1652, 75, 232, 320)
 
-[node name="OpenBook Sprite" type="Sprite2D" parent="UI/Collection Panel"]
+[node name="OpenBook Sprite" type="Sprite2D" parent="Game/UI/Collection Panel"]
 visible = false
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.100262, 0.113256)
@@ -203,7 +352,7 @@ texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1920, 176, 355, 230)
 
-[node name="Button" type="Button" parent="UI/Collection Panel"]
+[node name="Button" type="Button" parent="Game/UI/Collection Panel"]
 layout_mode = 0
 offset_left = 6.26414
 offset_top = 11.5148
@@ -216,71 +365,48 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
 
-[node name="Hamburger" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Plate Sprite" type="Sprite2D" parent="Hamburger"]
-position = Vector2(144, 356)
-texture = ExtResource("4_0wbe3")
-region_enabled = true
-region_rect = Rect2(118, 70, 320, 77)
-
-[node name="Game" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_d1p2q")
-
-[node name="Hand Panel" type="Panel" parent="Game"]
+[node name="Left Hand" type="Panel" parent="Game"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 8.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("8_ysorf")
+script = ExtResource("10_crpuk")
 
-[node name="Player Plate" type="Sprite2D" parent="Game/Hand Panel"]
+[node name="Player Plate" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-7, -55)
 scale = Vector2(0.253126, 0.241225)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="SpawnPos" type="Node2D" parent="Game/Hand Panel/Player Plate"]
-scale = Vector2(1, 1)
+[node name="Stack Pos" type="Node2D" parent="Game/Left Hand/Player Plate"]
+position = Vector2(0, -66.3281)
 
-[node name="Player Physics" type="CharacterBody2D" parent="Game/Hand Panel/Player Plate" groups=["player"]]
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Player Plate/Player Physics"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Player Physics"]
 position = Vector2(1.97546, -2.07275)
 shape = SubResource("RectangleShape2D_kwbbv")
 
-[node name="center" type="CharacterBody2D" parent="Game/Hand Panel/Player Plate" groups=["center"]]
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["center"]]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Hand Panel/Player Plate/center"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/center"]
 scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
-[node name="Hand Sprite" type="Sprite2D" parent="Game/Hand Panel"]
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-8, 150)
 scale = Vector2(0.209217, 0.202261)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
-[node name="Detect Btn" type="Button" parent="Game/Hand Panel"]
+[node name="Detect Btn" type="Button" parent="Game/Left Hand"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,15 +418,135 @@ offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(10.6567, 52.1561)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_op6g6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tjh5e")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_l0lr6")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qlu28")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r3m2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1i3tt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Game"]
-position = Vector2(250, -24)
+[node name="Right Hand" type="Control" parent="Game"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("11_xmaf4")
 
-[connection signal="pressed" from="UI/Setting Panel/Setting sprite/Button" to="UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
-[connection signal="button_down" from="Game/Hand Panel/Detect Btn" to="Game/Hand Panel" method="_on_detect_btn_button_down"]
-[connection signal="button_up" from="Game/Hand Panel/Detect Btn" to="Game/Hand Panel" method="_on_detect_btn_button_up"]
+[node name="Move" type="Node2D" parent="Game/Right Hand"]
+position = Vector2(62, 0)
+
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Right Hand/Move"]
+position = Vector2(217, -11)
+rotation = -1.5708
+scale = Vector2(0.196504, 0.229309)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(2396, 752, 113, 2046)
+
+[node name="Last Bun Pos" type="Node2D" parent="Game/Right Hand/Move/Hand Sprite"]
+position = Vector2(-55.9784, -946.321)
+rotation = 1.5708
+scale = Vector2(4.36093, 5.08896)
+
+[node name="Hamburger" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="Sprite2D" parent="Hamburger"]
+scale = Vector2(0.26808, 0.294833)
+texture = ExtResource("12_ogh4n")
+offset = Vector2(5, 5)
+region_rect = Rect2(0, -8, 916, 924)
+
+[node name="Plate" type="Sprite2D" parent="Hamburger/BG"]
+position = Vector2(7.46051, 390.051)
+scale = Vector2(0.455544, 0.42617)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(118, 70, 320, 77)
+
+[node name="First Bun" type="Sprite2D" parent="Hamburger/BG/Plate"]
+position = Vector2(4.29126, -48.3284)
+scale = Vector2(1.34327, 1.3814)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(175, 2634, 211, 51)
+
+[node name="Result Spawn Pos" type="Node2D" parent="Hamburger/BG/Plate/First Bun"]
+
+[node name="Title" type="Label" parent="Hamburger/BG"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -804.912
+offset_top = -851.443
+offset_right = -555.912
+offset_bottom = -790.443
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.83469, 2.16537)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_m43rl")
+theme_override_font_sizes/font_size = 50
+text = "Good Job!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Hamburger/BG"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -804.912
+offset_top = -719.165
+offset_right = -431.912
+offset_bottom = -658.165
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.00173, 1.92674)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_6t7xl")
+theme_override_font_sizes/font_size = 40
+text = "N floors Burger"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Best Score" type="Label" parent="Hamburger/BG"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -693.005
+offset_top = -600.454
+offset_right = -320.005
+offset_bottom = -539.454
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.37964, 1.59357)
+theme_override_colors/font_color = Color(0.6, 0.278431, 0.239216, 1)
+theme_override_fonts/font = ExtResource("13_6t7xl")
+theme_override_font_sizes/font_size = 30
+text = "Best Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Game/UI/Setting Panel/Setting sprite/Button" to="Game/UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
+[connection signal="button_down" from="Game/UI/Finish Button/Setting sprite/Button" to="Game" method="_on_button_button_down"]
+[connection signal="button_down" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_down"]
+[connection signal="button_up" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_up"]

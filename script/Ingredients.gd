@@ -18,7 +18,10 @@ func _process(delta):
 		#print("not in the middle")
 		freeze = false
 		set_linear_damp(0)
-
+		
+func sleep_mode():
+	freeze = true
+	
 func _on_body_entered(body):
 	if body.name == "Player Physics" || body.is_in_group("ingredient"):
 		if self.rotation < 90 && self.rotation > -90:
