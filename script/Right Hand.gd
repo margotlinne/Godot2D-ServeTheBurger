@@ -33,7 +33,7 @@ func _process(delta):
 			move_direction *= -1
 		
 func set_default():
-	hand.position = Vector2(60, 0)
+	hand.position = Vector2(63, -153)
 	
 func move_hand():
 	moving = true

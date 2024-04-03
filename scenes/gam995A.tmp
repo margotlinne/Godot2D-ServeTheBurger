@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=38 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -13,8 +13,6 @@
 [ext_resource type="Script" path="res://script/Right Hand.gd" id="11_xmaf4"]
 [ext_resource type="Texture2D" uid="uid://b3muw8aqafg0w" path="res://image/result bg.png" id="12_ogh4n"]
 [ext_resource type="FontFile" uid="uid://cwjysub8dalup" path="res://font/SCDream5.otf" id="13_6t7xl"]
-[ext_resource type="Texture2D" uid="uid://dk1xryfek2i6e" path="res://image/burger_img3.png" id="13_fk6mh"]
-[ext_resource type="Script" path="res://script/Result Bg.gd" id="13_obcrt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vixve"]
 size = Vector2(63, 30.9745)
@@ -39,47 +37,13 @@ corner_detail = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_la7n3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_if3fn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ucu3y"]
+bg_color = Color(0.6, 0.6, 0.6, 0.282353)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23xui"]
-texture = ExtResource("13_fk6mh")
-region_rect = Rect2(2752, 515, 60, 50)
-modulate_color = Color(0.301961, 0.301961, 0.301961, 0.611765)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7xru"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Animation" id="Animation_oho4t"]
-resource_name = "coin"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 40.4234), Vector2(0, 19.7992)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka7lk"]
-_data = {
-"coin": SubResource("Animation_oho4t")
-}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbgy4"]
 
@@ -90,62 +54,6 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apsrv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqxhm"]
-
-[sub_resource type="Animation" id="Animation_hrobn"]
-resource_name = "perfect"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(14, -22), Vector2(14, 78), Vector2(14, 78), Vector2(14, -22)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 3.14159, 6.28318]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5, 0.6, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-0.0339621, 0.0776209), Vector2(0.206038, 0.0776209), Vector2(0.127465, 0.239828), Vector2(0.216532, 0.291828), Vector2(0.0526494, 0.127331), Vector2(0.194469, 0.212418), Vector2(0.161034, 0.159628), Vector2(0.0810312, 0.0396272)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mkadg"]
-_data = {
-"perfect": SubResource("Animation_hrobn")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwbbv"]
 size = Vector2(312.097, 62.1826)
@@ -162,99 +70,6 @@ radius = 6.48997
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r3m2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1i3tt"]
-
-[sub_resource type="Animation" id="Animation_3r6n4"]
-resource_name = "slid_out"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-234, -20), Vector2(-19, -20), Vector2(-19, -20), Vector2(-234, -20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Countdown 3:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.403161, 0.321646)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Countdown 3:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Countdown 2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Countdown 2:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.10474, 0.18598), Vector2(1, 1), Vector2(0.10474, 0.18598)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Countdown 1:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.140138, 0.304698), Vector2(1, 1), Vector2(0.140138, 0.304698)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Countdown 1:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_onwdy"]
-_data = {
-"slide": SubResource("Animation_3r6n4")
-}
 
 [node name="Node" type="Node"]
 
@@ -440,22 +255,11 @@ offset_bottom = -23.5517
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.983188, 0.964897)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_if3fn")
-theme_override_styles/hover = SubResource("StyleBoxTexture_23xui")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ucu3y")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u7xru")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
-
-[node name="Label" type="Label" parent="Game/UI/Finish Button/Setting sprite/Button"]
-layout_mode = 0
-offset_left = 11.6872
-offset_top = 16.6086
-offset_right = 68.6872
-offset_bottom = 43.6086
-scale = Vector2(0.702247, 0.813953)
-theme_override_fonts/font = ExtResource("5_m43rl")
-theme_override_font_sizes/font_size = 20
-text = "Finish"
 
 [node name="Money Panel" type="Panel" parent="Game/UI"]
 layout_mode = 1
@@ -525,36 +329,6 @@ text = "0"
 horizontal_alignment = 1
 script = ExtResource("6_ef2qw")
 
-[node name="Bill Text" type="Label" parent="Game/UI/Score Panel"]
-layout_mode = 0
-offset_left = 2.90668
-offset_top = 4.9498
-offset_right = 42.9067
-offset_bottom = 27.9498
-scale = Vector2(0.599262, 0.545434)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("13_6t7xl")
-theme_override_font_sizes/font_size = 10
-text = "Bill"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Earned coin" type="Label" parent="Game/UI/Score Panel"]
-modulate = Color(1, 1, 1, 0)
-offset_top = 19.7992
-offset_right = 147.0
-offset_bottom = 80.7992
-scale = Vector2(0.216358, 0.23324)
-theme_override_colors/font_color = Color(0.403922, 0.694118, 0.717647, 1)
-theme_override_fonts/font = ExtResource("5_m43rl")
-theme_override_font_sizes/font_size = 30
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Score Panel/Earned coin"]
-libraries = {
-"": SubResource("AnimationLibrary_ka7lk")
-}
-
 [node name="Collection Panel" type="Panel" parent="Game/UI"]
 layout_mode = 1
 anchors_preset = 1
@@ -595,30 +369,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
 
-[node name="Perfect" type="Control" parent="Game/UI"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Game/UI/Perfect"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(14, -22)
-rotation = 6.28318
-scale = Vector2(0.0806868, 0.0396272)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2024.14, 1956.62, 377.738, 266.466)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Perfect/Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_mkadg")
-}
-
 [node name="Left Hand" type="Panel" parent="Game"]
 layout_mode = 1
 anchors_preset = 7
@@ -638,7 +388,7 @@ region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
 [node name="Stack Pos" type="Node2D" parent="Game/Left Hand/Player Plate"]
-position = Vector2(3.95062, -182.402)
+position = Vector2(0, -66.3281)
 
 [node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["player"]]
 
@@ -708,38 +458,32 @@ position = Vector2(-55.9784, -946.321)
 rotation = 1.5708
 scale = Vector2(4.36093, 5.08896)
 
-[node name="Sprite2D" type="Sprite2D" parent="Game/Right Hand/Move/Hand Sprite"]
-position = Vector2(3.378, 3194.63)
-rotation = 3.14159
-scale = Vector2(0.999989, 3.31742)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2719.94, 1277.56, 208.863, 1310.14)
-
 [node name="Hamburger" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BG" type="Sprite2D" parent="Hamburger"]
-position = Vector2(-234, -20)
+position = Vector2(-221, -93)
 scale = Vector2(0.26808, 0.294833)
 texture = ExtResource("12_ogh4n")
 offset = Vector2(5, 5)
 region_rect = Rect2(0, -8, 916, 924)
-script = ExtResource("13_obcrt")
 
 [node name="Plate" type="Sprite2D" parent="Hamburger/BG"]
-position = Vector2(190.242, 366.309)
+position = Vector2(298.418, 376.484)
 scale = Vector2(0.455544, 0.42617)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
 [node name="Result Spawn Pos" type="Node2D" parent="Hamburger/BG/Plate"]
-position = Vector2(0, -238.76)
+position = Vector2(8.18833, -39.7925)
 scale = Vector2(1.34327, 1.3814)
 
 [node name="First Bun" type="Sprite2D" parent="Hamburger/BG/Plate"]
@@ -749,35 +493,6 @@ scale = Vector2(1.34327, 1.3814)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(175, 2634, 211, 51)
-
-[node name="Countdown 1" type="Sprite2D" parent="Hamburger/BG"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(190.242, -454.494)
-scale = Vector2(0.140138, 0.304698)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2158, 1708, 110, 147)
-
-[node name="Countdown 2" type="Sprite2D" parent="Hamburger/BG"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(190.242, -454.495)
-scale = Vector2(0.10474, 0.18598)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2141, 1545, 112, 137)
-
-[node name="Countdown 3" type="Sprite2D" parent="Hamburger/BG"]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(197.702, -454.495)
-scale = Vector2(0.403161, 0.321646)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2136, 1343, 103, 163)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hamburger/BG"]
-libraries = {
-"": SubResource("AnimationLibrary_onwdy")
-}
 
 [node name="Title" type="Label" parent="Hamburger/BG"]
 visible = false
@@ -846,4 +561,3 @@ vertical_alignment = 1
 [connection signal="button_down" from="Game/UI/Finish Button/Setting sprite/Button" to="Game" method="_on_button_button_down"]
 [connection signal="button_down" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_down"]
 [connection signal="button_up" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_up"]
-[connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]

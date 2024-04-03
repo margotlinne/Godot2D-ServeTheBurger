@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_gkag3"]
 [ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_lpweo"]
 [ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="3_upylm"]
-[ext_resource type="Script" path="res://script/AnimationPlayer.gd" id="4_v2w3u"]
+[ext_resource type="Script" path="res://script/Hamburger Animation.gd" id="4_ogwui"]
 [ext_resource type="Texture2D" uid="uid://38q8qkygc3nw" path="res://image/title.png" id="5_ippr8"]
 [ext_resource type="Script" path="res://script/Title Animation.gd" id="6_e8x73"]
 [ext_resource type="Texture2D" uid="uid://b2yenh0bblrrj" path="res://image/bg4.png" id="7_n2h5p"]
@@ -560,7 +560,7 @@ region_rect = Rect2(2690, 785, 217, 2015)
 libraries = {
 "": SubResource("AnimationLibrary_l8ina")
 }
-script = ExtResource("4_v2w3u")
+script = ExtResource("4_ogwui")
 
 [node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Hand Sprite"]
 texture_filter = 1
