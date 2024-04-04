@@ -18,63 +18,106 @@ var finish_pause = false
 var frozen = false
 var clean = false
 var finishing = false
-var game_over = false
 var new_burger = false
-
+var isOver = false
 var total_perfect = 0
+var total_burger = 0
 
 @onready var canvas = get_node("/root/Node/Ingredient")
+@onready var hand = get_node("/root/Node/Game/Left Hand")
 @onready var plate = get_node("/root/Node/Game/Left Hand/Player Plate/Stack Pos")
+@onready var right_hand = get_node("/root/Node/Game/Right Hand")
+
+# result
+@onready var last_pos = get_node("/root/Node/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
 @onready var result = get_node("/root/Node/Hamburger/BG/Plate/Result Spawn Pos")
 @onready var result_manager = get_node("/root/Node/Hamburger/BG")
 
-@onready var right_hand = get_node("/root/Node/Game/Right Hand")
-@onready var last_pos = get_node("/root/Node/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
+# first and start object
 var last_bun = preload("res://scenes/top bun.tscn")
 var start_bun = preload("res://scenes/start bun.tscn")
 
-@onready var earned_coin = get_node("/root/Node/Game/UI/Score Panel/Earned coin")
+# total earned coin in one game
+var current_earning = 0
+# saved earning till finish one burger
+var save_earning = 0
+
+# UI
+@onready var earned_coinTxt = get_node("/root/Node/Game/UI/Score Panel/Earned coin")
+@onready var coinTxt = get_node("/root/Node/Game/UI/Money Panel/Coin Text")
+
+# Aniamtion
+@onready var perfect_anim = get_node("/root/Node/Game/UI/Perfect/Sprite2D/AnimationPlayer")
 @onready var coin_anim = get_node("/root/Node/Game/UI/Score Panel/Earned coin/AnimationPlayer")
 
-@onready var perfect_anim = get_node("/root/Node/Game/UI/Perfect/Sprite2D/AnimationPlayer")
+# game over canvas
+@onready var end_anim = get_node("/root/Node/GameOver/BG/AnimationPlayer")
+@onready var end_canvas = get_node("/root/Node/GameOver/BG")
+@onready var end_scoreTxt = get_node("/root/Node/GameOver/BG/Score")
+@onready var best_scoreTxt = get_node("/root/Node/GameOver/BG/Best Score")
+@onready var total_burgerTxt = get_node("/root/Node/GameOver/BG/Total Burger")
+@onready var total_coinTxt = get_node("/root/Node/GameOver/BG/Money")
 
 # ingredient
 var patty = preload("res://scenes/patty.tscn")
 var lettuce = preload("res://scenes/lettuce.tscn")
 var cheese = preload("res://scenes/cheese.tscn")
 
+# particle
+var ing_particle = preload("res://scenes/ingredient particle.tscn")
+
 func _ready():
 	if instance == null:
 		instance = self
 	else:
 		queue_free()
-		
+	
+	# coin	
+	coinTxt.text = str(Global.total_earning)
+	current_earning = 0
 	
 	
+	total_burger = 0
+	isOver = false
+	Global.game_over = false
+	Global.score = 0
+	
+	clean_array()
+	ins_ingredient.clear()
+	stacked_ing.clear()
+	
+	clean_plate()
+	result_clean()
 	
 	ingredients.append(patty)
 	ingredients.append(lettuce)
-	ingredients.append(cheese)
-	
-	Global.score = 0
+	ingredients.append(cheese)	
 	
 	# first start
 	first_bun()
-
 
 func _process(delta): 
 	
 	
 	timer += delta
 	#### (add) after first bun landed on plate
-	if !finish_pause && !game_over && timer >= interval:
+	if !finish_pause && !Global.game_over && timer >= interval:
 		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))		
 		timer = 0
 		
-	# when it's game over, clean array
-	if game_over:
-		ins_ingredient.clear()
-		stacked_ing.clear()
+	# when it's game over
+	if Global.game_over && !isOver:
+		set_savedData()
+		# show game over canvas, and clean other plates
+		# animation
+		frozen = true
+		hand.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 50)
+		end_anim.play("game over")
+		end_scoreTxt.text = str(Global.score, " layers burger")
+		total_burgerTxt.text = str(total_burger, " burgers have made")
+		total_coinTxt.text = str("Earned ", current_earning, " coins / Total: ", Global.total_earning)
+		best_scoreTxt.text = str("Best score: ", Global.best_score)
+		isOver = true
 	# when it's not game over
 	else:
 		# add instantiated item that is colliding to "stacked item" array
@@ -82,8 +125,8 @@ func _process(delta):
 			if ins_ingredient[i] != null:
 				# game over when ingredient fall down
 				if ins_ingredient[i].deleted:
-					game_over = true
-					print("game over")
+					Global.game_over = true
+					#print("game over")
 					break
 			
 				# when it collided plate or other ingredient and it's in the middle
@@ -97,19 +140,27 @@ func _process(delta):
 		
 		# move stacked item to player node 
 		for i in range(stacked_ing.size()):
-			if stacked_ing[i] != null:				
+			#print("save: ", save_earning, "    earned: ", current_earning, "    total: ", Global.total_earning)
+			if stacked_ing[i] != null:						
 				#print(stacked_ing.size())				
 				var original_scale = stacked_ing[i].global_scale
 				var original_position = stacked_ing[i].global_position
-
+				
+				# instantiate particle
+				var new_particle = ing_particle.instantiate()
+				new_particle.one_shot = true
+				stacked_ing[i].add_child(new_particle)		
+				new_particle.global_position = original_position
+				new_particle.emitting = true				
+				
 				# change parent node
 				if stacked_ing[i].is_in_group("top"):
 					last_pos.remove_child(last_pos.get_child(0))
 				else: 
 					canvas.remove_child(canvas.get_child(i))
 				var new_instance = stacked_ing[i].duplicate()
-				plate.add_child(new_instance)							
-							
+				plate.add_child(new_instance)
+				
 						
 				# resize and rescale
 				new_instance.global_scale = original_scale
@@ -123,7 +174,7 @@ func _process(delta):
 						
 				# if it fall down somehow
 				if new_instance.deleted:
-					game_over = true
+					Global.game_over = true
 						
 				# add to result
 				var result_instance = stacked_ing[i].duplicate()					
@@ -139,34 +190,62 @@ func _process(delta):
 				# remove same ingredient(original of duplicated one) on other nodes
 				stacked_ing[i].queue_free()
 				if new_instance.is_in_group("top"):
+					set_savedData()
 					clean = true
 					
 				Global.score += 1
 				if new_instance.is_in_group("level1"):
-					earned_coin.text = str("+ 10 coin")
+					earned_coinTxt.text = str("+ 10 coin")
+					save_earning += 10
 					coin_anim.play("coin")
 				break	
 					
 	if clean:
 		clean_plate()	
 		
-	if new_burger:		
+	if new_burger && !Global.game_over:		
 		result_manager.sliding()
 		finish_pause = true
+		right_hand.disappear= true
+		print(right_hand.disappear)
 		new_burger = false
 		
 	if result_manager.ready_newBurger:
+		total_burger += 1
 		result_clean()
 		first_bun()
 		result_manager.ready_newBurger = false
 		
-		
-		
+
+# set best score
+func set_savedData():
+	# set high score
+	if Global.best_score < Global.score:
+		Global.best_score = Global.score
+	# set coin
+	if !Global.game_over:
+		current_earning += save_earning
+		Global.total_earning += save_earning
+	coinTxt.text = str(Global.total_earning)
+	SaveLoad.save_data()
+	save_earning = 0
+
+# clean array
+func clean_array():
+	for i in range(ins_ingredient.size()):
+		if ins_ingredient[i] != null:
+			ins_ingredient[i].queue_free()
+	for i in range(stacked_ing.size()):
+		if stacked_ing[i] != null:
+			stacked_ing[i].queue_free()
+
+# clean result platee
 func result_clean():
 	for i in range(result.get_child_count()):
 		if result.get_child(i) != null:
 			result.get_child(i).queue_free()	
-					
+
+# clean player plate					
 func clean_plate():
 	for i in range(plate.get_child_count()):
 		if plate.get_child(i) != null:
@@ -179,7 +258,6 @@ func clean_plate():
 					# show result burger
 					new_burger = true
 					finishing = false
-					right_hand.set_default()
 					finish_pause = false
 					ins_ingredient.clear()
 					stacked_ing.clear()
@@ -211,8 +289,8 @@ func finish_bun():
 	last_pos.add_child(instance)
 	
 # spawn last bun and finish the burger
-func _on_button_button_down():
-	if Global.score >= 5 && !game_over:
+func _on_finish_button_button_down():
+	if Global.score >= 5 && !Global.game_over:
 		finish_pause = true
 		if !right_hand.moving:
 			right_hand.move_hand()
@@ -224,7 +302,7 @@ func _on_button_button_down():
 			# bun falls down
 			bun.freeze = false	
 			finishing = true
-		
+			
 # instnatiate ingredients randomly
 func instantiate_ingredient(pos):
 	#print("instantiate!")
@@ -235,3 +313,19 @@ func instantiate_ingredient(pos):
 	stacked_ing.append(null)
 	instance.position = pos
 	canvas.add_child(instance)
+
+# replay button
+func _on_replay_button_button_down():
+	get_tree().change_scene_to_file("res://scenes/game.tscn")
+
+# continue game
+func _on_continue_button_button_down():
+	print("continue")
+	#game_over = false
+	#isOver = false
+	# canvas animation 
+	# continue by clicking the screen, just like start game
+
+# main menu
+func _on_back_button_button_down():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")

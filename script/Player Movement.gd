@@ -11,7 +11,7 @@ func _ready():
 	original_position = position
 
 func _process(delta):
-	if plate.frozen:
+	if plate.frozen && !Global.game_over:
 		timer += delta
 		if timer >= 0.5:
 			timer = 0

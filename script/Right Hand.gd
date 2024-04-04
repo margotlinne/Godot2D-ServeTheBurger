@@ -1,11 +1,13 @@
 extends Control
 
 @onready var hand = get_node("/root/Node/Game/Right Hand/Move")
+@onready var anim = $AnimationPlayer
 # 이동 속도
 var move_speed = 150
 # 이동 방향 (1: 오른쪽, -1: 왼쪽)
 var move_direction = -1
 var instance = null
+var disappear = false
 
 var moving = false
 
@@ -25,6 +27,9 @@ func _process(delta):
 	
 	if !moving:
 		hand.position = hand.position
+		if disappear:
+			anim.play("fading")
+			disappear = false
 	else:
 		hand.position.x += move_speed * move_direction * delta
 		if move_direction == -1 && left_gap >= 0 && left_gap <= 5:		
@@ -38,3 +43,7 @@ func set_default():
 func move_hand():
 	moving = true
 
+
+
+func _on_animation_player_animation_finished(anim_name):
+	set_default()

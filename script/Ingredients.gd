@@ -32,6 +32,9 @@ func _process(delta):
 				animated = true
 			freeze = true
 			set_freeze_mode(FREEZE_MODE_KINEMATIC)
+	else:
+		if !animated && Global.game_over:
+			self.queue_free()
 			
 func fade_animation():
 	if !faded:
