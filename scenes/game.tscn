@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=66 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dk1xryfek2i6e" path="res://image/burger_img3.png" id="13_fk6mh"]
 [ext_resource type="Script" path="res://script/Result Bg.gd" id="13_obcrt"]
 [ext_resource type="Texture2D" uid="uid://cgqit73u7gu7c" path="res://image/game over canvas.png" id="16_t2d8h"]
+[ext_resource type="Script" path="res://script/Game Start.gd" id="18_wro1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vixve"]
 size = Vector2(63, 30.9745)
@@ -48,29 +49,13 @@ texture = ExtResource("13_fk6mh")
 region_rect = Rect2(2752, 515, 60, 50)
 modulate_color = Color(0.301961, 0.301961, 0.301961, 0.611765)
 
-[sub_resource type="Animation" id="Animation_uow5m"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Setting sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(20.4453, 19.0825)]
-}
-
 [sub_resource type="Animation" id="Animation_vevch"]
 resource_name = "activated"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Setting sprite:scale")
+tracks/0/path = NodePath("sprite:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -82,7 +67,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Setting sprite:modulate")
+tracks/1/path = NodePath("sprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -94,7 +79,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Setting sprite/Finish Button/Label:theme_override_colors/font_color")
+tracks/2/path = NodePath("sprite/Finish Button/Label:theme_override_colors/font_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -102,6 +87,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.745098, 0.160784, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uow5m"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20.4453, 19.0825)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite/Finish Button/Label:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w55ey"]
@@ -217,11 +242,11 @@ size = Vector2(312.097, 62.1826)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck74t"]
 radius = 6.48997
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tjh5e"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jorbu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sv6ql"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dgun"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlu28"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22ok7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0r3m2"]
 
@@ -340,6 +365,33 @@ _data = {
 "slide": SubResource("Animation_3r6n4")
 }
 
+[sub_resource type="Animation" id="Animation_fy112"]
+resource_name = "continue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, -376)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Game/Dark Mode:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
 [sub_resource type="Animation" id="Animation_ghuau"]
 resource_name = "game over"
 length = 0.5
@@ -392,35 +444,20 @@ tracks/3/keys = {
 "values": [-1, 3]
 }
 
-[sub_resource type="Animation" id="Animation_fy112"]
-resource_name = "continue"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kppp"]
 _data = {
 "continue": SubResource("Animation_fy112"),
 "game over": SubResource("Animation_ghuau")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6o3bn"]
-texture = ExtResource("13_fk6mh")
-region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
-modulate_color = Color(0.894118, 1, 0.890196, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqc2h"]
+texture = ExtResource("4_0wbe3")
+region_rect = Rect2(1870, 669, 258, 292)
+modulate_color = Color(0.882353, 1, 0.87451, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xjpms"]
-texture = ExtResource("13_fk6mh")
-region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
+texture = ExtResource("4_0wbe3")
+region_rect = Rect2(1870, 669, 258, 292)
 modulate_color = Color(0, 0.301961, 0.0392157, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2xfwu"]
@@ -430,22 +467,22 @@ modulate_color = Color(0, 0.301961, 0.0392157, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l1av7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l347p"]
-texture = ExtResource("13_fk6mh")
+texture = ExtResource("4_0wbe3")
 region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
 modulate_color = Color(0.952941, 0.741176, 0.729412, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7eg2w"]
-texture = ExtResource("13_fk6mh")
+texture = ExtResource("4_0wbe3")
 region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
 modulate_color = Color(0.407843, 0.152941, 0.152941, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ph5mo"]
-texture = ExtResource("13_fk6mh")
+texture = ExtResource("4_0wbe3")
 region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
 modulate_color = Color(0.627451, 0.690196, 0.94902, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yj1b2"]
-texture = ExtResource("13_fk6mh")
+texture = ExtResource("4_0wbe3")
 region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
 modulate_color = Color(0.141176, 0.168627, 0.443137, 1)
 
@@ -523,13 +560,58 @@ shape = SubResource("RectangleShape2D_xykb2")
 script = ExtResource("2_16bcx")
 
 [node name="Ingredient" type="Control" parent="."]
-z_index = 2
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Start" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Start"]
+z_index = 7
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.301961, 0.301961, 0.478431)
+script = ExtResource("18_wro1p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect"]
+position = Vector2(144, 135)
+rotation = 0.0174533
+scale = Vector2(0.293714, 0.286139)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(512.65, 938.603, 558.233, 197.47)
+
+[node name="Label" type="Label" parent="Start/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -93.0
+offset_right = 68.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_m43rl")
+text = "Start by touching"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Game" type="Control" parent="."]
 layout_mode = 3
@@ -627,14 +709,14 @@ scale = Vector2(1.43075, 1.52523)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 script = ExtResource("7_vhba4")
 
-[node name="Setting sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
+[node name="sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
 position = Vector2(20.4453, 19.0825)
 scale = Vector2(0.547435, 0.531856)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2752, 515, 60, 50)
 
-[node name="Finish Button" type="Button" parent="Game/UI/Finish Button/Setting sprite"]
+[node name="Finish Button" type="Button" parent="Game/UI/Finish Button/sprite"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -651,7 +733,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
-[node name="Label" type="Label" parent="Game/UI/Finish Button/Setting sprite/Finish Button"]
+[node name="Label" type="Label" parent="Game/UI/Finish Button/sprite/Finish Button"]
 layout_mode = 0
 offset_left = 11.6872
 offset_top = 16.6086
@@ -850,7 +932,7 @@ texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="Stack Pos" type="Node2D" parent="Game/Left Hand/Player Plate"]
+[node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 position = Vector2(3.95062, -182.402)
 
 [node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["player"]]
@@ -866,6 +948,8 @@ collision_layer = 0
 scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
+[node name="Coin Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
+
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-8, 150)
 scale = Vector2(0.209217, 0.202261)
@@ -874,6 +958,7 @@ region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
 [node name="Detect Btn" type="Button" parent="Game/Left Hand"]
+z_index = 9
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -885,9 +970,9 @@ offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(10.6567, 52.1561)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_tjh5e")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_sv6ql")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_qlu28")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jorbu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1dgun")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_22ok7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r3m2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1i3tt")
 
@@ -943,7 +1028,7 @@ anchor_bottom = 0.5
 grow_vertical = 2
 
 [node name="BG" type="Sprite2D" parent="Hamburger"]
-position = Vector2(-234, -20)
+position = Vector2(-253, -20)
 scale = Vector2(0.26808, 0.294833)
 texture = ExtResource("12_ogh4n")
 offset = Vector2(5, 5)
@@ -951,44 +1036,36 @@ region_rect = Rect2(0, -8, 916, 924)
 script = ExtResource("13_obcrt")
 
 [node name="Plate" type="Sprite2D" parent="Hamburger/BG"]
+z_index = 1
 position = Vector2(190.242, 366.309)
 scale = Vector2(0.455544, 0.42617)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="Result Spawn Pos" type="Node2D" parent="Hamburger/BG/Plate"]
+[node name="Result Spawn Pos" type="Marker2D" parent="Hamburger/BG/Plate"]
 position = Vector2(0, -238.76)
 scale = Vector2(1.34327, 1.3814)
 
-[node name="First Bun" type="Sprite2D" parent="Hamburger/BG/Plate"]
-visible = false
-position = Vector2(4.29126, -48.3284)
-scale = Vector2(1.34327, 1.3814)
-texture = ExtResource("4_0wbe3")
-region_enabled = true
-region_rect = Rect2(175, 2634, 211, 51)
-
 [node name="Countdown 1" type="Sprite2D" parent="Hamburger/BG"]
 modulate = Color(1, 1, 1, 0)
+z_index = 5
 position = Vector2(190.242, -454.494)
-scale = Vector2(0.140138, 0.304698)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(2158, 1708, 110, 147)
 
 [node name="Countdown 2" type="Sprite2D" parent="Hamburger/BG"]
 modulate = Color(1, 1, 1, 0)
+z_index = 5
 position = Vector2(190.242, -454.495)
-scale = Vector2(0.10474, 0.18598)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(2141, 1545, 112, 137)
 
 [node name="Countdown 3" type="Sprite2D" parent="Hamburger/BG"]
-modulate = Color(1, 1, 1, 0)
+z_index = 5
 position = Vector2(197.702, -454.495)
-scale = Vector2(0.403161, 0.321646)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(2136, 1343, 103, 163)
@@ -1018,11 +1095,11 @@ region_rect = Rect2(72.5722, 75.536, 763.976, 766.333)
 
 [node name="Title" type="Sprite2D" parent="GameOver/BG"]
 z_index = 6
-position = Vector2(0, -299.504)
-scale = Vector2(0.881935, 0.781776)
+position = Vector2(0, -304.949)
+scale = Vector2(0.51096, 0.450614)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
-region_rect = Rect2(1632.28, 507.87, 423.5, 106.48)
+region_rect = Rect2(1131.48, 960.115, 877.223, 186.078)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver/BG"]
 libraries = {
@@ -1115,7 +1192,7 @@ offset_bottom = -400.42
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(15.2842, 12.6132)
-theme_override_styles/normal = SubResource("StyleBoxTexture_6o3bn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lqc2h")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xjpms")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xfwu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rldm0")
@@ -1183,7 +1260,7 @@ region_enabled = true
 region_rect = Rect2(1210.81, 15.1549, 225.06, 104.06)
 
 [connection signal="pressed" from="Game/UI/Setting Panel/Setting sprite/Button" to="Game/UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
-[connection signal="button_down" from="Game/UI/Finish Button/Setting sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
+[connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
 [connection signal="button_down" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_down"]
 [connection signal="button_up" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_up"]
 [connection signal="animation_finished" from="Game/Right Hand/AnimationPlayer" to="Game/Right Hand" method="_on_animation_player_animation_finished"]

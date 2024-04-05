@@ -117,7 +117,7 @@ angular_damp = 31.841
 script = ExtResource("1_3i6r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.243137, 0.3625)
+scale = Vector2(0.280579, 0.408323)
 texture = ExtResource("2_p6asv")
 region_enabled = true
 region_rect = Rect2(175, 2634, 211, 51)
@@ -136,7 +136,6 @@ script = ExtResource("4_83tla")
 
 [node name="middle" type="RigidBody2D" parent="." groups=["center"]]
 position = Vector2(0, -8)
-scale = Vector2(1, 1)
 collision_layer = 0
 freeze = true
 

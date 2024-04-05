@@ -66,6 +66,10 @@ var cheese = preload("res://scenes/cheese.tscn")
 # particle
 var ing_particle = preload("res://scenes/ingredient particle.tscn")
 
+# coin collecting
+@onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
+@onready var coin_destination = get_node("/root/Node/Game/UI/Money Panel")
+
 func _ready():
 	if instance == null:
 		instance = self
@@ -73,10 +77,10 @@ func _ready():
 		queue_free()
 	
 	# coin	
-	coinTxt.text = str(Global.total_earning)
+	coinTxt.text = str(format_number(Global.total_earning))
 	current_earning = 0
 	
-	
+	total_perfect = 0
 	total_burger = 0
 	isOver = false
 	Global.game_over = false
@@ -101,23 +105,14 @@ func _process(delta):
 	
 	timer += delta
 	#### (add) after first bun landed on plate
-	if !finish_pause && !Global.game_over && timer >= interval:
+	if Global.game_start && !finish_pause && !Global.game_over && timer >= interval:
 		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))		
 		timer = 0
 		
 	# when it's game over
 	if Global.game_over && !isOver:
-		set_savedData()
-		# show game over canvas, and clean other plates
-		# animation
-		frozen = true
-		hand.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 50)
-		end_anim.play("game over")
-		end_scoreTxt.text = str(Global.score, " layers burger")
-		total_burgerTxt.text = str(total_burger, " burgers have made")
-		total_coinTxt.text = str("Earned ", current_earning, " coins / Total: ", Global.total_earning)
-		best_scoreTxt.text = str("Best score: ", Global.best_score)
-		isOver = true
+		gameOver()
+		
 	# when it's not game over
 	else:
 		# add instantiated item that is colliding to "stacked item" array
@@ -125,8 +120,10 @@ func _process(delta):
 			if ins_ingredient[i] != null:
 				# game over when ingredient fall down
 				if ins_ingredient[i].deleted:
+					#for k in range(result.get_child_count()):
+						#print(result.get_child(k).get_groups())
+						#print(result.get_child(k).visible)
 					Global.game_over = true
-					#print("game over")
 					break
 			
 				# when it collided plate or other ingredient and it's in the middle
@@ -150,7 +147,6 @@ func _process(delta):
 				var new_particle = ing_particle.instantiate()
 				new_particle.one_shot = true
 				stacked_ing[i].add_child(new_particle)		
-				new_particle.global_position = original_position
 				new_particle.emitting = true				
 				
 				# change parent node
@@ -171,6 +167,7 @@ func _process(delta):
 					#print("perfect!")
 					total_perfect += 1
 					perfect_anim.play("perfect")
+					print(total_perfect)
 						
 				# if it fall down somehow
 				if new_instance.deleted:
@@ -184,7 +181,7 @@ func _process(delta):
 				var local_position = plate.to_local(original_position)
 				result_instance.position = local_position
 				var relative_scale = stacked_ing[i].global_scale / plate.global_scale
-				result_instance.global_scale = result.global_scale * relative_scale * 0.8
+				result_instance.global_scale = result.global_scale * relative_scale * 0.9
 				# delete collision shape2d in displayed ingredients
 				result_instance.displayed = true
 				# remove same ingredient(original of duplicated one) on other nodes
@@ -199,7 +196,8 @@ func _process(delta):
 					save_earning += 10
 					coin_anim.play("coin")
 				break	
-					
+	
+	# when a burger is built		
 	if clean:
 		clean_plate()	
 		
@@ -217,6 +215,17 @@ func _process(delta):
 		result_manager.ready_newBurger = false
 		
 
+func format_number(num):
+	if num < 1000:
+		return str(num)
+	elif num < 1000000:
+		var thousand = num / 1000
+		var hundred = (num % 1000) / 100
+		return str(thousand) + "." + str(hundred) + "K"
+	else:
+		var million = num / 1000000
+		return str(million) + "M"
+
 # set best score
 func set_savedData():
 	# set high score
@@ -226,12 +235,13 @@ func set_savedData():
 	if !Global.game_over:
 		current_earning += save_earning
 		Global.total_earning += save_earning
-	coinTxt.text = str(Global.total_earning)
+	coinTxt.text = str(format_number(Global.total_earning))
 	SaveLoad.save_data()
 	save_earning = 0
 
 # clean array
 func clean_array():
+	#print("clean array")
 	for i in range(ins_ingredient.size()):
 		if ins_ingredient[i] != null:
 			ins_ingredient[i].queue_free()
@@ -241,12 +251,15 @@ func clean_array():
 
 # clean result platee
 func result_clean():
+	#print("clean result")
 	for i in range(result.get_child_count()):
 		if result.get_child(i) != null:
 			result.get_child(i).queue_free()	
 
 # clean player plate					
 func clean_plate():
+	total_perfect = 0
+	#print("clean plate")
 	for i in range(plate.get_child_count()):
 		if plate.get_child(i) != null:
 			plate.get_child(i).fade_animation()
@@ -268,6 +281,21 @@ func clean_plate():
 		print("all perfect")
 	##### (add) after countdown
 	#first_bun()
+
+func gameOver():	
+	set_savedData()
+	# show game over canvas, and clean other plates
+	frozen = true
+	isOver = true
+	hand.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y - 50)
+	
+	end_anim.play("game over")
+	
+	end_scoreTxt.text = str(Global.score, " layers burger")
+	total_burgerTxt.text = str(total_burger, " burgers have made")
+	total_coinTxt.text = str("Earned ", current_earning, " coins / Total: ", Global.total_earning)
+	best_scoreTxt.text = str("Best score: ", Global.best_score)
+	
 
 # instantiate first bun
 func first_bun():
@@ -321,9 +349,11 @@ func _on_replay_button_button_down():
 # continue game
 func _on_continue_button_button_down():
 	print("continue")
-	#game_over = false
-	#isOver = false
-	# canvas animation 
+	end_anim.play("continue")
+	Global.game_start = false
+	Global.game_over = false
+	isOver = false
+	# canvas animation  
 	# continue by clicking the screen, just like start game
 
 # main menu

@@ -33,7 +33,8 @@ func _process(delta):
 			freeze = true
 			set_freeze_mode(FREEZE_MODE_KINEMATIC)
 	else:
-		if !animated && Global.game_over:
+		# when it's not displayed(in result node) and didn't land yet, and it's game over
+		if !displayed && !animated && Global.game_over:
 			self.queue_free()
 			
 func fade_animation():
