@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=67 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -267,9 +267,38 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_mj4rj"]
+resource_name = "loosing"
+length = 10.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Move/Hand Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7.9, 8.1, 8.3, 8.5, 8.7, 8.9, 9.1, 9.3, 9.5, 9.7, 9.9, 10.1, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1.5708, -1.5708, -1.58825, -1.5708, -1.58825, -1.5708, -1.58825, -1.5708, -1.58825, -1.5708, -1.58825, -1.5708, -1.58825, -1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Move/Hand Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 7.9, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.898039, 0, 0.290196, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tn6m"]
 _data = {
-"fading": SubResource("Animation_saeda")
+"fading": SubResource("Animation_saeda"),
+"loosing": SubResource("Animation_mj4rj")
 }
 
 [sub_resource type="Animation" id="Animation_3r6n4"]
@@ -441,7 +470,19 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [-1, 3]
+"values": [-1, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Game/UI:z_index")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kppp"]
@@ -634,7 +675,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.741176)
 
 [node name="UI" type="Control" parent="Game"]
-z_index = 2
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -643,6 +684,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Setting Panel" type="Panel" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -693,6 +735,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
 [node name="Finish Button" type="Panel" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -751,6 +794,7 @@ libraries = {
 }
 
 [node name="Money Panel" type="Panel" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
@@ -784,6 +828,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="Score Panel" type="Panel" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 offset_left = 66.0
 offset_right = 106.0
@@ -850,6 +895,7 @@ libraries = {
 }
 
 [node name="Collection Panel" type="Panel" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1087,7 +1133,7 @@ grow_horizontal = 2
 
 [node name="BG" type="Sprite2D" parent="GameOver"]
 modulate = Color(1, 1, 0.717647, 1)
-z_index = 3
+z_index = 4
 position = Vector2(20, -376)
 scale = Vector2(0.602773, 0.550911)
 texture = ExtResource("16_t2d8h")

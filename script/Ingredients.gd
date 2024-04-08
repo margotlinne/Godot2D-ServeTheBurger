@@ -9,6 +9,7 @@ var faded = false
 var perfect = false
 var landed = false
 var displayed = false
+var gone = false
 
 @onready var anim = $Sprite2D/AnimationPlayer
 
@@ -45,7 +46,7 @@ func sleep_mode():
 	freeze = true
 	
 func _on_body_entered(body):
-	if body.is_in_group("player") || body.is_in_group("ingredient"):
+	if (body.is_in_group("player") || body.is_in_group("ingredient")) && !gone:
 		if self.rotation < 90 && self.rotation > -90:
 			#print("collided")
 			collided = true
@@ -67,3 +68,9 @@ func _on_animation_player_animation_finished(animation_name):
 	if animation_name == "ingredients_fade":
 		#print("animation done")
 		faded = true
+		
+	if animation_name == "disappear":
+		gone = true
+		
+func disappear_animation():
+	anim.play("disappear")

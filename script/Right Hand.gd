@@ -10,12 +10,15 @@ var instance = null
 var disappear = false
 
 var moving = false
+var loosing_power = false
 
 func _ready():
 	if instance == null:
 		instance = self
 	else:
 		queue_free()
+	
+	set_default()
 		
 func _process(delta):
 	var window_width = get_viewport().size.x
@@ -36,6 +39,7 @@ func _process(delta):
 			move_direction *= -1
 		if move_direction == 1 && right_gap >= 0 && right_gap <= 5:
 			move_direction *= -1
+		anim.play("loosing")
 		
 func set_default():
 	hand.position = Vector2(63, -153)
@@ -46,4 +50,10 @@ func move_hand():
 
 
 func _on_animation_player_animation_finished(anim_name):
-	set_default()
+	if anim_name == "fading":
+		set_default()
+		
+	if anim_name == "loosing":
+		set_default()
+		moving = false
+		loosing_power = true

@@ -66,6 +66,7 @@ var cheese = preload("res://scenes/cheese.tscn")
 # particle
 var ing_particle = preload("res://scenes/ingredient particle.tscn")
 
+
 # coin collecting
 @onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
 @onready var coin_destination = get_node("/root/Node/Game/UI/Money Panel")
@@ -99,13 +100,14 @@ func _ready():
 	
 	# first start
 	first_bun()
+	
+	
 
 func _process(delta): 
-	
-	
+	var debuging = false
 	timer += delta
 	#### (add) after first bun landed on plate
-	if Global.game_start && !finish_pause && !Global.game_over && timer >= interval:
+	if !debuging && Global.game_start && !finish_pause && !Global.game_over && timer >= interval:
 		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))		
 		timer = 0
 		
@@ -197,6 +199,14 @@ func _process(delta):
 					coin_anim.play("coin")
 				break	
 	
+	if finish_pause:
+		# so the last item, "last bun" is not gonna removed
+		for i in range(ins_ingredient.size() - 1):
+			if ins_ingredient[i] != null:
+				ins_ingredient[i].disappear_animation()
+				if ins_ingredient[i].gone:
+					ins_ingredient[i].queue_free()
+					
 	# when a burger is built		
 	if clean:
 		clean_plate()	
@@ -213,7 +223,10 @@ func _process(delta):
 		result_clean()
 		first_bun()
 		result_manager.ready_newBurger = false
-		
+	
+	# when right hand timed out and it's game over
+	if right_hand.loosing_power:
+		Global.game_over = true;
 
 func format_number(num):
 	if num < 1000:
@@ -353,6 +366,7 @@ func _on_continue_button_button_down():
 	Global.game_start = false
 	Global.game_over = false
 	isOver = false
+	right_hand.loosing_power = false
 	# canvas animation  
 	# continue by clicking the screen, just like start game
 
