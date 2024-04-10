@@ -31,7 +31,7 @@ func _process(delta):
 		if mouse_position.x >= 40 && mouse_position.x <= screen_width - 40:
 			position.x = mouse_position.x
 			
-		if mouse_position.y >= screen_height/2 && mouse_position.y <= screen_height:
+		if mouse_position.y >= screen_height/2 - 60 && mouse_position.y <= screen_height:
 			position.y = mouse_position.y
 			
 func _input(event):

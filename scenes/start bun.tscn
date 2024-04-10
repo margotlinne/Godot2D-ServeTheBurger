@@ -2,8 +2,59 @@
 
 [ext_resource type="Script" path="res://script/Ingredients.gd" id="1_3i6r1"]
 [ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="2_p6asv"]
-[ext_resource type="Script" path="res://script/Ing Animation.gd" id="3_kloxv"]
 [ext_resource type="Script" path="res://script/Display.gd" id="4_83tla"]
+
+[sub_resource type="Animation" id="Animation_s5b8s"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.225174, 0.29978), Vector2(0.015444, 0.0727273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../middle/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fswd7"]
 tracks/0/type = "value"
@@ -63,7 +114,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [false, true, true]
 }
 
@@ -100,13 +151,14 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fojw8"]
 _data = {
+"disappear": SubResource("Animation_s5b8s"),
 "ingredients_fade": SubResource("Animation_fswd7"),
 "ingredients_idle": SubResource("Animation_hr3c5"),
 "ingredients_land": SubResource("Animation_h3g44")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_533rj"]
-size = Vector2(227.318, 26.3648)
+size = Vector2(227.003, 29.176)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a1gcy"]
 
@@ -117,7 +169,7 @@ angular_damp = 31.841
 script = ExtResource("1_3i6r1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.280579, 0.408323)
+scale = Vector2(0.225174, 0.29978)
 texture = ExtResource("2_p6asv")
 region_enabled = true
 region_rect = Rect2(175, 2634, 211, 51)
@@ -126,16 +178,15 @@ region_rect = Rect2(175, 2634, 211, 51)
 libraries = {
 "": SubResource("AnimationLibrary_fojw8")
 }
-script = ExtResource("3_kloxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["collider"]]
-position = Vector2(0.471536, 1.68916)
+position = Vector2(0.499971, 1.18916)
 scale = Vector2(0.180614, 0.355714)
 shape = SubResource("RectangleShape2D_533rj")
 script = ExtResource("4_83tla")
 
 [node name="middle" type="RigidBody2D" parent="." groups=["center"]]
-position = Vector2(0, -8)
+position = Vector2(0, -3)
 collision_layer = 0
 freeze = true
 
@@ -146,5 +197,4 @@ shape = SubResource("CircleShape2D_a1gcy")
 script = ExtResource("4_83tla")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

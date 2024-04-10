@@ -89,7 +89,7 @@ func _ready():
 	
 	clean_array()
 	ins_ingredient.clear()
-	stacked_ing.clear()
+	#stacked_ing.clear()
 	
 	clean_plate()
 	result_clean()
@@ -107,7 +107,8 @@ func _process(delta):
 	var debuging = false
 	timer += delta
 	#### (add) after first bun landed on plate
-	if !debuging && Global.game_start && !finish_pause && !Global.game_over && timer >= interval:
+	if !debuging && Global.game_start && !finish_pause && \
+	   !Global.game_over && timer >= interval:
 		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))		
 		timer = 0
 		
@@ -116,7 +117,7 @@ func _process(delta):
 		gameOver()
 		
 	# when it's not game over
-	else:
+	elif !Global.game_over:
 		# add instantiated item that is colliding to "stacked item" array
 		for i in range(ins_ingredient.size()):
 			if ins_ingredient[i] != null:
@@ -125,41 +126,43 @@ func _process(delta):
 					#for k in range(result.get_child_count()):
 						#print(result.get_child(k).get_groups())
 						#print(result.get_child(k).visible)
+					print("game over - player missed falling objects")
 					Global.game_over = true
 					break
 			
-				# when it collided plate or other ingredient and it's in the middle
-				if ins_ingredient[i].collided && ins_ingredient[i].in_middle:
-					for j in range(stacked_ing.size()):
-						if stacked_ing[j] == null:
-							# add that ingredient to stacked array			
-							stacked_ing[j] = ins_ingredient[i]
-							frozen = true			
-							break
-		
+		# when it collided plate or other ingredient and it's in the middle
 		# move stacked item to player node 
-		for i in range(stacked_ing.size()):
+		for i in range(ins_ingredient.size()):
 			#print("save: ", save_earning, "    earned: ", current_earning, "    total: ", Global.total_earning)
-			if stacked_ing[i] != null:						
-				#print(stacked_ing.size())				
-				var original_scale = stacked_ing[i].global_scale
-				var original_position = stacked_ing[i].global_position
+			if ins_ingredient[i] != null && ins_ingredient[i].stacked && !ins_ingredient[i].checked:			
+				#print(ins_ingredient.size())				
+				#print(plate.get_parent().global_position)
+				
+				var original_scale = ins_ingredient[i].global_scale
+				var original_position = ins_ingredient[i].global_position
 				
 				# instantiate particle
 				var new_particle = ing_particle.instantiate()
 				new_particle.one_shot = true
-				stacked_ing[i].add_child(new_particle)		
+				ins_ingredient[i].add_child(new_particle)		
 				new_particle.emitting = true				
 				
 				# change parent node
-				if stacked_ing[i].is_in_group("top"):
-					last_pos.remove_child(last_pos.get_child(0))
+				if ins_ingredient[i].is_in_group("top"):
+					last_pos.remove_child(ins_ingredient[i])
 				else: 
-					canvas.remove_child(canvas.get_child(i))
-				var new_instance = stacked_ing[i].duplicate()
+					canvas.remove_child(ins_ingredient[i])
+				var new_instance = ins_ingredient[i]
 				plate.add_child(new_instance)
+				#print(ins_ingredient[i].get_parent())
 				
-						
+				
+				if !ins_ingredient[i].landed && !ins_ingredient[i].displayed:
+					#print("animated,   ", ins_ingredient[i].get_parent(), "  ", ins_ingredient[i].get_groups())
+					ins_ingredient[i].land_animation()
+					ins_ingredient[i].landed = true
+					ins_ingredient[i].sleep_mode()
+				
 				# resize and rescale
 				new_instance.global_scale = original_scale
 				new_instance.global_position = original_position
@@ -169,25 +172,29 @@ func _process(delta):
 					#print("perfect!")
 					total_perfect += 1
 					perfect_anim.play("perfect")
-					print(total_perfect)
+					#print(total_perfect)
 						
 				# if it fall down somehow
 				if new_instance.deleted:
+					print("game over - stacked up one fell")
 					Global.game_over = true
 						
 				# add to result
-				var result_instance = stacked_ing[i].duplicate()					
+				var result_instance = ins_ingredient[i].duplicate()					
 				result_instance.sleep_mode()
 				result.add_child(result_instance)	
 				# set result items position and scale
 				var local_position = plate.to_local(original_position)
 				result_instance.position = local_position
-				var relative_scale = stacked_ing[i].global_scale / plate.global_scale
+				var relative_scale = ins_ingredient[i].global_scale / plate.global_scale
 				result_instance.global_scale = result.global_scale * relative_scale * 0.9
 				# delete collision shape2d in displayed ingredients
 				result_instance.displayed = true
 				# remove same ingredient(original of duplicated one) on other nodes
-				stacked_ing[i].queue_free()
+				#stacked_ing[i].queue_free()
+				
+				
+				
 				if new_instance.is_in_group("top"):
 					set_savedData()
 					clean = true
@@ -197,16 +204,18 @@ func _process(delta):
 					earned_coinTxt.text = str("+ 10 coin")
 					save_earning += 10
 					coin_anim.play("coin")
-				break	
+					
+					
+				ins_ingredient[i].checked = true
+				break;
 	
 	if finish_pause:
 		# so the last item, "last bun" is not gonna removed
 		for i in range(ins_ingredient.size() - 1):
-			if ins_ingredient[i] != null:
+			if ins_ingredient[i] != null && !ins_ingredient[i].stacked:
 				ins_ingredient[i].disappear_animation()
 				if ins_ingredient[i].gone:
-					ins_ingredient[i].queue_free()
-					
+					ins_ingredient[i].queue_free()			
 	# when a burger is built		
 	if clean:
 		clean_plate()	
@@ -258,9 +267,9 @@ func clean_array():
 	for i in range(ins_ingredient.size()):
 		if ins_ingredient[i] != null:
 			ins_ingredient[i].queue_free()
-	for i in range(stacked_ing.size()):
-		if stacked_ing[i] != null:
-			stacked_ing[i].queue_free()
+	#for i in range(stacked_ing.size()):
+		#if stacked_ing[i] != null:
+			#stacked_ing[i].queue_free()
 
 # clean result platee
 func result_clean():
@@ -286,7 +295,7 @@ func clean_plate():
 					finishing = false
 					finish_pause = false
 					ins_ingredient.clear()
-					stacked_ing.clear()
+					#stacked_ing.clear()
 					Global.score = 0
 					
 	# except first bun(-1)
@@ -309,15 +318,14 @@ func gameOver():
 	total_coinTxt.text = str("Earned ", current_earning, " coins / Total: ", Global.total_earning)
 	best_scoreTxt.text = str("Best score: ", Global.best_score)
 	
-
 # instantiate first bun
 func first_bun():
 	frozen = true
 	var instance = start_bun.instantiate()
 	ins_ingredient.append(instance)
-	stacked_ing.append(null)
-	plate.add_child(instance)
-	instance.position = Vector2(0,0)
+	#stacked_ing.append(null)
+	canvas.add_child(instance)
+	instance.position = Vector2(plate.get_parent().global_position.x, plate.get_parent().global_position.y - 50)
 	result_manager.ready_newBurger = false
 	finish_pause = false
 
@@ -326,12 +334,12 @@ func finish_bun():
 	var instance = last_bun.instantiate()
 	instance.freeze = true
 	ins_ingredient.append(instance)
-	stacked_ing.append(null)
+	#stacked_ing.append(null)
 	last_pos.add_child(instance)
 	
 # spawn last bun and finish the burger
 func _on_finish_button_button_down():
-	if Global.score >= 5 && !Global.game_over:
+	if Global.score >= 0 && !Global.game_over:
 		finish_pause = true
 		if !right_hand.moving:
 			right_hand.move_hand()
@@ -351,7 +359,7 @@ func instantiate_ingredient(pos):
 	var instance = ingredients[random_index].instantiate()
 	ins_ingredient.append(instance)
 	# add null to stacked item array so the size is same as instantiated ingredient array
-	stacked_ing.append(null)
+	#stacked_ing.append(null)
 	instance.position = pos
 	canvas.add_child(instance)
 
