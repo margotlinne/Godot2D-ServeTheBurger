@@ -1,6 +1,6 @@
 extends Control
 
-@onready var hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand/Move")
+@onready var hand = get_node("/root/Node/Game/Right Hand/Move")
 @onready var anim = $AnimationPlayer
 # 이동 속도
 var move_speed = 150
@@ -26,7 +26,6 @@ func _process(delta):
 	var left_gap = int(hand.position.x) - left_edge
 	var right_gap = int(hand.position.x)
 	var tolerance = 5
-	
 	
 	if !moving:
 		hand.position = hand.position

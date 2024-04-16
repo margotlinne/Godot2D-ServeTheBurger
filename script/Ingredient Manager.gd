@@ -24,18 +24,20 @@ var total_perfect = 0
 var total_burger = 0
 
 var zooming = false
+var stacked_items = 0
 
-@onready var cam = get_node("/root/Node/Camera2D")
+var reached_limit = false
 
-@onready var canvas = get_node("/root/Node/Camera2D/Game Canvas/Ingredient")
-@onready var hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand")
-@onready var plate = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand/Player Plate/Stack Pos")
-@onready var right_hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand")
+
+@onready var canvas = get_node("/root/Node/Ingredient")
+@onready var hand = get_node("/root/Node/Game/Left Hand")
+@onready var plate = get_node("/root/Node/Game/Left Hand/Player Plate/Stack Pos")
+@onready var right_hand = get_node("/root/Node/Game/Right Hand")
 
 # result
-@onready var last_pos = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
-@onready var result = get_node("/root/Node/Camera2D/Game Canvas/Hamburger/BG/Plate/Result Spawn Pos")
-@onready var result_manager = get_node("/root/Node/Camera2D/Game Canvas/Hamburger/BG")
+@onready var last_pos = get_node("/root/Node/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
+@onready var result = get_node("/root/Node/Hamburger/BG/Plate/Result Spawn Pos")
+@onready var result_manager = get_node("/root/Node/Hamburger/BG")
 
 # first and start object
 var last_bun = preload("res://scenes/top bun.tscn")
@@ -47,20 +49,21 @@ var current_earning = 0
 var save_earning = 0
 
 # UI
-@onready var earned_coinTxt = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Score Panel/Earned coin")
-@onready var coinTxt = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Money Panel/Coin Text")
+@onready var earned_coinTxt = get_node("/root/Node/Game/UI/Score Panel/Earned coin")
+@onready var coinTxt = get_node("/root/Node/Game/UI/Money Panel/Coin Text")
+@onready var moneyJar = get_node("/root/Node/Game/UI/Money Panel/Coin Dest Pos")
 
 # Aniamtion
-@onready var perfect_anim = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Perfect/Sprite2D/AnimationPlayer")
-@onready var coin_anim = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Score Panel/Earned coin/AnimationPlayer")
+@onready var perfect_anim = get_node("/root/Node/Game/UI/Perfect/Sprite2D/AnimationPlayer")
+@onready var coin_anim = get_node("/root/Node/Game/UI/Score Panel/Earned coin/AnimationPlayer")
 
 # game over canvas
-@onready var end_anim = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/AnimationPlayer")
-@onready var end_canvas = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG")
-@onready var end_scoreTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Score")
-@onready var best_scoreTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Best Score")
-@onready var total_burgerTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Total Burger")
-@onready var total_coinTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Money")
+@onready var end_anim = get_node("/root/Node/Game/GameOver/BG/AnimationPlayer")
+@onready var end_canvas = get_node("/root/Node/Game/GameOver/BG")
+@onready var end_scoreTxt = get_node("/root/Node/Game/GameOver/BG/Score")
+@onready var best_scoreTxt = get_node("/root/Node/Game/GameOver/BG/Best Score")
+@onready var total_burgerTxt = get_node("/root/Node/Game/GameOver/BG/Total Burger")
+@onready var total_coinTxt = get_node("/root/Node/Game/GameOver/BG/Money")
 
 # ingredient
 var patty = preload("res://scenes/patty.tscn")
@@ -72,13 +75,10 @@ var ing_particle = preload("res://scenes/ingredient particle.tscn")
 
 
 # coin collecting
-@onready var coin_pos = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand/Coin Pos")
-@onready var coin_destination = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Money Panel")
+@onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
+@onready var coin_destination = get_node("/root/Node/Game/UI/Money Panel")
 
 func _ready():
-	if !zooming:
-		cam.zoom *= 0.7
-		zooming = true
 	
 	if instance == null:
 		instance = self
@@ -92,6 +92,7 @@ func _ready():
 	total_perfect = 0
 	total_burger = 0
 	isOver = false
+	reached_limit = false
 	Global.game_over = false
 	Global.score = 0
 	
@@ -117,18 +118,22 @@ func _process(delta):
 	#### (add) after first bun landed on plate
 	if !debuging && Global.game_start && !finish_pause && \
 	   !Global.game_over && timer >= interval:
-		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))		
+		instantiate_ingredient(Vector2(randi_range(60, get_viewport().size.x - 60), -25))				
 		timer = 0
 		
+	var warning = $WarningSign
+	
 	# when it's game over
 	if Global.game_over && !isOver:
+		warning.visible = false
 		gameOver()
 		
 	# when it's not game over
 	elif !Global.game_over:
-		# add instantiated item that is colliding to "stacked item" array
+		# detect if it's game over
 		for i in range(ins_ingredient.size()):
-			if ins_ingredient[i] != null:
+			# except first bun(i = 0)
+			if ins_ingredient[i] != null && i != 0:
 				# game over when ingredient fall down
 				if ins_ingredient[i].deleted:
 					#for k in range(result.get_child_count()):
@@ -206,24 +211,43 @@ func _process(delta):
 				if new_instance.is_in_group("top"):
 					set_savedData()
 					clean = true
+				else:					
+					stacked_items += 1
 					
 				Global.score += 1
 				if new_instance.is_in_group("level1"):
 					earned_coinTxt.text = str("+ 10 coin")
 					save_earning += 10
-					coin_anim.play("coin")
-					
+					coin_anim.play("coin")					
 					
 				ins_ingredient[i].checked = true
 				break;
 	
+		
+		if !finish_pause && ins_ingredient[stacked_items - 1] != null && ins_ingredient[stacked_items - 1].stacked:
+			if ins_ingredient[stacked_items - 1].global_position.y <= 130:
+				warning.visible = true
+				warning.get_child(0).play("warning")
+				if ins_ingredient[stacked_items - 1].global_position.y <= 100:
+					Global.game_over = true
+					reached_limit = true
+					$"GameOver/BG/Continue button".visible = false
+					print("game over: reached limit")
+			else:
+				warning.visible = false
+		else:
+			warning.visible = false
+	
+
 	if finish_pause:
-		# so the last item, "last bun" is not gonna removed
+		# when finish button is clicked
+		# the last item, "last bun" is not gonna removed
 		for i in range(ins_ingredient.size() - 1):
 			if ins_ingredient[i] != null && !ins_ingredient[i].stacked:
 				ins_ingredient[i].disappear_animation()
 				if ins_ingredient[i].gone:
-					ins_ingredient[i].queue_free()			
+					ins_ingredient[i].queue_free()		
+						
 	# when a burger is built		
 	if clean:
 		clean_plate()	
@@ -234,9 +258,13 @@ func _process(delta):
 		right_hand.disappear= true
 		print(right_hand.disappear)
 		new_burger = false
+		var coin_scene = $"Left Hand/Coin Pos"
+		for i in stacked_items:
+			coin_scene.instantiate_coin(moneyJar.position, false)
 		
 	if result_manager.ready_newBurger:
 		total_burger += 1
+		stacked_items = 0
 		result_clean()
 		first_bun()
 		result_manager.ready_newBurger = false
@@ -377,14 +405,15 @@ func _on_replay_button_button_down():
 
 # continue game
 func _on_continue_button_button_down():
-	print("continue")
-	end_anim.play("continue")
-	Global.game_start = false
-	Global.game_over = false
-	isOver = false
-	right_hand.loosing_power = false
-	# canvas animation  
-	# continue by clicking the screen, just like start game
+	if !reached_limit:
+		print("continue")
+		end_anim.play("continue")
+		Global.game_start = false
+		Global.game_over = false
+		isOver = false
+		right_hand.loosing_power = false
+		# canvas animation  
+		# continue by clicking the screen, just like start game
 
 # main menu
 func _on_back_button_button_down():

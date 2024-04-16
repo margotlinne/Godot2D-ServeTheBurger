@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://yrdpcer43uir"]
+
+[ext_resource type="Texture2D" uid="uid://lq05w4xpwxkh" path="res://image/coin particle.png" id="1_l3i83"]
+[ext_resource type="Script" path="res://script/Bezier Movement.gd" id="2_80gr5"]
+
+[node name="Coin" type="Sprite2D"]
+z_index = 10
+scale = Vector2(0.724094, 0.767404)
+texture = ExtResource("1_l3i83")
+script = ExtResource("2_80gr5")

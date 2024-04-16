@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=71 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -17,7 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://dk1xryfek2i6e" path="res://image/burger_img3.png" id="13_fk6mh"]
 [ext_resource type="Script" path="res://script/Result Bg.gd" id="13_obcrt"]
 [ext_resource type="Texture2D" uid="uid://cgqit73u7gu7c" path="res://image/game over canvas.png" id="16_t2d8h"]
+[ext_resource type="Script" path="res://script/coin.gd" id="17_50g1h"]
 [ext_resource type="Script" path="res://script/Game Start.gd" id="18_wro1p"]
+[ext_resource type="Texture2D" uid="uid://dch2f28vaqguo" path="res://image/warning.png" id="19_5o7js"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vixve"]
 size = Vector2(63, 30.9745)
@@ -27,6 +29,99 @@ size = Vector2(72, 537)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xykb2"]
 size = Vector2(289.5, 51)
+
+[sub_resource type="Animation" id="Animation_3r6n4"]
+resource_name = "slid_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-234, -20), Vector2(-19, -20), Vector2(-19, -20), Vector2(-234, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Countdown 3:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.403161, 0.321646)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Countdown 3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Countdown 2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Countdown 2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.10474, 0.18598), Vector2(1, 1), Vector2(0.10474, 0.18598)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Countdown 1:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.140138, 0.304698), Vector2(1, 1), Vector2(0.140138, 0.304698)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Countdown 1:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_onwdy"]
+_data = {
+"slide": SubResource("Animation_3r6n4")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -244,7 +339,7 @@ radius = 6.48997
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jorbu"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dgun"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euvwb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22ok7"]
 
@@ -358,50 +453,50 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Camera2D/Game Canvas/Game/Left Hand:z_index")
+tracks/1/path = NodePath(".:z_index")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 5]
+"values": [4, 4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Camera2D/Game Canvas/Game/Dark Mode:modulate")
+tracks/2/path = NodePath("../../Left Hand:z_index")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+"update": 1,
+"values": [4, 6]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../Camera2D/Game Canvas/Game/Dark Mode:z_index")
+tracks/3/path = NodePath("../../Dark Mode:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [-1, 4]
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../../Camera2D/Game Canvas/Game/UI:z_index")
+tracks/4/path = NodePath("../../Dark Mode:z_index")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [-1, 2, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8kppp"]
@@ -446,107 +541,39 @@ texture = ExtResource("4_0wbe3")
 region_rect = Rect2(1863.43, 669.74, 273.043, 295.012)
 modulate_color = Color(0.141176, 0.168627, 0.443137, 1)
 
-[sub_resource type="Animation" id="Animation_3r6n4"]
-resource_name = "slid_out"
-length = 4.0
+[sub_resource type="Animation" id="Animation_eexm5"]
+resource_name = "warning"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Game/WarningSign:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 3.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-234, -20), Vector2(-19, -20), Vector2(-19, -20), Vector2(-234, -20)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Countdown 3:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.403161, 0.321646)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Countdown 3:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Countdown 2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Countdown 2:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.4, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.10474, 0.18598), Vector2(1, 1), Vector2(0.10474, 0.18598)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Countdown 1:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.140138, 0.304698), Vector2(1, 1), Vector2(0.140138, 0.304698)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Countdown 1:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2.4, 2.5, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_onwdy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3cdri"]
 _data = {
-"slide": SubResource("Animation_3r6n4")
+"warning": SubResource("Animation_eexm5")
 }
 
 [node name="Node" type="Node"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(144, 256)
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_180qy")
+stretch_mode = 1
 
-[node name="Delete Canvas" type="CanvasLayer" parent="Camera2D"]
-
-[node name="Delete Left" type="Control" parent="Camera2D/Delete Canvas"]
+[node name="Delete Left" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 4
 anchor_top = 0.5
@@ -556,17 +583,17 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="Delete Zone" type="RigidBody2D" parent="Camera2D/Delete Canvas/Delete Left" groups=["delete"]]
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Left" groups=["delete"]]
 collision_layer = 0
 freeze = true
 
-[node name="Left Height" type="CollisionShape2D" parent="Camera2D/Delete Canvas/Delete Left/Delete Zone"]
+[node name="Left Height" type="CollisionShape2D" parent="Delete Left/Delete Zone"]
 position = Vector2(-63, 20)
 scale = Vector2(1, 17.24)
 shape = SubResource("RectangleShape2D_vixve")
 script = ExtResource("3_m0pgn")
 
-[node name="Delete Right" type="Control" parent="Camera2D/Delete Canvas"]
+[node name="Delete Right" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -579,17 +606,17 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Delete Zone" type="RigidBody2D" parent="Camera2D/Delete Canvas/Delete Right" groups=["delete"]]
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Right" groups=["delete"]]
 position = Vector2(39, 0)
 collision_layer = 0
 freeze = true
 
-[node name="Right Height" type="CollisionShape2D" parent="Camera2D/Delete Canvas/Delete Right/Delete Zone"]
+[node name="Right Height" type="CollisionShape2D" parent="Delete Right/Delete Zone"]
 position = Vector2(68, 17)
 shape = SubResource("RectangleShape2D_k0aos")
 script = ExtResource("3_m0pgn")
 
-[node name="Delete Width" type="Control" parent="Camera2D/Delete Canvas"]
+[node name="Delete Width" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -599,32 +626,142 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Delete Zone" type="RigidBody2D" parent="Camera2D/Delete Canvas/Delete Width" groups=["delete"]]
+[node name="Delete Zone" type="RigidBody2D" parent="Delete Width" groups=["delete"]]
 position = Vector2(0, 28)
 collision_layer = 0
 freeze = true
 
-[node name="Width" type="CollisionShape2D" parent="Camera2D/Delete Canvas/Delete Width/Delete Zone"]
+[node name="Width" type="CollisionShape2D" parent="Delete Width/Delete Zone"]
 shape = SubResource("RectangleShape2D_xykb2")
 script = ExtResource("2_16bcx")
 
-[node name="BG Canvas" type="CanvasLayer" parent="Camera2D"]
-layer = 0
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D/BG Canvas"]
+[node name="Start" type="Control" parent="."]
+z_index = 4
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_180qy")
-stretch_mode = 1
 
-[node name="UI Canvas" type="CanvasLayer" parent="Camera2D"]
+[node name="ColorRect" type="ColorRect" parent="Start"]
+z_index = 7
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.301961, 0.301961, 0.301961, 0.478431)
+script = ExtResource("18_wro1p")
 
-[node name="Game Canvas" type="CanvasLayer" parent="Camera2D"]
+[node name="Control" type="Control" parent="Start/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -142.0
+offset_right = 20.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Game" type="Control" parent="Camera2D/Game Canvas"]
+[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect/Control"]
+position = Vector2(20, 21)
+rotation = 0.0174533
+scale = Vector2(0.293714, 0.286139)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(512.65, 938.603, 558.233, 197.47)
+
+[node name="Label" type="Label" parent="Start/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -93.0
+offset_right = 68.5
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_m43rl")
+text = "Start by touching"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ingredient" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Hamburger" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Sprite2D" parent="Hamburger"]
+position = Vector2(-253, -20)
+scale = Vector2(0.26808, 0.294833)
+texture = ExtResource("12_ogh4n")
+offset = Vector2(5, 5)
+region_rect = Rect2(0, -8, 916, 924)
+script = ExtResource("13_obcrt")
+
+[node name="Plate" type="Sprite2D" parent="Hamburger/BG"]
+z_index = 1
+position = Vector2(190.242, 366.309)
+scale = Vector2(0.455544, 0.42617)
+texture = ExtResource("4_0wbe3")
+region_enabled = true
+region_rect = Rect2(118, 70, 320, 77)
+
+[node name="Result Spawn Pos" type="Marker2D" parent="Hamburger/BG/Plate"]
+position = Vector2(0, -238.76)
+scale = Vector2(1.34327, 1.3814)
+
+[node name="Countdown 1" type="Sprite2D" parent="Hamburger/BG"]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+position = Vector2(190.242, -454.494)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(2158, 1708, 110, 147)
+
+[node name="Countdown 2" type="Sprite2D" parent="Hamburger/BG"]
+modulate = Color(1, 1, 1, 0)
+z_index = 5
+position = Vector2(190.242, -454.495)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(2141, 1545, 112, 137)
+
+[node name="Countdown 3" type="Sprite2D" parent="Hamburger/BG"]
+z_index = 5
+position = Vector2(197.702, -454.495)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(2136, 1343, 103, 163)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hamburger/BG"]
+libraries = {
+"": SubResource("AnimationLibrary_onwdy")
+}
+
+[node name="Game" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -634,7 +771,7 @@ grow_vertical = 2
 script = ExtResource("8_fn0bu")
 metadata/_edit_use_anchors_ = true
 
-[node name="Dark Mode" type="ColorRect" parent="Camera2D/Game Canvas/Game"]
+[node name="Dark Mode" type="ColorRect" parent="Game"]
 modulate = Color(1, 1, 1, 0)
 z_index = -1
 layout_mode = 1
@@ -643,10 +780,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.741176)
+color = Color(0, 0, 0, 0.780392)
 
-[node name="UI" type="Control" parent="Camera2D/Game Canvas/Game"]
-z_index = 1
+[node name="UI" type="Control" parent="Game"]
+z_index = 6
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -654,7 +791,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Setting Panel" type="Panel" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Setting Panel" type="Panel" parent="Game/UI"]
 z_index = 2
 layout_mode = 1
 anchors_preset = 1
@@ -667,28 +804,28 @@ grow_horizontal = 0
 scale = Vector2(1.43075, 1.52523)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 
-[node name="Setting sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Setting Panel"]
-position = Vector2(20.4453, 19.0825)
-scale = Vector2(0.141117, 0.124015)
+[node name="Setting sprite" type="Sprite2D" parent="Game/UI/Setting Panel"]
+position = Vector2(23.7637, 15.7353)
+scale = Vector2(0.119118, 0.0886758)
 texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(806.161, 2.64856, 269.622, 356.965)
 script = ExtResource("3_axqnn")
 
-[node name="Setting Continue Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Setting Panel/Setting sprite"]
+[node name="Setting Continue Sprite" type="Sprite2D" parent="Game/UI/Setting Panel/Setting sprite"]
 visible = false
 position = Vector2(-1.24915, 52.3119)
 texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(894.956, 509.586, 99.0909, 95.4546)
 
-[node name="Setting Pause Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Setting Panel/Setting sprite"]
+[node name="Setting Pause Sprite" type="Sprite2D" parent="Game/UI/Setting Panel/Setting sprite"]
 position = Vector2(-1.24915, 62.8855)
 texture = ExtResource("2_b3c4e")
 region_enabled = true
 region_rect = Rect2(896.198, 368.985, 112.274, 120.453)
 
-[node name="Button" type="Button" parent="Camera2D/Game Canvas/Game/UI/Setting Panel/Setting sprite"]
+[node name="Button" type="Button" parent="Game/UI/Setting Panel/Setting sprite"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -705,7 +842,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
-[node name="Finish Button" type="Panel" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Finish Button" type="Panel" parent="Game/UI"]
 z_index = 2
 layout_mode = 1
 anchors_preset = 3
@@ -723,14 +860,14 @@ scale = Vector2(1.43075, 1.52523)
 theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
 script = ExtResource("7_vhba4")
 
-[node name="sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Finish Button"]
+[node name="sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
 position = Vector2(20.4453, 19.0825)
 scale = Vector2(0.547435, 0.531856)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2752, 515, 60, 50)
 
-[node name="Finish Button" type="Button" parent="Camera2D/Game Canvas/Game/UI/Finish Button/sprite"]
+[node name="Finish Button" type="Button" parent="Game/UI/Finish Button/sprite"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -747,7 +884,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
-[node name="Label" type="Label" parent="Camera2D/Game Canvas/Game/UI/Finish Button/sprite/Finish Button"]
+[node name="Label" type="Label" parent="Game/UI/Finish Button/sprite/Finish Button"]
 layout_mode = 0
 offset_left = 11.6872
 offset_top = 16.6086
@@ -759,12 +896,12 @@ theme_override_fonts/font = ExtResource("5_m43rl")
 theme_override_font_sizes/font_size = 20
 text = "Finish"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/Game/UI/Finish Button"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Finish Button"]
 libraries = {
 "": SubResource("AnimationLibrary_w55ey")
 }
 
-[node name="Money Panel" type="Panel" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Money Panel" type="Panel" parent="Game/UI"]
 z_index = 2
 layout_mode = 1
 offset_right = 40.0
@@ -772,14 +909,14 @@ offset_bottom = 40.0
 scale = Vector2(1.33101, 1.22659)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Score sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Money Panel"]
+[node name="Score sprite" type="Sprite2D" parent="Game/UI/Money Panel"]
 position = Vector2(21.7922, 20.3517)
 scale = Vector2(0.152238, 0.1516)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(524.302, 134.079, 222.543, 209.366)
 
-[node name="Coin Text" type="Label" parent="Camera2D/Game Canvas/Game/UI/Money Panel"]
+[node name="Coin Text" type="Label" parent="Game/UI/Money Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -798,7 +935,10 @@ theme_override_fonts/font = ExtResource("5_m43rl")
 text = "0"
 horizontal_alignment = 1
 
-[node name="Score Panel" type="Panel" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Coin Dest Pos" type="Marker2D" parent="Game/UI/Money Panel"]
+position = Vector2(21.788, 25.2733)
+
+[node name="Score Panel" type="Panel" parent="Game/UI"]
 z_index = 2
 layout_mode = 1
 offset_left = 66.0
@@ -807,14 +947,14 @@ offset_bottom = 40.0
 scale = Vector2(1.37614, 1.21217)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Score sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Score Panel"]
+[node name="Score sprite" type="Sprite2D" parent="Game/UI/Score Panel"]
 position = Vector2(15.3701, 21.5579)
 scale = Vector2(0.119148, 0.113754)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1870, 669, 258, 292)
 
-[node name="Score Label" type="Label" parent="Camera2D/Game Canvas/Game/UI/Score Panel"]
+[node name="Score Label" type="Label" parent="Game/UI/Score Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -834,7 +974,7 @@ text = "0"
 horizontal_alignment = 1
 script = ExtResource("6_ef2qw")
 
-[node name="Bill Text" type="Label" parent="Camera2D/Game Canvas/Game/UI/Score Panel"]
+[node name="Bill Text" type="Label" parent="Game/UI/Score Panel"]
 layout_mode = 0
 offset_left = 2.90668
 offset_top = 4.9498
@@ -848,7 +988,7 @@ text = "Bill"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Earned coin" type="Label" parent="Camera2D/Game Canvas/Game/UI/Score Panel"]
+[node name="Earned coin" type="Label" parent="Game/UI/Score Panel"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 19.7992
@@ -860,12 +1000,12 @@ theme_override_fonts/font = ExtResource("5_m43rl")
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/Game/UI/Score Panel/Earned coin"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Score Panel/Earned coin"]
 libraries = {
 "": SubResource("AnimationLibrary_ka7lk")
 }
 
-[node name="Collection Panel" type="Panel" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Collection Panel" type="Panel" parent="Game/UI"]
 z_index = 2
 layout_mode = 1
 anchors_preset = 1
@@ -878,14 +1018,14 @@ grow_horizontal = 0
 scale = Vector2(1.59639, 1.38952)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Book Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Collection Panel"]
-position = Vector2(19.2605, 26.3932)
+[node name="Book Sprite" type="Sprite2D" parent="Game/UI/Collection Panel"]
+position = Vector2(23.1957, 20.1585)
 scale = Vector2(0.118961, 0.099003)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1652, 75, 232, 320)
 
-[node name="OpenBook Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Collection Panel"]
+[node name="OpenBook Sprite" type="Sprite2D" parent="Game/UI/Collection Panel"]
 visible = false
 position = Vector2(19.2605, 26.3932)
 scale = Vector2(0.100262, 0.113256)
@@ -893,12 +1033,12 @@ texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(1920, 176, 355, 230)
 
-[node name="Button" type="Button" parent="Camera2D/Game Canvas/Game/UI/Collection Panel"]
+[node name="Button" type="Button" parent="Game/UI/Collection Panel"]
 layout_mode = 0
-offset_left = 6.26414
-offset_top = 11.5148
-offset_right = 14.2641
-offset_bottom = 19.5148
+offset_left = 10.1993
+offset_top = 5.28012
+offset_right = 18.1993
+offset_bottom = 13.2801
 scale = Vector2(2.81867, 3.57509)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fbgy4")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_wdy1m")
@@ -906,7 +1046,8 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
 
-[node name="Perfect" type="Control" parent="Camera2D/Game Canvas/Game/UI"]
+[node name="Perfect" type="Control" parent="Game/UI"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -916,7 +1057,7 @@ offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/Game/UI/Perfect"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/UI/Perfect"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(14, -22)
 rotation = 6.28318
@@ -925,57 +1066,59 @@ texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(2024.14, 1956.62, 377.738, 266.466)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/Game/UI/Perfect/Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Perfect/Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_mkadg")
 }
 
-[node name="Left Hand" type="Panel" parent="Camera2D/Game Canvas/Game"]
-z_index = 1
+[node name="Left Hand" type="Panel" parent="Game"]
+z_index = 4
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_top = -41.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("10_crpuk")
 
-[node name="Player Plate" type="Sprite2D" parent="Camera2D/Game Canvas/Game/Left Hand"]
+[node name="Player Plate" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-7, -55)
 scale = Vector2(0.253126, 0.241225)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="Stack Pos" type="Marker2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate"]
+[node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 position = Vector2(3.95062, -182.402)
 
-[node name="Player Physics" type="CharacterBody2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate" groups=["player"]]
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate/Player Physics"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Player Physics"]
 position = Vector2(1.97546, -2.07275)
 shape = SubResource("RectangleShape2D_kwbbv")
 
-[node name="center" type="CharacterBody2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate" groups=["center"]]
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["center"]]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate/center"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/center"]
 scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
-[node name="Coin Pos" type="Marker2D" parent="Camera2D/Game Canvas/Game/Left Hand/Player Plate"]
+[node name="Coin Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 
-[node name="Hand Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/Left Hand"]
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-8, 150)
 scale = Vector2(0.209217, 0.202261)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
-[node name="Detect Btn" type="Button" parent="Camera2D/Game Canvas/Game/Left Hand"]
-z_index = 9
+[node name="Detect Btn" type="Button" parent="Game/Left Hand"]
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -988,12 +1131,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(10.6567, 52.1561)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jorbu")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1dgun")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_euvwb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_22ok7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0r3m2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1i3tt")
 
-[node name="Right Hand" type="Control" parent="Camera2D/Game Canvas/Game"]
+[node name="Coin Pos" type="Marker2D" parent="Game/Left Hand"]
+position = Vector2(-6, -55)
+script = ExtResource("17_50g1h")
+
+[node name="Right Hand" type="Control" parent="Game"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 6
@@ -1008,23 +1155,23 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("11_xmaf4")
 
-[node name="Move" type="Node2D" parent="Camera2D/Game Canvas/Game/Right Hand"]
+[node name="Move" type="Node2D" parent="Game/Right Hand"]
 position = Vector2(63, -153)
 
-[node name="Hand Sprite" type="Sprite2D" parent="Camera2D/Game Canvas/Game/Right Hand/Move"]
-position = Vector2(217, -11)
+[node name="Hand Sprite" type="Sprite2D" parent="Game/Right Hand/Move"]
+position = Vector2(217, -22)
 rotation = -1.5708
 scale = Vector2(0.196504, 0.229309)
 texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(2396, 752, 113, 2046)
 
-[node name="Last Bun Pos" type="Node2D" parent="Camera2D/Game Canvas/Game/Right Hand/Move/Hand Sprite"]
+[node name="Last Bun Pos" type="Node2D" parent="Game/Right Hand/Move/Hand Sprite"]
 position = Vector2(-55.9784, -946.321)
 rotation = 1.5708
 scale = Vector2(4.36093, 5.08896)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/Game/Right Hand/Move/Hand Sprite"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/Right Hand/Move/Hand Sprite"]
 position = Vector2(3.378, 3194.63)
 rotation = 3.14159
 scale = Vector2(0.999989, 3.31742)
@@ -1032,81 +1179,23 @@ texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(2719.94, 1277.56, 208.863, 1310.14)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/Game/Right Hand"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/Right Hand"]
 libraries = {
 "": SubResource("AnimationLibrary_8tn6m")
 }
 
-[node name="Start" type="Control" parent="Camera2D/Game Canvas"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D/Game Canvas/Start"]
-z_index = 7
+[node name="GameOver" type="Control" parent="Game"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.301961, 0.301961, 0.301961, 0.478431)
-script = ExtResource("18_wro1p")
-
-[node name="Control" type="Control" parent="Camera2D/Game Canvas/Start/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -142.0
-offset_right = 20.0
-offset_bottom = -102.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/Start/ColorRect/Control"]
-position = Vector2(20, 21)
-rotation = 0.0174533
-scale = Vector2(0.293714, 0.286139)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(512.65, 938.603, 558.233, 197.47)
-
-[node name="Label" type="Label" parent="Camera2D/Game Canvas/Start/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -69.5
-offset_top = -93.0
-offset_right = 68.5
-offset_bottom = -67.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("5_m43rl")
-text = "Start by touching"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="GameOver" type="Control" parent="Camera2D/Game Canvas"]
-layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
+offset_top = 15.0
 offset_right = 20.0
-offset_bottom = 40.0
+offset_bottom = 55.0
 grow_horizontal = 2
 
-[node name="BG" type="Sprite2D" parent="Camera2D/Game Canvas/GameOver"]
+[node name="BG" type="Sprite2D" parent="Game/GameOver"]
 modulate = Color(1, 1, 0.717647, 1)
 z_index = 4
 position = Vector2(20, -376)
@@ -1114,7 +1203,7 @@ scale = Vector2(0.602773, 0.550911)
 texture = ExtResource("16_t2d8h")
 region_rect = Rect2(72.5722, 75.536, 763.976, 766.333)
 
-[node name="Title" type="Sprite2D" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Title" type="Sprite2D" parent="Game/GameOver/BG"]
 z_index = 6
 position = Vector2(0, -304.949)
 scale = Vector2(0.51096, 0.450614)
@@ -1122,12 +1211,12 @@ texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(1131.48, 960.115, 877.223, 186.078)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/GameOver/BG"]
 libraries = {
 "": SubResource("AnimationLibrary_8kppp")
 }
 
-[node name="Score" type="Label" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Score" type="Label" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 5
 anchor_left = 0.5
@@ -1145,7 +1234,7 @@ text = "N floors Burger"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Best Score" type="Label" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Best Score" type="Label" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 5
 anchor_left = 0.5
@@ -1163,7 +1252,7 @@ text = "Best Score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Total Burger" type="Label" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Total Burger" type="Label" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 5
 anchor_left = 0.5
@@ -1181,7 +1270,7 @@ text = "Finished Burger:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Money" type="Label" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Money" type="Label" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 5
 anchor_left = 0.5
@@ -1199,7 +1288,7 @@ text = "Earning:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Replay button" type="Button" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Replay button" type="Button" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 7
 anchor_left = 0.5
@@ -1219,14 +1308,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xfwu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rldm0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l1av7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/GameOver/BG/Replay button"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/GameOver/BG/Replay button"]
 position = Vector2(4.08298, 4.04478)
 scale = Vector2(0.0341657, 0.0304734)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(1202.46, 124.3, 205.7, 96.8)
 
-[node name="Continue button" type="Button" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="Continue button" type="Button" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 7
 anchor_left = 0.5
@@ -1246,14 +1335,14 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xfwu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rldm0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l1av7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/GameOver/BG/Continue button"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/GameOver/BG/Continue button"]
 position = Vector2(4.08298, 4.04478)
 scale = Vector2(0.0195608, 0.032462)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(1201.77, 506.523, 352.848, 95.1665)
 
-[node name="back button" type="Button" parent="Camera2D/Game Canvas/GameOver/BG"]
+[node name="back button" type="Button" parent="Game/GameOver/BG"]
 z_index = 6
 anchors_preset = 7
 anchor_left = 0.5
@@ -1273,85 +1362,37 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2xfwu")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_rldm0")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_l1av7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Game Canvas/GameOver/BG/back button"]
+[node name="Sprite2D" type="Sprite2D" parent="Game/GameOver/BG/back button"]
 position = Vector2(4.01312, 3.73639)
 scale = Vector2(0.0265364, 0.0350055)
 texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(1210.81, 15.1549, 225.06, 104.06)
 
-[node name="Hamburger" type="Control" parent="Camera2D/Game Canvas"]
-layout_mode = 3
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="BG" type="Sprite2D" parent="Camera2D/Game Canvas/Hamburger"]
-position = Vector2(-253, -20)
-scale = Vector2(0.26808, 0.294833)
-texture = ExtResource("12_ogh4n")
-offset = Vector2(5, 5)
-region_rect = Rect2(0, -8, 916, 924)
-script = ExtResource("13_obcrt")
-
-[node name="Plate" type="Sprite2D" parent="Camera2D/Game Canvas/Hamburger/BG"]
-z_index = 1
-position = Vector2(190.242, 366.309)
-scale = Vector2(0.455544, 0.42617)
-texture = ExtResource("4_0wbe3")
-region_enabled = true
-region_rect = Rect2(118, 70, 320, 77)
-
-[node name="Result Spawn Pos" type="Marker2D" parent="Camera2D/Game Canvas/Hamburger/BG/Plate"]
-position = Vector2(0, -238.76)
-scale = Vector2(1.34327, 1.3814)
-
-[node name="Countdown 1" type="Sprite2D" parent="Camera2D/Game Canvas/Hamburger/BG"]
+[node name="WarningSign" type="TextureRect" parent="Game"]
 modulate = Color(1, 1, 1, 0)
-z_index = 5
-position = Vector2(190.242, -454.494)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2158, 1708, 110, 147)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 145.0
+grow_horizontal = 2
+texture = ExtResource("19_5o7js")
 
-[node name="Countdown 2" type="Sprite2D" parent="Camera2D/Game Canvas/Hamburger/BG"]
-modulate = Color(1, 1, 1, 0)
-z_index = 5
-position = Vector2(190.242, -454.495)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2141, 1545, 112, 137)
-
-[node name="Countdown 3" type="Sprite2D" parent="Camera2D/Game Canvas/Hamburger/BG"]
-z_index = 5
-position = Vector2(197.702, -454.495)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2136, 1343, 103, 163)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/Game Canvas/Hamburger/BG"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/WarningSign"]
+root_node = NodePath("../../..")
 libraries = {
-"": SubResource("AnimationLibrary_onwdy")
+"": SubResource("AnimationLibrary_3cdri")
 }
 
-[node name="Ingredient" type="Control" parent="Camera2D/Game Canvas"]
-z_index = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(144, 417)
 
-[connection signal="pressed" from="Camera2D/Game Canvas/Game/UI/Setting Panel/Setting sprite/Button" to="Camera2D/Game Canvas/Game/UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
-[connection signal="button_down" from="Camera2D/Game Canvas/Game/UI/Finish Button/sprite/Finish Button" to="Camera2D/Game Canvas/Game" method="_on_finish_button_button_down"]
-[connection signal="button_down" from="Camera2D/Game Canvas/Game/Left Hand/Detect Btn" to="Camera2D/Game Canvas/Game/Left Hand" method="_on_detect_btn_button_down"]
-[connection signal="button_up" from="Camera2D/Game Canvas/Game/Left Hand/Detect Btn" to="Camera2D/Game Canvas/Game/Left Hand" method="_on_detect_btn_button_up"]
-[connection signal="animation_finished" from="Camera2D/Game Canvas/Game/Right Hand/AnimationPlayer" to="Camera2D/Game Canvas/Game/Right Hand" method="_on_animation_player_animation_finished"]
-[connection signal="button_down" from="Camera2D/Game Canvas/GameOver/BG/Replay button" to="Camera2D/Game Canvas/Game" method="_on_replay_button_button_down"]
-[connection signal="button_down" from="Camera2D/Game Canvas/GameOver/BG/Continue button" to="Camera2D/Game Canvas/Game" method="_on_continue_button_button_down"]
-[connection signal="button_down" from="Camera2D/Game Canvas/GameOver/BG/back button" to="Camera2D/Game Canvas/Game" method="_on_back_button_button_down"]
-[connection signal="animation_finished" from="Camera2D/Game Canvas/Hamburger/BG/AnimationPlayer" to="Camera2D/Game Canvas/Hamburger/BG" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Game/UI/Setting Panel/Setting sprite/Button" to="Game/UI/Setting Panel/Setting sprite" method="_on_button_pressed"]
+[connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
+[connection signal="button_down" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_down"]
+[connection signal="button_up" from="Game/Left Hand/Detect Btn" to="Game/Left Hand" method="_on_detect_btn_button_up"]
+[connection signal="animation_finished" from="Game/Right Hand/AnimationPlayer" to="Game/Right Hand" method="_on_animation_player_animation_finished"]
+[connection signal="button_down" from="Game/GameOver/BG/Replay button" to="Game" method="_on_replay_button_button_down"]
+[connection signal="button_down" from="Game/GameOver/BG/Continue button" to="Game" method="_on_continue_button_button_down"]
+[connection signal="button_down" from="Game/GameOver/BG/back button" to="Game" method="_on_back_button_button_down"]
