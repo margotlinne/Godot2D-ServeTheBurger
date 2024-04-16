@@ -23,15 +23,19 @@ var isOver = false
 var total_perfect = 0
 var total_burger = 0
 
-@onready var canvas = get_node("/root/Node/Ingredient")
-@onready var hand = get_node("/root/Node/Game/Left Hand")
-@onready var plate = get_node("/root/Node/Game/Left Hand/Player Plate/Stack Pos")
-@onready var right_hand = get_node("/root/Node/Game/Right Hand")
+var zooming = false
+
+@onready var cam = get_node("/root/Node/Camera2D")
+
+@onready var canvas = get_node("/root/Node/Camera2D/Game Canvas/Ingredient")
+@onready var hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand")
+@onready var plate = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand/Player Plate/Stack Pos")
+@onready var right_hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand")
 
 # result
-@onready var last_pos = get_node("/root/Node/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
-@onready var result = get_node("/root/Node/Hamburger/BG/Plate/Result Spawn Pos")
-@onready var result_manager = get_node("/root/Node/Hamburger/BG")
+@onready var last_pos = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand/Move/Hand Sprite/Last Bun Pos")
+@onready var result = get_node("/root/Node/Camera2D/Game Canvas/Hamburger/BG/Plate/Result Spawn Pos")
+@onready var result_manager = get_node("/root/Node/Camera2D/Game Canvas/Hamburger/BG")
 
 # first and start object
 var last_bun = preload("res://scenes/top bun.tscn")
@@ -43,20 +47,20 @@ var current_earning = 0
 var save_earning = 0
 
 # UI
-@onready var earned_coinTxt = get_node("/root/Node/Game/UI/Score Panel/Earned coin")
-@onready var coinTxt = get_node("/root/Node/Game/UI/Money Panel/Coin Text")
+@onready var earned_coinTxt = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Score Panel/Earned coin")
+@onready var coinTxt = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Money Panel/Coin Text")
 
 # Aniamtion
-@onready var perfect_anim = get_node("/root/Node/Game/UI/Perfect/Sprite2D/AnimationPlayer")
-@onready var coin_anim = get_node("/root/Node/Game/UI/Score Panel/Earned coin/AnimationPlayer")
+@onready var perfect_anim = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Perfect/Sprite2D/AnimationPlayer")
+@onready var coin_anim = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Score Panel/Earned coin/AnimationPlayer")
 
 # game over canvas
-@onready var end_anim = get_node("/root/Node/GameOver/BG/AnimationPlayer")
-@onready var end_canvas = get_node("/root/Node/GameOver/BG")
-@onready var end_scoreTxt = get_node("/root/Node/GameOver/BG/Score")
-@onready var best_scoreTxt = get_node("/root/Node/GameOver/BG/Best Score")
-@onready var total_burgerTxt = get_node("/root/Node/GameOver/BG/Total Burger")
-@onready var total_coinTxt = get_node("/root/Node/GameOver/BG/Money")
+@onready var end_anim = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/AnimationPlayer")
+@onready var end_canvas = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG")
+@onready var end_scoreTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Score")
+@onready var best_scoreTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Best Score")
+@onready var total_burgerTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Total Burger")
+@onready var total_coinTxt = get_node("/root/Node/Camera2D/Game Canvas/GameOver/BG/Money")
 
 # ingredient
 var patty = preload("res://scenes/patty.tscn")
@@ -68,10 +72,14 @@ var ing_particle = preload("res://scenes/ingredient particle.tscn")
 
 
 # coin collecting
-@onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
-@onready var coin_destination = get_node("/root/Node/Game/UI/Money Panel")
+@onready var coin_pos = get_node("/root/Node/Camera2D/Game Canvas/Game/Left Hand/Coin Pos")
+@onready var coin_destination = get_node("/root/Node/Camera2D/Game Canvas/Game/UI/Money Panel")
 
 func _ready():
+	if !zooming:
+		cam.zoom *= 0.7
+		zooming = true
+	
 	if instance == null:
 		instance = self
 	else:

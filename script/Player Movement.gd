@@ -4,7 +4,7 @@ var is_mouse_pressed = false
 var original_position = Vector2.ZERO
 
 var timer = 0
-@onready var plate = get_node("/root/Node/Game")
+@onready var plate = get_node("/root/Node/Camera2D/Game Canvas/Game")
 
 func _ready():
 	Global.game_start = false

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var hand = get_node("/root/Node/Game/Right Hand/Move")
+@onready var hand = get_node("/root/Node/Camera2D/Game Canvas/Game/Right Hand/Move")
 @onready var anim = $AnimationPlayer
 # 이동 속도
 var move_speed = 150
