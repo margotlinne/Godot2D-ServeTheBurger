@@ -22,8 +22,6 @@ SaveLoad="*res://script/save_load.gd"
 
 [display]
 
-window/size/viewport_width=288
-window/size/viewport_height=512
 window/handheld/orientation=1
 
 [rendering]

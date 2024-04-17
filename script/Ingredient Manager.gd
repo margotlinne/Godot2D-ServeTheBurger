@@ -39,6 +39,10 @@ var reached_limit = false
 @onready var result = get_node("/root/Node/Hamburger/BG/Plate/Result Spawn Pos")
 @onready var result_manager = get_node("/root/Node/Hamburger/BG")
 
+const CollectionClass = preload("res://script/CollectionClass.gd")
+
+var ins_collection = CollectionClass.new()
+
 # first and start object
 var last_bun = preload("res://scenes/top bun.tscn")
 var start_bun = preload("res://scenes/start bun.tscn")
@@ -65,14 +69,17 @@ var save_earning = 0
 @onready var total_burgerTxt = get_node("/root/Node/Game/GameOver/BG/Total Burger")
 @onready var total_coinTxt = get_node("/root/Node/Game/GameOver/BG/Money")
 
-# ingredient
-var patty = preload("res://scenes/patty.tscn")
-var lettuce = preload("res://scenes/lettuce.tscn")
-var cheese = preload("res://scenes/cheese.tscn")
+#ingredients
+#var patty = preload("res://scenes/patty.tscn")
+#var lettuce = preload("res://scenes/lettuce.tscn")
+#var cheese = preload("res://scenes/cheese.tscn")
+
+var available_index = []
+
+
 
 # particle
 var ing_particle = preload("res://scenes/ingredient particle.tscn")
-
 
 # coin collecting
 @onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
@@ -84,7 +91,6 @@ func _ready():
 		instance = self
 	else:
 		queue_free()
-	
 	# coin	
 	coinTxt.text = str(format_number(Global.total_earning))
 	current_earning = 0
@@ -96,6 +102,7 @@ func _ready():
 	Global.game_over = false
 	Global.score = 0
 	
+	
 	clean_array()
 	ins_ingredient.clear()
 	#stacked_ing.clear()
@@ -103,16 +110,42 @@ func _ready():
 	clean_plate()
 	result_clean()
 	
-	ingredients.append(patty)
-	ingredients.append(lettuce)
-	ingredients.append(cheese)	
+	#ingredients.append(patty)
+	#ingredients.append(lettuce)
+	#ingredients.append(cheese)	
 	
 	# first start
 	first_bun()
 	
+#	SaveLoad.load_collection()	
+#	if Global.collections.size() == 0:
+#		# basic ingredients that start with 
+#		SaveLoad.save_collection("patty,lettuce,cheese,")
+#		SaveLoad.load_collection()	
+#	print(Global.collections)
+	update_ingredients()
+	
+	
+func update_ingredients():
+	SaveLoad.save_collection()
+	for i in range(ins_collection.collection.size()):
+		var new_ingredient = load(ins_collection.collection[i].path)
+		ingredients.append(new_ingredient)
+		if ins_collection.collection[i].unlock:
+			if available_index.size() == 0:
+				available_index.append(i)
+			else:
+				for j in range(available_index.size()):
+					if available_index[j] != i:
+						# when it checked through all elements and couldn't find match number
+						if j == available_index.size() - 1:
+							available_index.append(i)
+					else: break
 	
 
 func _process(delta): 
+	update_ingredients()
+	#print(available_index)
 	var debuging = false
 	timer += delta
 	#### (add) after first bun landed on plate
@@ -218,7 +251,19 @@ func _process(delta):
 				if new_instance.is_in_group("level1"):
 					earned_coinTxt.text = str("+ 10 coin")
 					save_earning += 10
-					coin_anim.play("coin")					
+					coin_anim.play("coin")				
+				elif new_instance.is_in_group("level2"):
+					earned_coinTxt.text = str("+ 20 coin")
+					save_earning += 20
+					coin_anim.play("coin")			
+				elif new_instance.is_in_group("level3"):
+					earned_coinTxt.text = str("+ 30 coin")
+					save_earning += 30
+					coin_anim.play("coin")		
+				elif new_instance.is_in_group("level4"):
+					earned_coinTxt.text = str("+ 40 coin")
+					save_earning += 40
+					coin_anim.play("coin")			
 					
 				ins_ingredient[i].checked = true
 				break;
@@ -391,8 +436,8 @@ func _on_finish_button_button_down():
 # instnatiate ingredients randomly
 func instantiate_ingredient(pos):
 	#print("instantiate!")
-	random_index = randi_range(0, ingredients.size() - 1)
-	var instance = ingredients[random_index].instantiate()
+	random_index = randi_range(0, available_index.size()-1)
+	var instance = ingredients[available_index[random_index]].instantiate()
 	ins_ingredient.append(instance)
 	# add null to stacked item array so the size is same as instantiated ingredient array
 	#stacked_ing.append(null)

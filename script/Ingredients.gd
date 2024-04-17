@@ -28,13 +28,13 @@ func _process(delta):
 	if collided:
 		if in_middle:	
 			stacked = true
-
 		else:
 			stacked = false
 			awake_mode()
 	# when it's not displayed(in result node) and didn't land yet, and it's game over
 	elif !displayed && !landed && Global.game_over:
 		self.queue_free()
+		
 		
 		
 func awake_mode():
@@ -47,7 +47,7 @@ func sleep_mode():
 	
 func _on_body_entered(body):
 	if !displayed:
-		if (body.is_in_group("player") || body.is_in_group("ingredient")) && !gone && !collided:
+		if ((body.is_in_group("player") && self.is_in_group("bottom")) || body.is_in_group("ingredient")) && !gone && !collided:
 			if self.rotation < 90 && self.rotation > -90:
 				#print(self.get_groups())
 				#print(body.get_groups())			

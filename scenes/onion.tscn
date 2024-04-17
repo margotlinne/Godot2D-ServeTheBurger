@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctxqhqrcpdpph"]
+
+[ext_resource type="Script" path="res://script/Ingredients.gd" id="1_2g8qs"]
+[ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="2_0orbr"]
+[ext_resource type="Script" path="res://script/Display.gd" id="3_rjcwg"]
+
+[sub_resource type="Animation" id="Animation_s5b8s"]
+resource_name = "disappear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.225174, 0.29978), Vector2(0.015444, 0.0727273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../middle/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fswd7"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.225174, 0.29978), Vector2(0.0651753, 0.29978), Vector2(0.0651753, 0.29978), Vector2(0.0651753, 0.29978)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -18), Vector2(0, -18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../middle/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_hr3c5"]
+resource_name = "ingredients_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h3g44"]
+resource_name = "ingredients_land"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.243137, 0.3625), Vector2(0.225174, 0.29978), Vector2(0.203136, 0.402501), Vector2(0.243137, 0.3625)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fojw8"]
+_data = {
+"disappear": SubResource("Animation_s5b8s"),
+"ingredients_fade": SubResource("Animation_fswd7"),
+"ingredients_idle": SubResource("Animation_hr3c5"),
+"ingredients_land": SubResource("Animation_h3g44")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_533rj"]
+size = Vector2(185.081, 27.5862)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a1gcy"]
+
+[node name="Main" type="RigidBody2D" groups=["ingredient", "level2", "onion"]]
+max_contacts_reported = 2
+contact_monitor = true
+angular_damp = 31.841
+script = ExtResource("1_2g8qs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.225174, 0.29978)
+texture = ExtResource("2_0orbr")
+region_enabled = true
+region_rect = Rect2(169, 1045, 221, 68)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_fojw8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["collider"]]
+position = Vector2(-0.5, -2)
+scale = Vector2(0.243137, 0.3625)
+shape = SubResource("RectangleShape2D_533rj")
+script = ExtResource("3_rjcwg")
+
+[node name="middle" type="CharacterBody2D" parent="." groups=["center"]]
+position = Vector2(0, -7)
+scale = Vector2(1, 0.32)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="middle" groups=["middle collider"]]
+position = Vector2(0, -9.375)
+scale = Vector2(0.158198, 0.467758)
+shape = SubResource("CircleShape2D_a1gcy")
+script = ExtResource("3_rjcwg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

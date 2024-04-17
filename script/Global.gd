@@ -7,3 +7,7 @@ var best_score = 0
 var total_earning = 0
 
 var game_start = false
+
+
+	
+#var collections = []
