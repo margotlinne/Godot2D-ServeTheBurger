@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://script/coin.gd" id="17_50g1h"]
 [ext_resource type="FontFile" uid="uid://cfxooqqcxsd1x" path="res://font/goryeong_ddalgi.ttf" id="17_roojl"]
 [ext_resource type="Texture2D" uid="uid://brt24uhnc1agq" path="res://image/left hand.png" id="18_ix38i"]
+[ext_resource type="Script" path="res://script/Shop Manager.gd" id="18_s6vq0"]
 [ext_resource type="Script" path="res://script/Game Start.gd" id="18_wro1p"]
 [ext_resource type="Texture2D" uid="uid://dch2f28vaqguo" path="res://image/warning.png" id="19_5o7js"]
 
@@ -281,9 +282,19 @@ bg_color = Color(0.933333, 0.933333, 0.933333, 1)
 texture = ExtResource("13_fk6mh")
 region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yokst"]
+texture = ExtResource("13_fk6mh")
+region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
+modulate_color = Color(1, 1, 1, 0.482353)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cxcu"]
 texture = ExtResource("13_fk6mh")
 region_rect = Rect2(660.755, 2370.25, 235.445, 303.8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6xnus"]
+texture = ExtResource("13_fk6mh")
+region_rect = Rect2(660.755, 2370.25, 235.445, 303.8)
+modulate_color = Color(1, 1, 1, 0.505882)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v08i4"]
 texture = ExtResource("18_ix38i")
@@ -293,21 +304,18 @@ modulate_color = Color(0.917647, 0.917647, 0.917647, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xmaak"]
 texture = ExtResource("18_ix38i")
 region_rect = Rect2(8, 6, 62, 84)
-modulate_color = Color(0.917647, 0.917647, 0.917647, 1)
+modulate_color = Color(0.917647, 0.917647, 0.917647, 0.505882)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3weg"]
 texture = ExtResource("13_fk6mh")
 region_rect = Rect2(2087.2, 950.259, 278.738, 249.437)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gtylh"]
+texture = ExtResource("13_fk6mh")
+region_rect = Rect2(2087.2, 950.259, 278.738, 249.437)
+modulate_color = Color(1, 1, 1, 0.505882)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbgy4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4enj3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wxp48"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_apsrv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vqxhm"]
 
 [sub_resource type="Animation" id="Animation_hrobn"]
 resource_name = "perfect"
@@ -365,11 +373,11 @@ _data = {
 "perfect": SubResource("Animation_hrobn")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwbbv"]
-size = Vector2(312.097, 62.1826)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck74t"]
 radius = 6.48997
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwbbv"]
+size = Vector2(312.097, 62.1826)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jorbu"]
 
@@ -1117,6 +1125,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control/VBoxContainer/patty/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1184,6 +1193,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control/VBoxContainer/cheese/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1251,6 +1261,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control/VBoxContainer/lettuce/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1319,6 +1330,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control/VBoxContainer/onion/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1385,6 +1397,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control/VBoxContainer/onion/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1467,6 +1480,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/tomato/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1516,6 +1530,7 @@ text = "People think this is a fruit but actually it's
 a vegetable."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/tomato"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -1531,6 +1546,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/tomato/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1600,6 +1616,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/chickencutlet/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1648,6 +1665,7 @@ theme_override_font_sizes/font_size = 30
 text = "Crunchy, oily, fat, yummy chicken cutlet."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/chickencutlet"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -1663,6 +1681,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/chickencutlet/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1732,6 +1751,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/pickle/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1781,6 +1801,7 @@ text = "Pickled onion. Many people don't like
 the flavour and texture."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/pickle"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -1796,6 +1817,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/pickle/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1865,6 +1887,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/shrimp/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -1914,6 +1937,7 @@ text = "Shrimp in the burger? Yes.
 Usually they add shrimp fries."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/shrimp"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -1929,6 +1953,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer/Control2/VBoxContainer/shrimp/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2021,6 +2046,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/bacon/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2070,6 +2096,7 @@ text = "Famous meal for breakfast.
 Don't cook it too much, I like soft bacon."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/bacon"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2085,6 +2112,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/bacon/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2154,6 +2182,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/greenonion/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2203,6 +2232,7 @@ text = "Mmmm fresh vegetable smell!
 Wait, you don't like it? Who knows! Try, try!"
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/greenonion"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2218,6 +2248,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/greenonion/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2287,6 +2318,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/lemon/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2337,6 +2369,7 @@ text = "Ah only looking at it makes my mouth
 watery!"
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/lemon"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2352,6 +2385,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/lemon/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2421,6 +2455,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/fish/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2469,6 +2504,7 @@ theme_override_font_sizes/font_size = 30
 text = "It smells like sea, salt and... fish."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/fish"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2484,6 +2520,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control/VBoxContainer/fish/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2566,6 +2603,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/drumstick/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2615,6 +2653,7 @@ text = "Yes, yes tht kind of drumstick from old cartoons!
 It always makes us feel hungry."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/drumstick"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2630,6 +2669,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/drumstick/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2699,6 +2739,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/flower/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2747,6 +2788,7 @@ theme_override_font_sizes/font_size = 30
 text = "Human can eat flowers too!"
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/flower"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2762,6 +2804,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/flower/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2831,6 +2874,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/spicysauce/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2880,6 +2924,7 @@ text = "Oh you thought it was ketchup?
 No it's capsaicin."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/spicysauce"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -2895,6 +2940,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/spicysauce/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -2964,6 +3010,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3013,6 +3060,7 @@ text = "Many people don't know this is made of
 eggs. Raw.. eggs."
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/mayonnaise"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -3028,6 +3076,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3120,6 +3169,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/pineapple/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3169,6 +3219,7 @@ theme_override_font_sizes/font_size = 30
 text = "Be careful, it can hurt your tongue!"
 
 [node name="Lock" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/pineapple"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33791, 0.193606)
@@ -3184,6 +3235,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/pineapple/Lock/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3254,6 +3306,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/?/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3324,6 +3377,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/?2/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3394,6 +3448,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control/VBoxContainer/?3/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3477,6 +3532,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control2/VBoxContainer/?/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3549,6 +3605,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control2/VBoxContainer/?2/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3621,6 +3678,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control2/VBoxContainer/?3/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3693,6 +3751,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer3/Control2/VBoxContainer/?4/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3753,6 +3812,7 @@ offset_right = 85.5689
 offset_bottom = 80.9156
 scale = Vector2(12.1528, 8.28893)
 theme_override_constants/separation = 20
+script = ExtResource("18_s6vq0")
 
 [node name="Control" type="Control" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4"]
 layout_mode = 2
@@ -3795,6 +3855,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3843,7 +3904,7 @@ theme_override_font_sizes/font_size = 30
 text = "Your serving plate. It's not like inhertied
 one, change plate if you want. "
 
-[node name="Equip Btn" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label"]
+[node name="Equip Btn1" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -3858,22 +3919,26 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yokst")
 
-[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1"]
 layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
 offset_bottom = 32.3703
 scale = Vector2(0.0412445, 0.136979)
-theme_override_colors/font_color = Color(0.603922, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.356863, 0.596078, 0.960784, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1"]
 visible = false
 layout_mode = 0
 offset_left = 1.53784
@@ -3908,6 +3973,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -3956,7 +4022,7 @@ theme_override_font_sizes/font_size = 30
 text = "Looking at it makes you feel like it's 
 spring. "
 
-[node name="Equip Btn" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label"]
+[node name="Equip Btn2" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -3971,8 +4037,13 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yokst")
 
-[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2"]
+layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
 offset_right = 128.118
@@ -3985,22 +4056,24 @@ text = "5,000 coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
 offset_bottom = 32.3703
 scale = Vector2(0.0412445, 0.136979)
-theme_override_colors/font_color = Color(0.603922, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.356863, 0.596078, 0.960784, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4033,6 +4106,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4081,7 +4155,7 @@ theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 30
 text = "Looks modern and simple."
 
-[node name="Equip Btn" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label"]
+[node name="Equip Btn3" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -4096,8 +4170,13 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yokst")
 
-[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3"]
+layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
 offset_right = 128.118
@@ -4110,22 +4189,24 @@ text = "9,000 coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
 offset_bottom = 32.3703
 scale = Vector2(0.0412445, 0.136979)
-theme_override_colors/font_color = Color(0.603922, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.356863, 0.596078, 0.960784, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4158,6 +4239,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4207,7 +4289,7 @@ text = "Wow it looks so comfortable!
 I envy ingredients who will be
 stacked on bed!"
 
-[node name="Equip Btn" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label"]
+[node name="Equip Btn4" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -4222,8 +4304,12 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yokst")
 
-[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn4"]
 layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
@@ -4237,22 +4323,24 @@ text = "20,000 coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn4"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
 offset_bottom = 32.3703
 scale = Vector2(0.0412445, 0.136979)
-theme_override_colors/font_color = Color(0.603922, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.356863, 0.596078, 0.960784, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn4"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4269,6 +4357,7 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2"]
+layout_mode = 0
 offset_left = -0.296026
 offset_top = 1.8036
 offset_right = 39.704
@@ -4305,6 +4394,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4353,7 +4443,7 @@ theme_override_font_sizes/font_size = 30
 text = "You can serve burger with enough
 heat with this plate(?)."
 
-[node name="Equip Btn" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label"]
+[node name="Equip Btn5" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -4368,8 +4458,13 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yokst")
+theme_override_styles/focus = SubResource("StyleBoxTexture_yokst")
 
-[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn5"]
+layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
 offset_right = 128.118
@@ -4382,22 +4477,24 @@ text = "50,000 coins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn5"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
 offset_bottom = 32.3703
 scale = Vector2(0.0412445, 0.136979)
-theme_override_colors/font_color = Color(0.603922, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.356863, 0.596078, 0.960784, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
 text = "Equipped"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn"]
+[node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn5"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4431,6 +4528,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate2/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4496,6 +4594,7 @@ scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
 
 [node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
+layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
 offset_right = 128.118
@@ -4510,6 +4609,7 @@ vertical_alignment = 1
 
 [node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4524,6 +4624,7 @@ vertical_alignment = 1
 
 [node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4557,6 +4658,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate3/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4622,6 +4724,7 @@ scale = Vector2(22.4286, 11.5097)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1t3n8")
 
 [node name="Buy" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
+layout_mode = 0
 offset_left = 1.11841
 offset_top = 1.93936
 offset_right = 128.118
@@ -4636,6 +4739,7 @@ vertical_alignment = 1
 
 [node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4650,6 +4754,7 @@ vertical_alignment = 1
 
 [node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4683,6 +4788,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate4/Panel/HBoxContainer/Name"]
+layout_mode = 0
 offset_left = 0.573143
 offset_top = 3.56561
 offset_right = 40.5731
@@ -4764,6 +4870,7 @@ vertical_alignment = 1
 
 [node name="Equipped" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4778,6 +4885,7 @@ vertical_alignment = 1
 
 [node name="Equip" type="Label" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn"]
 visible = false
+layout_mode = 0
 offset_left = 1.53784
 offset_top = 2.37033
 offset_right = 97.5378
@@ -4805,10 +4913,10 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(8.41423, 11.9562)
 theme_override_styles/normal = SubResource("StyleBoxTexture_1cxcu")
-theme_override_styles/hover = SubResource("StyleBoxTexture_1cxcu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_1cxcu")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_1cxcu")
-theme_override_styles/focus = SubResource("StyleBoxTexture_1cxcu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6xnus")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6xnus")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6xnus")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6xnus")
 
 [node name="Left Button" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book"]
 layout_mode = 1
@@ -4822,9 +4930,9 @@ grow_vertical = 0
 scale = Vector2(5.2232, 8.3093)
 theme_override_styles/normal = SubResource("StyleBoxTexture_v08i4")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xmaak")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_v08i4")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_v08i4")
-theme_override_styles/focus = SubResource("StyleBoxTexture_v08i4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_xmaak")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_xmaak")
+theme_override_styles/focus = SubResource("StyleBoxTexture_xmaak")
 
 [node name="Shop Button" type="Button" parent="Game/UI/Collection Canvas/ColorRect/Book"]
 layout_mode = 1
@@ -4838,10 +4946,10 @@ offset_bottom = 12.721
 grow_horizontal = 0
 scale = Vector2(6.62437, 6.57931)
 theme_override_styles/normal = SubResource("StyleBoxTexture_n3weg")
-theme_override_styles/hover = SubResource("StyleBoxTexture_n3weg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_n3weg")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_n3weg")
-theme_override_styles/focus = SubResource("StyleBoxTexture_n3weg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gtylh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gtylh")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_gtylh")
+theme_override_styles/focus = SubResource("StyleBoxTexture_gtylh")
 
 [node name="Collection Panel" type="Panel" parent="Game/UI"]
 z_index = 2
@@ -4879,10 +4987,10 @@ offset_right = 18.1993
 offset_bottom = 13.2801
 scale = Vector2(2.81867, 3.57509)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fbgy4")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_4enj3")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_wxp48")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_apsrv")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vqxhm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fbgy4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fbgy4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fbgy4")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fbgy4")
 
 [node name="Perfect" type="Control" parent="Game/UI"]
 z_index = 2
@@ -4930,6 +5038,14 @@ texture = ExtResource("4_0wbe3")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["center"]]
+scale = Vector2(1, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/center"]
+scale = Vector2(6.63145, 6.83668)
+shape = SubResource("CircleShape2D_ck74t")
+
 [node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 position = Vector2(3.95062, -182.402)
 
@@ -4938,13 +5054,6 @@ position = Vector2(3.95062, -182.402)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Player Physics"]
 position = Vector2(1.97546, -2.07275)
 shape = SubResource("RectangleShape2D_kwbbv")
-
-[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["center"]]
-collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/center"]
-scale = Vector2(6.63145, 6.83668)
-shape = SubResource("CircleShape2D_ck74t")
 
 [node name="Coin Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 
@@ -5238,6 +5347,11 @@ libraries = {
 [connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]
 [connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
 [connection signal="pressed" from="Game/UI/Setting Panel/Setting sprite/Setting Button" to="Game/UI" method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_1_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_2_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_3_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn4" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_4_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn5" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_5_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/Right Button" to="Game/UI/Collection Canvas" method="_on_right_button_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/Left Button" to="Game/UI/Collection Canvas" method="_on_left_button_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/Shop Button" to="Game/UI/Collection Canvas" method="_on_shop_button_pressed"]
