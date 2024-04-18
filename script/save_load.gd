@@ -4,20 +4,12 @@ const SCOREFILE = "user://scorefile.save"
 const COINFILE = "user://coinfile.save"
 const COLLECTIONFILE = "user://collectionfile.save"
 const SHOPFILE = "user://shopfile.save"
-
-const CollectionClass = preload("res://script/CollectionClass.gd")
-const ShopClass = preload("res://script/Shop Class.gd")
-
-var shop
-var collection_ins
+const EQUIPFILE = "user://equipfile.save"
 
 func _ready():
-	# Collection 클래스의 인스턴스 생성
-	collection_ins = CollectionClass.new()
-	shop = ShopClass.new()
-	
+
 	#debug_set_zero()
-	reset_collection_shop()
+	#reset_collection_shop()
 	
 	load_data()
 	load_collection()
@@ -50,24 +42,29 @@ func load_data():
 		
 func reset_collection_shop():
 	var collection_file = FileAccess.open(COLLECTIONFILE, FileAccess.WRITE_READ)
-	for i in range(collection_ins.collection.size()):
+	for i in range(Global.collection_ins.collection.size()):
 		if i != 0 || i != 1 || i != 2:
 			collection_file.store_string("false")
-			if i < collection_ins.collection.size() - 1:
+			if i < Global.collection_ins.collection.size() - 1:
 				collection_file.store_string(",")
 				
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.WRITE_READ)
-	for i in range(shop.shop.size()):
+	var equip_file = FileAccess.open(EQUIPFILE, FileAccess.WRITE_READ)
+	for i in range(Global.shop.shop.size()):
+		if i == 0:
+			shop_file.store_string("true")
+			equip_file.store_string("true")
 		if i != 0:
 			shop_file.store_string("false")
-			if i < shop.shop.size() - 1:
+			equip_file.store_string("false")
+			if i < Global.shop.shop.size() - 1:
 				shop_file.store_string(",")
 	
 func save_collection():
 	var collection_file = FileAccess.open(COLLECTIONFILE, FileAccess.WRITE_READ)
-	for i in range(collection_ins.collection.size()):
-		collection_file.store_string(str(collection_ins.collection[i].unlock))
-		if i < collection_ins.collection.size() - 1:
+	for i in range(Global.collection_ins.collection.size()):
+		collection_file.store_string(str(Global.collection_ins.collection[i].unlock))
+		if i < Global.collection_ins.collection.size() - 1:
 			collection_file.store_string(",")
 	
 func load_collection():
@@ -76,28 +73,52 @@ func load_collection():
 		var collection_str = collection_file.get_as_text()
 		var collection_array = collection_str.split(",")
 
-		for i in range(min(collection_ins.collection.size(), collection_array.size())):
+		for i in range(min(Global.collection_ins.collection.size(), collection_array.size())):
 			if collection_array[i] == "false":
-				collection_ins.collection[i].unlock = false
+				Global.collection_ins.collection[i].unlock = false
 			else:
-				collection_ins.collection[i].unlock = true
+				Global.collection_ins.collection[i].unlock = true
 
 
 func save_shop():
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.WRITE_READ)
-	for i in range(shop.shop.size()):
-		shop_file.store_string(str(shop.shop[i].sold))
-		if i < shop.collection.size() - 1:
+	var equip_file = FileAccess.open(EQUIPFILE, FileAccess.WRITE_READ)
+	
+	for i in range(Global.shop.shop.size()):
+		shop_file.store_string(str(Global.shop.shop[i].sold))
+		equip_file.store_string(str(Global.shop.shop[i].equipped))
+		#print(Global.shop.shop[i].sold, Global.shop.shop[i].equipped, "  ", i)
+
+		if i < Global.shop.shop.size() - 1:
 			shop_file.store_string(",")
+			equip_file.store_string(",")
+			
+	#var arr = shop_file.get_as_text()
+	#var arr2 = equip_file.get_as_text()
+	#print("shop: " ,arr)
+	#print("equip: ", arr2)
+		
 
 func load_shop():
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.READ)
+	var equip_file = FileAccess.open(EQUIPFILE, FileAccess.READ)
+	
 	if FileAccess.file_exists(SHOPFILE):
 		var shop_str = shop_file.get_as_text()
 		var shop_array = shop_str.split(",")
 
-		for i in range(min(shop.shop.size(), shop_array.size())):
+		for i in range(min(Global.shop.shop.size(), shop_array.size())):
 			if shop_array[i] == "false":
-				shop.shop[i].sold = false
+				Global.shop.shop[i].sold = false
 			else:
-				shop.shop[i].sold = true
+				Global.shop.shop[i].sold = true
+				
+	if FileAccess.file_exists(EQUIPFILE):
+		var equip_str = equip_file.get_as_text()
+		var equip_array = equip_str.split(",")
+
+		for i in range(min(Global.shop.shop.size(), equip_array.size())):
+			if equip_array[i] == "false":
+				Global.shop.shop[i].equipped = false
+			else:
+				Global.shop.shop[i].equipped = true

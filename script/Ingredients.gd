@@ -48,13 +48,15 @@ func sleep_mode():
 func _on_body_entered(body):
 	if !displayed:
 		if ((body.is_in_group("player") && self.is_in_group("bottom")) || body.is_in_group("ingredient")) && !gone && !collided:
-			if self.rotation < 90 && self.rotation > -90:
+			if self.rotation <= 90 && self.rotation >= -90:
 				#print(self.get_groups())
 				#print(body.get_groups())			
 				collided = true
+				#print(collided)
 			
 		if body.is_in_group("center") && !in_middle:
 			in_middle = true
+			#print(in_middle)
 			
 		if body.is_in_group("delete"):		
 			#print("deleted")

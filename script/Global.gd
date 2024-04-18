@@ -9,5 +9,14 @@ var total_earning = 0
 var game_start = false
 
 
+const CollectionClass = preload("res://script/CollectionClass.gd")
+const ShopClass = preload("res://script/Shop Class.gd")
+
+var shop
+var collection_ins
+
 	
-#var collections = []
+func _ready():
+	# Collection 클래스의 인스턴스 생성
+	collection_ins = CollectionClass.new()
+	shop = ShopClass.new()

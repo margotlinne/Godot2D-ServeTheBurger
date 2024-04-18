@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4o6xsh0rl6u4"]
+
+[ext_resource type="Texture2D" uid="uid://dapngurjbmk1s" path="res://image/sleep.png" id="1_qmca8"]
+
+[sub_resource type="Curve" id="Curve_ix528"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0315789), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 5
+speed_scale = 1.5
+explosiveness = 1.0
+fixed_fps = 60
+texture = ExtResource("1_qmca8")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+angle_min = 40.0
+angle_max = 220.0
+scale_amount_min = 0.4
+scale_amount_max = 0.6
+scale_amount_curve = SubResource("Curve_ix528")

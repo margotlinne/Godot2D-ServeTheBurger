@@ -14,9 +14,9 @@ class Collection:
 		
 	
 var collection: = [
-		Collection.new("patty", "", 0, true, "res://scenes/patty.tscn"),
-		Collection.new("cheese", "", 0, true, "res://scenes/cheese.tscn"),
-		Collection.new("lettuce", "", 0, true, "res://scenes/lettuce.tscn"),
+		Collection.new("patty", "none", 0, true, "res://scenes/patty.tscn"),
+		Collection.new("cheese", "none", 0, true, "res://scenes/cheese.tscn"),
+		Collection.new("lettuce", "none", 0, true, "res://scenes/lettuce.tscn"),
 		Collection.new("onion", "", 0, false, "res://scenes/onion.tscn"),
 		Collection.new("tomato", "", 0, false, "res://scenes/tomato.tscn"),
 		Collection.new("chickencutlet", "", 0, false, "res://scenes/chickencutlet.tscn"),

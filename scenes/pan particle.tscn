@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://byb7o7aclh4cr"]
+[gd_scene load_steps=3 format=3 uid="uid://bcv8ns82bja02"]
 
-[ext_resource type="Texture2D" uid="uid://bu8ax6wce78a1" path="res://image/ingredient particle.png" id="1_7dpga"]
+[ext_resource type="Texture2D" uid="uid://bitdymkrij3vw" path="res://image/oil.png" id="1_8stes"]
 
 [sub_resource type="Curve" id="Curve_ix528"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0315789), 0.0, 0.0, 0, 0]
@@ -12,7 +12,7 @@ amount = 5
 speed_scale = 1.5
 explosiveness = 1.0
 fixed_fps = 60
-texture = ExtResource("1_7dpga")
+texture = ExtResource("1_8stes")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 30.0
@@ -22,4 +22,3 @@ angle_max = 220.0
 scale_amount_min = 0.4
 scale_amount_max = 0.6
 scale_amount_curve = SubResource("Curve_ix528")
-color = Color(0.54902, 0.47451, 0, 0.756863)

@@ -79,7 +79,12 @@ var available_index = []
 
 
 # particle
-var ing_particle = preload("res://scenes/ingredient particle.tscn")
+var particles = []
+var basic_particle = preload("res://scenes/basic particle.tscn")
+var flower_particle = preload("res://scenes/flower particle.tscn")
+var stripe_particle = preload("res://scenes/stripe particle.tscn")
+var bed_particle = preload("res://scenes/bed particle.tscn")
+var pan_particle = preload("res://scenes/pan particle.tscn")
 
 # coin collecting
 @onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
@@ -125,6 +130,12 @@ func _ready():
 #	print(Global.collections)
 	update_ingredients()
 	
+	particles.append(basic_particle)
+	particles.append(flower_particle)
+	particles.append(stripe_particle)
+	particles.append(bed_particle)
+	particles.append(pan_particle)
+	
 	
 func update_ingredients():
 	SaveLoad.save_collection()
@@ -146,7 +157,7 @@ func update_ingredients():
 func _process(delta): 
 	update_ingredients()
 	#print(available_index)
-	var debuging = true
+	var debuging = false
 	timer += delta
 	#### (add) after first bun landed on plate
 	if !debuging && Global.game_start && !finish_pause && \
@@ -188,7 +199,11 @@ func _process(delta):
 				var original_position = ins_ingredient[i].global_position
 				
 				# instantiate particle
-				var new_particle = ing_particle.instantiate()
+				var particle_index
+				for p in Global.shop.shop.size():
+					if Global.shop.shop[p].equipped:
+						particle_index = p
+				var new_particle = particles[particle_index].instantiate()
 				new_particle.one_shot = true
 				ins_ingredient[i].add_child(new_particle)		
 				new_particle.emitting = true				

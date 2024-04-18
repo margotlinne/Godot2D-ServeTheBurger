@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=87 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -377,7 +377,22 @@ _data = {
 radius = 6.48997
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwbbv"]
-size = Vector2(312.097, 62.1826)
+size = Vector2(312.097, 37.3096)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q2bo"]
+size = Vector2(276.542, 37.3096)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhrw1"]
+size = Vector2(276.543, 49.7461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_025s4"]
+size = Vector2(193.58, 58.0371)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lv0h"]
+radius = 6.48997
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4sma"]
+size = Vector2(323.776, 61.2729)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jorbu"]
 
@@ -5031,31 +5046,141 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("10_crpuk")
 
-[node name="Player Plate" type="Sprite2D" parent="Game/Left Hand"]
+[node name="Player Plate" type="Node2D" parent="Game/Left Hand"]
 position = Vector2(-7, -55)
 scale = Vector2(0.253126, 0.241225)
-texture = ExtResource("4_0wbe3")
+
+[node name="Basic Plate" type="Sprite2D" parent="Game/Left Hand/Player Plate"]
+texture = ExtResource("13_fk6mh")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["center"]]
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Basic Plate" groups=["center"]]
 scale = Vector2(1, 1)
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/center"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Basic Plate/center"]
 scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
-[node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
-position = Vector2(3.95062, -182.402)
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Basic Plate" groups=["player"]]
+scale = Vector2(1, 1)
 
-[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate" groups=["player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Player Physics"]
-position = Vector2(1.97546, -2.07275)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Basic Plate/Player Physics"]
+position = Vector2(1.97485, -14.5093)
 shape = SubResource("RectangleShape2D_kwbbv")
 
+[node name="Flower Plate" type="Sprite2D" parent="Game/Left Hand/Player Plate"]
+visible = false
+position = Vector2(0, 4.14551)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(865.822, 2408.23, 353.168, 170.887)
+
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Flower Plate" groups=["center"]]
+position = Vector2(0, -4.14551)
+scale = Vector2(1, 1)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Flower Plate/center"]
+scale = Vector2(6.63145, 6.83668)
+shape = SubResource("CircleShape2D_ck74t")
+disabled = true
+
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Flower Plate" groups=["player"]]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Flower Plate/Player Physics"]
+position = Vector2(3.9502, -20.7275)
+shape = SubResource("RectangleShape2D_1q2bo")
+disabled = true
+
+[node name="Stripe Plate" type="Sprite2D" parent="Game/Left Hand/Player Plate"]
+visible = false
+position = Vector2(0, 4.14551)
+scale = Vector2(1.32709, 1.78211)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(1665.01, 2443.91, 230.303, 54.9185)
+
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Stripe Plate" groups=["center"]]
+position = Vector2(0, -2.32617)
+scale = Vector2(0.753526, 0.561133)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Stripe Plate/center"]
+scale = Vector2(6.63145, 6.83668)
+shape = SubResource("CircleShape2D_ck74t")
+disabled = true
+
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Stripe Plate" groups=["player"]]
+scale = Vector2(0.753526, 0.561133)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Stripe Plate/Player Physics"]
+position = Vector2(3.94995, -12.4365)
+shape = SubResource("RectangleShape2D_qhrw1")
+disabled = true
+
+[node name="Bed Plate" type="Sprite2D" parent="Game/Left Hand/Player Plate"]
+visible = false
+position = Vector2(-3.95044, -16.582)
+scale = Vector2(1.50061, 1.22554)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(1255.86, 2410.82, 286.671, 152.999)
+
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Bed Plate" groups=["center"]]
+position = Vector2(0, 8.32373)
+scale = Vector2(0.847357, 1.00393)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Bed Plate/center"]
+scale = Vector2(6.63145, 6.83668)
+shape = SubResource("CircleShape2D_ck74t")
+disabled = true
+
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Bed Plate" groups=["player"]]
+position = Vector2(0, 12.4854)
+scale = Vector2(0.847357, 1.00393)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Bed Plate/Player Physics"]
+position = Vector2(-1.97534, -4.14551)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_025s4")
+disabled = true
+
+[node name="Pan Plate" type="Sprite2D" parent="Game/Left Hand/Player Plate"]
+visible = false
+position = Vector2(27.6543, 4.14551)
+scale = Vector2(1.19826, 1.32628)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(1587.56, 2542.4, 355.923, 90.1885)
+
+[node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Pan Plate" groups=["center"]]
+position = Vector2(-29.6726, -15.6283)
+scale = Vector2(0.753526, 0.561133)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Pan Plate/center"]
+scale = Vector2(6.63145, 6.83668)
+shape = SubResource("CircleShape2D_3lv0h")
+disabled = true
+
+[node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Pan Plate" groups=["player"]]
+scale = Vector2(0.753526, 0.561133)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Pan Plate/Player Physics"]
+position = Vector2(-39.3782, -19.4958)
+shape = SubResource("RectangleShape2D_p4sma")
+disabled = true
+
 [node name="Coin Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
+scale = Vector2(1, 1)
+
+[node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
+position = Vector2(3.95068, -182.402)
+scale = Vector2(1, 1)
 
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-8, 150)
