@@ -78,9 +78,9 @@ func _update_label():
 			btn[i].get_node("Equipped").visible = false
 			btn[i].get_node("Equip").visible = false
 	SaveLoad.save_shop()		
-	for i in Global.shop.shop.size():
-		print(Global.shop.shop[i].name, "   ", Global.shop.shop[i].price, "   ",\
-		Global.shop.shop[i].equipped, "  ", Global.shop.shop[i].sold)
+	#for i in Global.shop.shop.size():
+		#print(Global.shop.shop[i].name, "   ", Global.shop.shop[i].price, "   ",\
+		#Global.shop.shop[i].equipped, "  ", Global.shop.shop[i].sold)
 	
 func _on_equip_btn_1_pressed():
 	if !Global.shop.shop[0].equipped:

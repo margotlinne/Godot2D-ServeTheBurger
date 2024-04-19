@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=88 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -268,6 +268,9 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h7mko"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe701"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0u1r"]
+bg_color = Color(0.6, 0.6, 0.6, 0.619608)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msguh"]
 bg_color = Color(0.168627, 0.168627, 0.168627, 0.0823529)
@@ -1062,6 +1065,174 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_lbop1")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_vy0mo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
+[node name="Achievement" type="Control" parent="Game/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+offset_right = 40.0
+offset_bottom = -34.0
+grow_vertical = 0
+scale = Vector2(6.52, 1.8)
+
+[node name="Panel" type="Panel" parent="Game/UI/Achievement"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b0u1r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/UI/Achievement/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 19
+
+[node name="Image Control" type="Control" parent="Game/UI/Achievement/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="onion" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(169, 1045, 221, 68)
+
+[node name="tomato" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(168, 1156, 226, 65)
+
+[node name="chickencutlet" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(168, 1258, 224, 63)
+
+[node name="pickle" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(162, 1360, 237, 47)
+
+[node name="shrimp" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(153, 1430, 256, 59)
+
+[node name="bacon" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(151, 1535, 259, 70)
+
+[node name="greenonion" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(153, 1628, 253, 87)
+
+[node name="lemon" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(162, 1744, 232, 50)
+
+[node name="fish" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(159, 1832, 298, 75)
+
+[node name="drumstick" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(163, 1958, 284, 78)
+
+[node name="flower" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(153, 2073, 243, 90)
+
+[node name="spicysauce" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(174, 2231, 215, 70)
+
+[node name="mayonnaise" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(166, 2357, 231, 93)
+
+[node name="pineapple" type="Sprite2D" parent="Game/UI/Achievement/Panel/HBoxContainer/Image Control"]
+position = Vector2(9.43832, 26.0866)
+scale = Vector2(0.059227, 0.238422)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(171, 2510, 217, 64)
+
+[node name="Label Control" type="Control" parent="Game/UI/Achievement/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/Achievement/Panel/HBoxContainer/Label Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.527739, 0.98343)
+theme_override_constants/separation = 10
+
+[node name="Unlock Label Control" type="Control" parent="Game/UI/Achievement/Panel/HBoxContainer/Label Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Game/UI/Achievement/Panel/HBoxContainer/Label Control/VBoxContainer/Unlock Label Control"]
+layout_mode = 0
+offset_left = -30.4807
+offset_top = 2.25967
+offset_right = 225.519
+offset_bottom = 32.2597
+scale = Vector2(0.217832, 0.480762)
+theme_override_fonts/font = ExtResource("17_roojl")
+theme_override_font_sizes/font_size = 20
+text = "New Ingredient Unlocked"
+
+[node name="Detail Label Control" type="Control" parent="Game/UI/Achievement/Panel/HBoxContainer/Label Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Game/UI/Achievement/Panel/HBoxContainer/Label Control/VBoxContainer/Detail Label Control"]
+layout_mode = 0
+offset_left = 0.034874
+offset_top = 5.25269
+offset_right = 97.0349
+offset_bottom = 50.2527
+scale = Vector2(0.389507, 0.583024)
+theme_override_fonts/font = ExtResource("17_roojl")
+theme_override_font_sizes/font_size = 8
+text = "Serve over 10 layers burger in a row you got it? got it? got it. "
+autowrap_mode = 3
+
 [node name="Collection Canvas" type="Control" parent="Game/UI"]
 visible = false
 layout_mode = 1
@@ -1459,7 +1630,7 @@ scale = Vector2(0.0267254, 0.2213)
 theme_override_colors/font_color = Color(0.443137, 0.368627, 0.105882, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 30
-text = "Unlock: make over 10 layers burger in a row."
+text = "Unlock: "
 vertical_alignment = 1
 
 [node name="Control2" type="Control" parent="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer"]
@@ -5056,7 +5227,6 @@ region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
 [node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Basic Plate" groups=["center"]]
-scale = Vector2(1, 1)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Basic Plate/center"]
@@ -5064,7 +5234,6 @@ scale = Vector2(6.63145, 6.83668)
 shape = SubResource("CircleShape2D_ck74t")
 
 [node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Basic Plate" groups=["player"]]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Basic Plate/Player Physics"]
 position = Vector2(1.97485, -14.5093)
@@ -5079,7 +5248,6 @@ region_rect = Rect2(865.822, 2408.23, 353.168, 170.887)
 
 [node name="center" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Flower Plate" groups=["center"]]
 position = Vector2(0, -4.14551)
-scale = Vector2(1, 1)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Flower Plate/center"]
@@ -5088,7 +5256,6 @@ shape = SubResource("CircleShape2D_ck74t")
 disabled = true
 
 [node name="Player Physics" type="CharacterBody2D" parent="Game/Left Hand/Player Plate/Flower Plate" groups=["player"]]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Flower Plate/Player Physics"]
 position = Vector2(3.9502, -20.7275)
@@ -5145,7 +5312,6 @@ scale = Vector2(0.847357, 1.00393)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Left Hand/Player Plate/Bed Plate/Player Physics"]
 position = Vector2(-1.97534, -4.14551)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_025s4")
 disabled = true
 
@@ -5176,11 +5342,9 @@ shape = SubResource("RectangleShape2D_p4sma")
 disabled = true
 
 [node name="Coin Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
-scale = Vector2(1, 1)
 
 [node name="Stack Pos" type="Marker2D" parent="Game/Left Hand/Player Plate"]
 position = Vector2(3.95068, -182.402)
-scale = Vector2(1, 1)
 
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Left Hand"]
 position = Vector2(-8, 150)
@@ -5238,6 +5402,7 @@ script = ExtResource("11_xmaf4")
 position = Vector2(63, -153)
 
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Right Hand/Move"]
+z_index = 3
 position = Vector2(217, -22)
 rotation = -1.5708
 scale = Vector2(0.196504, 0.229309)

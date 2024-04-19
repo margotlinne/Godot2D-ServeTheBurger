@@ -12,8 +12,8 @@ class Shop:
 
 var shop := [
 	Shop.new("basic", 0, true, true),
-	Shop.new("flower", 5000, false, false),
-	Shop.new("stripe", 9000, false, false),
-	Shop.new("bed", 20000, false, false),
-	Shop.new("pan", 50000, false, false)
+	Shop.new("flower", 0, false, false),
+	Shop.new("stripe", 0, false, false),
+	Shop.new("bed", 0, false, false),
+	Shop.new("pan", 0, false, false)
 ]

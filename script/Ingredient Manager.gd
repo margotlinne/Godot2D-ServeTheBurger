@@ -39,9 +39,7 @@ var reached_limit = false
 @onready var result = get_node("/root/Node/Hamburger/BG/Plate/Result Spawn Pos")
 @onready var result_manager = get_node("/root/Node/Hamburger/BG")
 
-const CollectionClass = preload("res://script/CollectionClass.gd")
 
-var ins_collection = CollectionClass.new()
 
 # first and start object
 var last_bun = preload("res://scenes/top bun.tscn")
@@ -139,10 +137,10 @@ func _ready():
 	
 func update_ingredients():
 	SaveLoad.save_collection()
-	for i in range(ins_collection.collection.size()):
-		var new_ingredient = load(ins_collection.collection[i].path)
+	for i in range(Global.collection_ins.collection.size()):
+		var new_ingredient = load(Global.collection_ins.collection[i].path)
 		ingredients.append(new_ingredient)
-		if ins_collection.collection[i].unlock:
+		if Global.collection_ins.collection[i].unlock:
 			if available_index.size() == 0:
 				available_index.append(i)
 			else:
@@ -318,9 +316,26 @@ func _process(delta):
 		right_hand.disappear= true
 		print(right_hand.disappear)
 		new_burger = false
+		
+		Global.burger_count[0] += 1
+		
+		for i in Global.shop.shop.size():
+			if Global.shop.shop[i].equipped:
+				match Global.shop.shop[i].name:
+					"flower":
+						Global.burger_count[1] += 1
+					"stripe":
+						Global.burger_count[2] += 1	
+					"bed":
+						Global.burger_count[3] += 1
+					"pan":
+						Global.burger_count[4] += 1
+		print(Global.burger_count)
 		var coin_scene = $"Left Hand/Coin Pos"
+		# make coin as many as stacked items
 		for i in stacked_items:
 			coin_scene.instantiate_coin(moneyJar.position, false)
+		SaveLoad.save_data()
 		
 	if result_manager.ready_newBurger:
 		total_burger += 1
@@ -435,7 +450,7 @@ func finish_bun():
 	
 # spawn last bun and finish the burger
 func _on_finish_button_button_down():
-	if Global.score >= 0 && !Global.game_over:
+	if Global.score >= 5 && !Global.game_over:
 		finish_pause = true
 		if !right_hand.moving:
 			right_hand.move_hand()
@@ -450,6 +465,7 @@ func _on_finish_button_button_down():
 			
 # instnatiate ingredients randomly
 func instantiate_ingredient(pos):
+	#print(available_index)
 	#print("instantiate!")
 	random_index = randi_range(0, available_index.size()-1)
 	var instance = ingredients[available_index[random_index]].instantiate()

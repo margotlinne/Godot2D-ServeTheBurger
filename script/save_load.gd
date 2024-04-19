@@ -2,7 +2,9 @@ extends Node
 
 const SCOREFILE = "user://scorefile.save"
 const COINFILE = "user://coinfile.save"
+const BURGERFILE = "user://burgerfile.save"
 const COLLECTIONFILE = "user://collectionfile.save"
+const ACHIEVEMENTFILE = "user://achievementfile.save"
 const SHOPFILE = "user://shopfile.save"
 const EQUIPFILE = "user://equipfile.save"
 
@@ -20,6 +22,8 @@ func debug_set_zero():
 	scorefile.store_32(0)
 	var coinfile = FileAccess.open(COINFILE, FileAccess.WRITE_READ)
 	coinfile.store_32(0)
+	var burgerfile = FileAccess.open(BURGERFILE, FileAccess.WRITE_READ)
+	burgerfile.store_string("0,0,0,0,0")
 	
 func save_data():
 	# save score
@@ -28,6 +32,12 @@ func save_data():
 	# save coin
 	var coin_file = FileAccess.open(COINFILE, FileAccess.WRITE_READ)
 	coin_file.store_32(Global.total_earning)
+	# save how many burgers have made
+	var burger_file = FileAccess.open(BURGERFILE, FileAccess.WRITE_READ)
+	for i in Global.shop.shop.size():
+		burger_file.store_string(str(Global.burger_count[i]))
+		if i != Global.shop.shop.size() - 1:
+			burger_file.store_string(",")
 	
 	
 func load_data():
@@ -40,13 +50,23 @@ func load_data():
 	if FileAccess.file_exists(COINFILE):
 		Global.total_earning = coin_file.get_32()
 		
-func reset_collection_shop():
+	var burger_file = FileAccess.open(BURGERFILE, FileAccess.READ)
+	if FileAccess.file_exists(BURGERFILE):
+		var count_str = burger_file.get_as_text()
+		var count_array = count_str.split(",")
+
+		for i in count_array.size():
+			#print(Global.collection_ins.collection[i].name, "  ", collection_array[i])
+			Global.burger_count[i] = int(count_array[i])
+		
+func reset_collection_shop():	
 	var collection_file = FileAccess.open(COLLECTIONFILE, FileAccess.WRITE_READ)
 	for i in range(Global.collection_ins.collection.size()):
-		if i != 0 || i != 1 || i != 2:
-			collection_file.store_string("false")
-			if i < Global.collection_ins.collection.size() - 1:
-				collection_file.store_string(",")
+		if i > 2:
+			Global.collection_ins.collection[i].unlock = false
+		else:
+			Global.collection_ins.collection[i].unlock = true
+		save_collection()
 				
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.WRITE_READ)
 	var equip_file = FileAccess.open(EQUIPFILE, FileAccess.WRITE_READ)
@@ -54,7 +74,7 @@ func reset_collection_shop():
 		if i == 0:
 			shop_file.store_string("true")
 			equip_file.store_string("true")
-		if i != 0:
+		elif i != 0:
 			shop_file.store_string("false")
 			equip_file.store_string("false")
 			if i < Global.shop.shop.size() - 1:
@@ -66,19 +86,37 @@ func save_collection():
 		collection_file.store_string(str(Global.collection_ins.collection[i].unlock))
 		if i < Global.collection_ins.collection.size() - 1:
 			collection_file.store_string(",")
+			
+	var achievement_file = FileAccess.open(ACHIEVEMENTFILE, FileAccess.WRITE_READ)
+	for i in range(Global.collection_ins.collection.size()):
+		achievement_file.store_string(str(Global.collection_ins.collection[i].achievement_done))
+		if i < Global.collection_ins.collection.size() - 1:
+			achievement_file.store_string(",")
 	
 func load_collection():
 	var collection_file = FileAccess.open(COLLECTIONFILE, FileAccess.READ)
+	var achievement_file = FileAccess.open(ACHIEVEMENTFILE, FileAccess.READ)
 	if FileAccess.file_exists(COLLECTIONFILE):
 		var collection_str = collection_file.get_as_text()
 		var collection_array = collection_str.split(",")
 
 		for i in range(min(Global.collection_ins.collection.size(), collection_array.size())):
+			#print(Global.collection_ins.collection[i].name, "  ", collection_array[i])
 			if collection_array[i] == "false":
 				Global.collection_ins.collection[i].unlock = false
 			else:
 				Global.collection_ins.collection[i].unlock = true
-
+				
+	if FileAccess.file_exists(ACHIEVEMENTFILE):
+		var achievement_str = achievement_file.get_as_text()
+		var achievement_array = achievement_str.split(",")
+		
+		for i in range(min(Global.collection_ins.collection.size(), achievement_array.size())):
+			#print(Global.collection_ins.collection[i].name, "  ", collection_array[i])
+			if achievement_array[i] == "false":
+				Global.collection_ins.collection[i].achievement_done = false
+			else:
+				Global.collection_ins.collection[i].achievement_done = true
 
 func save_shop():
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.WRITE_READ)
