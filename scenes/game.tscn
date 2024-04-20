@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=90 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dk1xryfek2i6e" path="res://image/burger_img3.png" id="13_fk6mh"]
 [ext_resource type="Script" path="res://script/Result Bg.gd" id="13_obcrt"]
 [ext_resource type="Texture2D" uid="uid://dlo5u4i4y0mrj" path="res://image/book.png" id="16_4fn13"]
+[ext_resource type="Script" path="res://script/Achievement Box.gd" id="16_5sjdy"]
 [ext_resource type="Script" path="res://script/Collection Manager.gd" id="16_j1u6a"]
 [ext_resource type="Texture2D" uid="uid://cgqit73u7gu7c" path="res://image/game over canvas.png" id="16_t2d8h"]
 [ext_resource type="Script" path="res://script/coin.gd" id="17_50g1h"]
@@ -230,6 +231,8 @@ _data = {
 "idle": SubResource("Animation_uow5m")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xl5ad"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -440,14 +443,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Move/Hand Sprite:modulate")
+tracks/1/path = NodePath("Move/Hand Sprite:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 7.9, 10.3),
+"times": PackedFloat32Array(0.1, 7.9, 10.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.898039, 0, 0.290196, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.262745, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Move/Hand Sprite/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 7.9, 10.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 0.262745, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8tn6m"]
@@ -896,11 +911,11 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
 
 [node name="Label" type="Label" parent="Game/UI/Finish Button/sprite/Finish Button"]
 layout_mode = 0
-offset_left = 11.6872
-offset_top = 16.6086
-offset_right = 68.6872
-offset_bottom = 43.6086
-scale = Vector2(0.702247, 0.813953)
+offset_left = 12.0
+offset_top = 17.0
+offset_right = 76.0
+offset_bottom = 47.0
+scale = Vector2(0.642918, 0.765393)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 20
@@ -917,7 +932,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(1.33101, 1.22659)
-theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
+theme_override_styles/panel = SubResource("StyleBoxTexture_xl5ad")
 
 [node name="Score sprite" type="Sprite2D" parent="Game/UI/Money Panel"]
 position = Vector2(21.7922, 20.3517)
@@ -1083,6 +1098,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_b0u1r")
+script = ExtResource("16_5sjdy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Game/UI/Achievement/Panel"]
 layout_mode = 0
@@ -1232,6 +1248,52 @@ theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 8
 text = "Serve over 10 layers burger in a row you got it? got it? got it. "
 autowrap_mode = 3
+
+[node name="test1" type="Button" parent="Game/UI/Achievement"]
+visible = false
+layout_mode = 0
+offset_left = 46.7791
+offset_top = -290.0
+offset_right = 54.7791
+offset_bottom = -282.0
+
+[node name="test2" type="Button" parent="Game/UI/Achievement"]
+visible = false
+layout_mode = 0
+offset_left = 46.7791
+offset_top = -255.0
+offset_right = 54.7791
+offset_bottom = -247.0
+
+[node name="test3" type="Button" parent="Game/UI/Achievement"]
+visible = false
+layout_mode = 0
+offset_left = 46.7791
+offset_top = -205.0
+offset_right = 54.7791
+offset_bottom = -197.0
+
+[node name="test4" type="Button" parent="Game/UI/Achievement"]
+visible = false
+layout_mode = 0
+offset_left = 56.135
+offset_top = -195.556
+offset_right = 64.135
+offset_bottom = -187.555
+
+[node name="test5" type="Button" parent="Game/UI/Achievement"]
+visible = false
+layout_mode = 0
+offset_left = 56.135
+offset_top = -162.778
+offset_right = 64.135
+offset_bottom = -154.777
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Game/UI/Achievement"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
 
 [node name="Collection Canvas" type="Control" parent="Game/UI"]
 visible = false
@@ -5637,6 +5699,11 @@ libraries = {
 [connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]
 [connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
 [connection signal="pressed" from="Game/UI/Setting Panel/Setting sprite/Setting Button" to="Game/UI" method="_on_setting_button_pressed"]
+[connection signal="pressed" from="Game/UI/Achievement/test1" to="Game/UI/Collection Canvas" method="_on_test_1_pressed"]
+[connection signal="pressed" from="Game/UI/Achievement/test2" to="Game/UI/Collection Canvas" method="_on_test_2_pressed"]
+[connection signal="pressed" from="Game/UI/Achievement/test3" to="Game/UI/Collection Canvas" method="_on_test_3_pressed"]
+[connection signal="pressed" from="Game/UI/Achievement/test4" to="Game/UI/Collection Canvas" method="_on_test_4_pressed"]
+[connection signal="pressed" from="Game/UI/Achievement/test5" to="Game/UI/Collection Canvas" method="_on_test_5_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_1_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_2_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3" to="Game/UI/Collection Canvas/ColorRect/Book/HBoxContainer4" method="_on_equip_btn_3_pressed"]

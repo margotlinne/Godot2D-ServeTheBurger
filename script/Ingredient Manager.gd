@@ -6,6 +6,8 @@ var ingredients = []
 var array_length = 0
 var random_index = 0
 
+var history = []
+
 # instantiated items
 var ins_ingredient = []
 # itmes landed on plate or ingredient
@@ -168,6 +170,7 @@ func _process(delta):
 	# when it's game over
 	if Global.game_over && !isOver:
 		warning.visible = false
+		right_hand.disappear= true
 		gameOver()
 		
 	# when it's not game over
@@ -346,7 +349,13 @@ func _process(delta):
 	
 	# when right hand timed out and it's game over
 	if right_hand.loosing_power:
-		Global.game_over = true;
+		var bun = last_pos.get_child(0)
+		right_hand.moving = false
+		# bun falls down
+		bun.freeze = false	
+		finishing = true
+		right_hand.loosing_power = false
+		
 
 func format_number(num):
 	if num < 1000:
@@ -407,6 +416,7 @@ func clean_plate():
 					finish_pause = false
 					ins_ingredient.clear()
 					#stacked_ing.clear()
+					history.append(Global.score)
 					Global.score = 0
 					
 	# except first bun(-1)
@@ -450,7 +460,7 @@ func finish_bun():
 	
 # spawn last bun and finish the burger
 func _on_finish_button_button_down():
-	if Global.score >= 5 && !Global.game_over:
+	if Global.score >= 0 && !Global.game_over:
 		finish_pause = true
 		if !right_hand.moving:
 			right_hand.move_hand()

@@ -38,34 +38,19 @@ extends Control
 @onready var pineapple_req = $ColorRect/Book/HBoxContainer3/Control/VBoxContainer/pineapple/Lock/HBoxContainer/Control/Label
 @onready var pineapple_lock = $ColorRect/Book/HBoxContainer3/Control/VBoxContainer/pineapple/Lock
 
-
-@onready var onion_img = $"../Achievement/Panel/HBoxContainer/Image Control/onion"
-@onready var tomato_img = $"../Achievement/Panel/HBoxContainer/Image Control/tomato"
-@onready var chickencutlet_img = $"../Achievement/Panel/HBoxContainer/Image Control/chickencutlet"
-@onready var pickle_img = $"../Achievement/Panel/HBoxContainer/Image Control/pickle"
-@onready var shrimp_img = $"../Achievement/Panel/HBoxContainer/Image Control/shrimp"
-@onready var bacon_img = $"../Achievement/Panel/HBoxContainer/Image Control/bacon"
-@onready var greenonion_img = $"../Achievement/Panel/HBoxContainer/Image Control/greenonion"
-@onready var lemon_img = $"../Achievement/Panel/HBoxContainer/Image Control/lemon"
-@onready var fish_img = $"../Achievement/Panel/HBoxContainer/Image Control/fish"
-@onready var drumstick_img = $"../Achievement/Panel/HBoxContainer/Image Control/drumstick"
-@onready var flower_img = $"../Achievement/Panel/HBoxContainer/Image Control/flower"
-@onready var spicysauce_img = $"../Achievement/Panel/HBoxContainer/Image Control/spicysauce"
-@onready var mayonnaise_img = $"../Achievement/Panel/HBoxContainer/Image Control/mayonnaise"
-@onready var pineapple_img = $"../Achievement/Panel/HBoxContainer/Image Control/pineapple"
-
-
 @onready var detail_txt = $"../Achievement/Panel/HBoxContainer/Label Control/VBoxContainer/Detail Label Control/Label"
 
 @onready var achievement_box = $"../Achievement/Panel"
 @onready var ing_manager = get_node("/root/Node/Game")
-
+@onready var parent = $"../Achievement"
 var current_page = 1
 var shop_open = false
 
 var req = []
 var lock = []
-var img = []
+
+var box_ins = []
+
 
 func _ready():
 	req.append(onion_req)
@@ -98,20 +83,7 @@ func _ready():
 	lock.append(mayonnaise_lock)
 	lock.append(pineapple_lock)
 	
-	img.append(onion_img)
-	img.append(tomato_img)
-	img.append(chickencutlet_img)
-	img.append(pickle_img)
-	img.append(shrimp_img)
-	img.append(bacon_img)
-	img.append(greenonion_img)
-	img.append(lemon_img)
-	img.append(fish_img)
-	img.append(drumstick_img)
-	img.append(flower_img)
-	img.append(spicysauce_img)
-	img.append(mayonnaise_img)
-	img.append(pineapple_img)
+
 	
 	update_requirement_label()
 	
@@ -119,6 +91,7 @@ func _ready():
 	update_btn()
 	
 func _process(delta):
+	var count = 0
 	# onion
 	if ing_manager.clean && Global.score >= 20:
 		achievement_appear(0)
@@ -126,20 +99,40 @@ func _process(delta):
 	if Global.burger_count[0] == 10:
 		achievement_appear(1)
 	# chickencutlet
-	
+	for i in ing_manager.history.size():
+		if i != ing_manager.history.size() - 1:
+			if ing_manager.history[i] >= 10:
+				if ing_manager.history[i + 1] >= 10:
+					achievement_appear(2)
 	# pickle
 	if Global.burger_count[0] == 30:
 		achievement_appear(3)
 	# shrimp
-	
+	if Global.total_earning >= 5000:
+		achievement_appear(4)
 	# bacon
-	
+	if Global.total_earning >= 15000:
+		achievement_appear(4)
 	# greenonion
-	
+	for i in Global.collection_ins.collection.size():
+		if Global.collection_ins.collection[i].unlock:
+			count += 1
+			continue
+		if count == 2:
+			achievement_appear(6)
+			count = 0
+			break
 	# lemon
-	
+	for i in Global.shop.shop.size():
+		if Global.shop.shop[i].sold:
+			count += 1
+		if count == 2:
+			achievement_appear(7)
+			count = 0
+			break
 	# fish
-	
+	if Global.total_earning >= 50000:
+		achievement_appear(8)
 	# drumstick
 	if Global.burger_count[0] == 500:
 		achievement_appear(9)
@@ -160,37 +153,68 @@ func _process(delta):
 		if Global.collection_ins.collection[i + 3].unlock:
 			lock[i].visible = false
 		else: lock[i].visible = true
+		
+	for i in box_ins.size():
+		if box_ins[i].done && box_ins[i] != null:
+			if i == box_ins.size() - 1:
+				box_ins.clear()
+		
 	
 func achievement_appear(index):
 	if !Global.collection_ins.collection[index + 3].unlock:
-		achievement_box.visible = true
+		var new_ins = achievement_box.duplicate()
+		var count = 0
+		new_ins.index = index
+		parent.add_child(new_ins)
+		box_ins.append(new_ins)
+		
+		# if there's a achievement box appeared already, so it's 2 including this one
+		for i in box_ins.size():
+			print(box_ins[i].done, "   ", box_ins[i].img[box_ins[i].index])
+			if !box_ins[i].done:
+				if i == box_ins.size() - 1:
+					count = i
+				else: count += 1
+			else: 
+				# this was the point!
+				box_ins[i] = new_ins
+				count = i
+				break
+		print(count)
+		new_ins.position = Vector2(0, -40 * count)
+		new_ins.visible = true
 		Global.collection_ins.collection[index + 3].unlock = true
 		detail_txt.text = req[index].text
 		SaveLoad.save_collection()
-		for i in img.size():
+		for i in new_ins.img.size():
 			if i != index:
-				img[i].visible = false
+				new_ins.img[i].visible = false
 			else:
-				img[i].visible = true
+				new_ins.img[i].visible = true
 		var tween = create_tween()
 		tween.set_ease(Tween.EASE_IN_OUT)
-		tween.tween_property(achievement_box, "modulate:a", 1, 0.5)
-		tween.tween_property(achievement_box, "position", Vector2(0, -10), 0.4)
-		tween.tween_property(achievement_box, "position", Vector2(0, 0), 0.4)
+		tween.tween_property(new_ins, "modulate:a", 1, 0.5)
+		tween.tween_property(new_ins, "position", Vector2(0, new_ins.position.y - 10), 0.4)
+		tween.tween_property(new_ins, "position", Vector2(0, new_ins.position.y), 0.4)
 		tween.tween_interval(2)
-		tween.tween_property(achievement_box, "modulate:a", 0, 0.5)
+		tween.tween_property(new_ins, "modulate:a", 0, 0.5)
+		await get_tree().create_timer(4).timeout
+		new_ins.done = true
+
 	
+		
+
 
 func update_requirement_label():
 	onion_req.text = "Serve over 20 layers burger to unlock."
 	tomato_req.text = "Serve 10 burgers to unlock." 
 	chickencutlet_req.text = "Serve over 10 layers burger in a row." 
 	pickle_req.text = "Serve 30 burgers to unlock." 
-	shrimp_req.text = "Unlock: " 
-	bacon_req.text = "Unlock: " 
-	greenonion_req.text = "Unlock: " 
-	lemon_req.text = "Unlock: " 
-	fish_req.text = "Unlock: " 
+	shrimp_req.text = "Earn 5,000 coins." 
+	bacon_req.text = "Earn 15,000 coins." 
+	greenonion_req.text = "Unlock 5 ingredients." 
+	lemon_req.text = "Buy 2 plates." 
+	fish_req.text = "Earn 50,000 coins" 
 	drumstick_req.text = "Serve 500 burgers to unlock" 
 	flower_req.text = "Serve 100 burgers with flower plate to unlock" 
 	spicysauce_req.text = "Serve 100 burgers with stripe plate to unlock" 
@@ -243,3 +267,23 @@ func _on_shop_button_pressed():
 	update_btn()
 	shop_page.visible = not shop_page.visible
 	
+
+
+
+func _on_test_1_pressed():
+	achievement_appear(0)
+
+
+func _on_test_2_pressed():
+	achievement_appear(1)
+
+
+func _on_test_3_pressed():
+	achievement_appear(2)
+
+
+func _on_test_4_pressed():
+	achievement_appear(3)
+
+func _on_test_5_pressed():
+	achievement_appear(4)

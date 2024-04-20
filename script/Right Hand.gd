@@ -3,7 +3,7 @@ extends Control
 @onready var hand = get_node("/root/Node/Game/Right Hand/Move")
 @onready var anim = $AnimationPlayer
 # 이동 속도
-var move_speed = 150
+var move_speed = 300
 # 이동 방향 (1: 오른쪽, -1: 왼쪽)
 var move_direction = -1
 var instance = null
@@ -30,6 +30,7 @@ func _process(delta):
 	if !moving:
 		hand.position = hand.position
 		if disappear:
+			print("anim play")
 			anim.play("fading")
 			disappear = false
 	else:
@@ -39,6 +40,7 @@ func _process(delta):
 		if move_direction == 1 && right_gap >= 0 && right_gap <= 5:
 			move_direction *= -1
 		anim.play("loosing")
+	
 		
 func set_default():
 	hand.position = Vector2(63, -153)
@@ -52,7 +54,8 @@ func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fading":
 		set_default()
 		
-	if anim_name == "loosing":
-		set_default()
+	if anim_name == "loosing" && moving:
+		print("lose power")
 		moving = false
 		loosing_power = true
+		#set_default()
