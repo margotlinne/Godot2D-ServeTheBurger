@@ -4,8 +4,7 @@ extends Control
 @onready var settingBtn = $"Setting Panel/Setting sprite/Setting Button"
 @onready var collection_canvas = $"Collection Canvas"
 
-@onready var closedBook = $"Collection Panel/Book Sprite"
-@onready var openBook = $"Collection Panel/OpenBook Sprite"
+@onready var blackScreen= $"Collection Panel/Black Screen"
 
 
 func _on_setting_button_pressed():
@@ -13,9 +12,9 @@ func _on_setting_button_pressed():
 
 
 func _on_collection_button_pressed():
-	collection_canvas.visible = on_off(collection_canvas.visible)
-	closedBook.visible = on_off(closedBook.visible)
-	openBook.visible = on_off(openBook.visible)
+	if !Global.game_over && Global.game_start:
+		collection_canvas.visible = on_off(collection_canvas.visible)
+		blackScreen.visible = on_off(blackScreen.visible)
 	
 	if collection_canvas.visible:
 		Engine.time_scale = 0

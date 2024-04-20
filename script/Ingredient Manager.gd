@@ -89,6 +89,7 @@ var pan_particle = preload("res://scenes/pan particle.tscn")
 # coin collecting
 @onready var coin_pos = get_node("/root/Node/Game/Left Hand/Coin Pos")
 @onready var coin_destination = get_node("/root/Node/Game/UI/Money Panel")
+@onready var coin_scene = $"Left Hand/Coin Pos"
 
 func _ready():
 	
@@ -260,7 +261,7 @@ func _process(delta):
 				if new_instance.is_in_group("top"):
 					set_savedData()
 					clean = true
-				else:					
+				elif !new_instance.is_in_group("bottom"):					
 					stacked_items += 1
 					
 				Global.score += 1
@@ -333,11 +334,22 @@ func _process(delta):
 						Global.burger_count[3] += 1
 					"pan":
 						Global.burger_count[4] += 1
-		print(Global.burger_count)
-		var coin_scene = $"Left Hand/Coin Pos"
+		print(Global.burger_count)		
 		# make coin as many as stacked items
 		for i in stacked_items:
-			coin_scene.instantiate_coin(moneyJar.position, false)
+			coin_scene.instantiate_coin(moneyJar.global_position, false, false)
+		if stacked_items >= 10:
+			var i = stacked_items/10
+			save_earning += 10 * i
+			print(i)
+			for j in i:
+				coin_scene.instantiate_coin(moneyJar.global_position, true, false)
+			# except first bun(-1)
+		if plate.get_child_count() == total_perfect - 1:
+			print("all perfect")
+			coin_scene.instantiate_coin(moneyJar.global_position, false, true)
+			save_earning += 100
+		##### (add) after countdown
 		SaveLoad.save_data()
 		
 	if result_manager.ready_newBurger:
@@ -419,10 +431,7 @@ func clean_plate():
 					history.append(Global.score)
 					Global.score = 0
 					
-	# except first bun(-1)
-	if plate.get_child_count() == total_perfect - 1:
-		print("all perfect")
-	##### (add) after countdown
+
 	#first_bun()
 
 func gameOver():	
@@ -460,7 +469,8 @@ func finish_bun():
 	
 # spawn last bun and finish the burger
 func _on_finish_button_button_down():
-	if Global.score >= 0 && !Global.game_over:
+	if Global.score >= 5 && !Global.game_over:
+		#print(right_hand.position)
 		finish_pause = true
 		if !right_hand.moving:
 			right_hand.move_hand()

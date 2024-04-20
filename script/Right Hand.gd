@@ -12,6 +12,9 @@ var disappear = false
 var moving = false
 var loosing_power = false
 
+var window_width = 0
+var left_edge = 0
+
 func _ready():
 	if instance == null:
 		instance = self
@@ -21,16 +24,18 @@ func _ready():
 	set_default()
 		
 func _process(delta):
-	var window_width = get_viewport().size.x
-	var left_edge = (window_width * -1) + 60
 	var left_gap = int(hand.position.x) - left_edge
 	var right_gap = int(hand.position.x)
-	var tolerance = 5
 	
+	# I initiated value when it's decalred, 
+	# so the window_width size was the same even though window size is resized.
+	window_width = get_viewport().size.x
+	left_edge = (window_width * -1) + 60
+
+
 	if !moving:
 		hand.position = hand.position
 		if disappear:
-			print("anim play")
 			anim.play("fading")
 			disappear = false
 	else:
@@ -52,6 +57,7 @@ func move_hand():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fading":
+		anim.play("idle")
 		set_default()
 		
 	if anim_name == "loosing" && moving:

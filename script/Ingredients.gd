@@ -32,7 +32,7 @@ func _process(delta):
 			stacked = false
 			awake_mode()
 	# when it's not displayed(in result node) and didn't land yet, and it's game over
-	elif !displayed && !landed && Global.game_over:
+	elif !displayed && !checked && Global.game_over:
 		self.queue_free()
 		
 		

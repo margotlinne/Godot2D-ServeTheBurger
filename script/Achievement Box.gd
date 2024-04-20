@@ -14,11 +14,13 @@ extends Panel
 @onready var spicysauce_img = $"HBoxContainer/Image Control/spicysauce"
 @onready var mayonnaise_img = $"HBoxContainer/Image Control/mayonnaise"
 @onready var pineapple_img = $"HBoxContainer/Image Control/pineapple"
+@onready var detail_txt = $"HBoxContainer/Label Control/VBoxContainer/Detail Label Control/Label"
 
 var img = []
 var instance
 var done = false
 var index = 0
+
 
 func _ready():
 	if instance == null:
