@@ -295,10 +295,10 @@ func _process(delta):
 	
 		
 		if !finish_pause && ins_ingredient[stacked_items - 1] != null && ins_ingredient[stacked_items - 1].stacked:
-			if ins_ingredient[stacked_items - 1].global_position.y <= 130:
+			if ins_ingredient[stacked_items - 1].global_position.y <= 120:
 				warning.visible = true
 				warning.get_child(0).play("warning")
-				if ins_ingredient[stacked_items - 1].global_position.y <= 100:
+				if ins_ingredient[stacked_items - 1].global_position.y <= 90:
 					Global.gameover_sound_play()
 					Global.game_over = true
 					reached_limit = true

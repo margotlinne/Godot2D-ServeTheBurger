@@ -38,6 +38,7 @@ func _input(event):
 	set_process_input(true)
 	if !Global.game_start:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			Global.button_sound_play()
 			Global.game_start = true
 			
 func _on_detect_btn_button_down():

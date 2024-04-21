@@ -1,20 +1,16 @@
 extends Control
 
+@onready var howtoplay_canvas = $"How to play"
 
-@onready var optionCanvas = get_node("/root/Menu/Option")
 
-func _on_play_btn_pressed():
+
+
+
+
+
+func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
-
-func _on_exit_btn_pressed():
-	get_tree().quit()
-
-
-func _on_option_btn_pressed():
-	optionCanvas.visible = true
-
-
-func _on_back_to_menu_btn_pressed():
-	optionCanvas.visible = false
+func _on_how_to_play_button_pressed():
+	howtoplay_canvas.vsible = true

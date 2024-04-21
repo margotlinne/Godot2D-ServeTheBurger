@@ -19,6 +19,7 @@ config/icon="res://image/icon.svg"
 
 Global="*res://script/Global.gd"
 SaveLoad="*res://script/save_load.gd"
+AudioManager="*res://script/Audio Manager.gd"
 
 [display]
 

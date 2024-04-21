@@ -3,6 +3,8 @@ extends Marker2D
 var coin_obj = preload("res://scenes/coin.tscn")
 var instance = null
 
+
+
 func _ready():
 	if instance == null:
 		instance = self
@@ -29,7 +31,6 @@ func instantiate_coin(final_pos, blue, gold):
 		ins_coin.modulate = Color.SKY_BLUE
 		ins_coin.scale = Vector2(1.3,1.3)
 	tween.tween_property(ins_coin, "position", final_pos, 1.5).set_trans(Tween.TRANS_CUBIC)
-	await tween.finished
 	Global.coin_sound_play()
 	tween.tween_interval(1)
 	tween.tween_property(ins_coin, "modulate:a", 0, 1)

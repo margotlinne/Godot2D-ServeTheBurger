@@ -1,49 +1,20 @@
-[gd_scene load_steps=36 format=3 uid="uid://dani1h6ti56p5"]
+[gd_scene load_steps=18 format=3 uid="uid://dani1h6ti56p5"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_gkag3"]
 [ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_lpweo"]
+[ext_resource type="Texture2D" uid="uid://82xyyy5c14lx" path="res://image/UI box1.png" id="3_18d7l"]
 [ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="3_upylm"]
 [ext_resource type="Script" path="res://script/Hamburger Animation.gd" id="4_ogwui"]
+[ext_resource type="FontFile" uid="uid://cfxooqqcxsd1x" path="res://font/goryeong_ddalgi.ttf" id="4_tgkd0"]
+[ext_resource type="Texture2D" uid="uid://p5f1q861r3t8" path="res://image/order.png" id="5_5avrt"]
 [ext_resource type="Texture2D" uid="uid://38q8qkygc3nw" path="res://image/title.png" id="5_ippr8"]
 [ext_resource type="Script" path="res://script/Title Animation.gd" id="6_e8x73"]
+[ext_resource type="Texture2D" uid="uid://bsl2vi1anv7cj" path="res://image/knife.png" id="6_uwhpf"]
+[ext_resource type="Texture2D" uid="uid://c3uvba7tx216l" path="res://image/folk.png" id="7_4lg4o"]
 [ext_resource type="Texture2D" uid="uid://b2yenh0bblrrj" path="res://image/bg4.png" id="7_n2h5p"]
-[ext_resource type="Script" path="res://script/Equip Button Container.gd" id="8_wrxui"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoox1"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(554, 646, 260, 112)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hthe1"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1203, 226, 147, 75)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f52jx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kiqud"]
-bg_color = Color(0, 0, 0, 0.588235)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_limkr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77dwk"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h43uc"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(887, 654, 260, 112)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wuctj"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1200, 324, 237, 68)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1oe6p"]
-bg_color = Color(0, 0, 0, 0.588235)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfuw6"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1206, 656, 260, 112)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_82p23"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1197, 417, 161, 73)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcp7b"]
+texture = ExtResource("3_18d7l")
 
 [sub_resource type="Animation" id="Animation_8ycdp"]
 resource_name = "idle_titleburger"
@@ -341,50 +312,6 @@ _data = {
 "idle_title": SubResource("Animation_6wnsq")
 }
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxbch"]
-texture = ExtResource("7_n2h5p")
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iw5re"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1991, 1028, 280, 231)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g75cv"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(1991, 1028, 280, 231)
-modulate_color = Color(0.443137, 0.443137, 0.443137, 1)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gxtg"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0mtl"]
-
-[sub_resource type="GDScript" id="GDScript_t54dr"]
-script/source = "extends Control
-
-
-
-
-func _ready():
-	pass # Replace with function body.
-
-
-"
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7e3c2"]
-texture = ExtResource("3_upylm")
-region_rect = Rect2(907, 518, 79, 81)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_must2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sk8ud"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ld5s"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1xd5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mui4d"]
-
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -404,137 +331,85 @@ grow_vertical = 2
 texture = ExtResource("2_lpweo")
 stretch_mode = 1
 
-[node name="Buttons Container" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = -146.0
-offset_right = -18.0
-offset_bottom = -106.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2.87288, 3.56734)
+[node name="VBoxContainer" type="HBoxContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 513.0
+offset_right = 1153.0
+offset_bottom = 627.0
+scale = Vector2(0.941621, 1.02143)
+theme_override_constants/separation = 250
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttons Container"]
+[node name="Control" type="Control" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="Play Button BG" type="Panel" parent="Buttons Container/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
+[node name="Play Button" type="Button" parent="TextureRect/VBoxContainer/Control"]
+self_modulate = Color(0.992157, 0.968627, 0, 1)
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 114.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_fcp7b")
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/Control/Play Button"]
+layout_mode = 0
+offset_left = 98.7657
+offset_top = 32.3077
+offset_right = 234.766
+offset_bottom = 89.3077
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 40
+text = "Order"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/Control/Play Button"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 99.0
+offset_bottom = 106.0
+texture = ExtResource("5_5avrt")
+
+[node name="Control2" type="Control" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_eoox1")
 
-[node name="Play Letter" type="Panel" parent="Buttons Container/VBoxContainer/Play Button BG"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.35398
-offset_top = 1.40161
-offset_right = 8.35398
-offset_bottom = 1.40161
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.593814, 0.764566)
-theme_override_styles/panel = SubResource("StyleBoxTexture_hthe1")
+[node name="How To Play Button" type="Button" parent="TextureRect/VBoxContainer/Control2"]
+self_modulate = Color(0.317647, 0.619608, 0.870588, 1)
+layout_mode = 0
+offset_right = 263.0
+offset_bottom = 114.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_fcp7b")
 
-[node name="PlayBtn" type="Button" parent="Buttons Container/VBoxContainer/Play Button BG"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.74041
-offset_top = 1.12128
-offset_right = 1.74041
-offset_bottom = 1.12128
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.912542, 0.790716)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f52jx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kiqud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kiqud")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_limkr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_77dwk")
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer/Control2/How To Play Button"]
+layout_mode = 0
+offset_left = 119.575
+offset_top = 22.5175
+offset_right = 233.575
+offset_bottom = 96.5175
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 25
+text = "How To
+Play"
 
-[node name="Option Button BG" type="Panel" parent="Buttons Container/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_h43uc")
+[node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/Control2/How To Play Button"]
+layout_mode = 0
+offset_left = 11.3414
+offset_top = 32.2345
+offset_right = 70.3414
+offset_bottom = 199.234
+rotation = -0.785397
+scale = Vector2(0.606986, 0.644263)
+texture = ExtResource("6_uwhpf")
 
-[node name="Option Letter" type="Panel" parent="Buttons Container/VBoxContainer/Option Button BG"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.87316
-offset_top = 1.97829
-offset_right = 4.87316
-offset_bottom = 1.97829
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.770278, 0.591207)
-theme_override_styles/panel = SubResource("StyleBoxTexture_wuctj")
-
-[node name="OptionBtn" type="Button" parent="Buttons Container/VBoxContainer/Option Button BG"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.74041
-offset_top = 1.13734
-offset_right = 1.74041
-offset_bottom = 1.13734
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.909936, 0.797377)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f52jx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1oe6p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_1oe6p")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_limkr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_77dwk")
-
-[node name="Exit Button BG" type="Panel" parent="Buttons Container/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_yfuw6")
-
-[node name="Exit Letter" type="Panel" parent="Buttons Container/VBoxContainer/Exit Button BG"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 8.35398
-offset_top = 1.40161
-offset_right = 8.35398
-offset_bottom = 1.40161
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.593814, 0.764566)
-theme_override_styles/panel = SubResource("StyleBoxTexture_82p23")
-
-[node name="ExitBtn" type="Button" parent="Buttons Container/VBoxContainer/Exit Button BG"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.74041
-offset_top = 0.873062
-offset_right = 1.74041
-offset_bottom = 0.873062
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.911981, 0.843733)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f52jx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kiqud")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_kiqud")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_limkr")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_77dwk")
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/VBoxContainer/Control2/How To Play Button/TextureRect"]
+layout_mode = 0
+offset_left = 126.802
+offset_top = 71.1615
+offset_right = 192.802
+offset_bottom = 238.161
+rotation = 1.57079
+scale = Vector2(0.911608, 1.04043)
+texture = ExtResource("7_4lg4o")
 
 [node name="Burger Container" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -547,22 +422,25 @@ offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(5.01976, 8.55165)
 
-[node name="Hand Sprite" type="Sprite2D" parent="Burger Container"]
-position = Vector2(87.4736, 52.6591)
+[node name="Node2D" type="Node2D" parent="Burger Container"]
+position = Vector2(48.2095, 55.8956)
+
+[node name="Hand Sprite" type="Sprite2D" parent="Burger Container/Node2D"]
+position = Vector2(87.458, 52.6442)
 rotation = -0.5308
-scale = Vector2(0.0583947, 0.0675331)
+scale = Vector2(0.128653, 0.142278)
 skew = -0.509194
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
-[node name="Burger Animation" type="AnimationPlayer" parent="Burger Container/Hand Sprite"]
+[node name="Burger Animation" type="AnimationPlayer" parent="Burger Container/Node2D/Hand Sprite"]
 libraries = {
 "": SubResource("AnimationLibrary_l8ina")
 }
 script = ExtResource("4_ogwui")
 
-[node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Hand Sprite"]
+[node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite"]
 texture_filter = 1
 position = Vector2(1.97678, -997.077)
 scale = Vector2(0.834126, 0.853693)
@@ -570,58 +448,63 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="Burger Sprite1" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-16.599, -42.987)
+[node name="Burger Sprite1" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-16.6476, -43.1023)
+rotation = -0.000464646
 scale = Vector2(1.00848, 0.976177)
 skew = 0.084489
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(172, 2633, 215, 55)
 
-[node name="Burger Sprite2" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-18.6227, -65.9299)
+[node name="Burger Sprite2" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-18.8065, -66.2198)
+rotation = -0.0011914
 scale = Vector2(1.00848, 0.976177)
 skew = 0.0844889
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(160, 2359, 238, 87)
 
-[node name="Burger Sprite3" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-15.5874, -97.0527)
+[node name="Burger Sprite3" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-15.9761, -97.3707)
+rotation = -0.0017871
 scale = Vector2(0.986977, 1.00341)
 skew = 0.137899
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(153, 938, 252, 67)
 
-[node name="Burger Sprite4" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-17.3982, -112.893)
+[node name="Burger Sprite4" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-17.9898, -113.518)
+rotation = -0.00119143
 scale = Vector2(0.918122, 1.07866)
 skew = 0.137899
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(165, 1155, 228, 67)
 
-[node name="Burger Sprite5" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-24.7767, -126.463)
-rotation = -0.0287032
+[node name="Burger Sprite5" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-25.3275, -127.494)
+rotation = -0.0273159
 scale = Vector2(1.01128, 0.973273)
 skew = 0.0820464
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(149, 735, 260, 58)
 
-[node name="Burger Sprite6" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-18.5183, -158.266)
-rotation = 0.0345641
+[node name="Burger Sprite6" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-19.3277, -159.671)
+rotation = 0.0355196
 scale = Vector2(0.986977, 1.00341)
 skew = 0.137898
 texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(145, 826, 269, 78)
 
-[node name="Burger Sprite7" type="Sprite2D" parent="Burger Container/Hand Sprite/Plate Sprite"]
-position = Vector2(-29.6082, -212.679)
+[node name="Burger Sprite7" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+position = Vector2(-30.422, -214.438)
+rotation = -0.00119137
 scale = Vector2(1.01966, 0.962068)
 skew = 0.00910711
 texture = ExtResource("3_upylm")
@@ -642,19 +525,21 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title Sprite" type="Sprite2D" parent="Title Container"]
-position = Vector2(29, 0)
-scale = Vector2(0.853492, 0.781641)
+[node name="Node2D" type="Node2D" parent="Title Container"]
+position = Vector2(-199, 40)
+
+[node name="Title Sprite" type="Sprite2D" parent="Title Container/Node2D"]
+position = Vector2(5.49407, -33.8115)
+scale = Vector2(1.87671, 1.45208)
 texture = ExtResource("5_ippr8")
 
-[node name="Title Animation" type="AnimationPlayer" parent="Title Container/Title Sprite"]
+[node name="Title Animation" type="AnimationPlayer" parent="Title Container/Node2D/Title Sprite"]
 libraries = {
 "": SubResource("AnimationLibrary_d8ess")
 }
 script = ExtResource("6_e8x73")
 
-[node name="Equip" type="Control" parent="."]
-visible = false
+[node name="How to play" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -662,106 +547,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Equip"]
+[node name="TextureRect" type="TextureRect" parent="How to play"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("7_n2h5p")
+stretch_mode = 1
 
-[node name="BG" type="Panel" parent="Equip/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_mxbch")
+[node name="VBoxContainer" type="HBoxContainer" parent="How to play/TextureRect"]
+offset_left = 988.0
+offset_top = 546.0
+offset_right = 1251.0
+offset_bottom = 660.0
+scale = Vector2(0.528002, 0.614746)
+theme_override_constants/separation = 250
 
-[node name="Equip Button Container" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = -46.0
-offset_right = -18.0
-offset_bottom = -5.99997
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(1.41629, 1.11668)
-script = ExtResource("8_wrxui")
-
-[node name="Button" type="Button" parent="Equip Button Container"]
-custom_minimum_size = Vector2(0, 10)
+[node name="Control" type="Control" parent="How to play/TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_iw5re")
-theme_override_styles/hover = SubResource("StyleBoxTexture_g75cv")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_g75cv")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_5gxtg")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t0mtl")
 
-[node name="Option" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_t54dr")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Option"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="Panel" parent="Option/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_mxbch")
-
-[node name="Panel" type="Panel" parent="Option/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 261.021
-offset_top = 494.0
-offset_right = 261.021
-offset_bottom = 494.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 3.14159
-scale = Vector2(0.103866, 0.059221)
-theme_override_styles/panel = SubResource("StyleBoxTexture_7e3c2")
-
-[node name="BackToMenuBtn" type="Button" parent="Option/NinePatchRect/Panel"]
-custom_minimum_size = Vector2(10, 10)
+[node name="Play Button" type="Button" parent="How to play/TextureRect/VBoxContainer/Control"]
+self_modulate = Color(0.933333, 0.772549, 0.952941, 1)
 layout_mode = 0
-offset_left = -9.42529
-offset_top = -0.00244141
-offset_right = 0.574707
-offset_bottom = 9.99756
-scale = Vector2(29.5705, 50.1704)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_must2")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_sk8ud")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_7ld5s")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_s1xd5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mui4d")
+offset_left = -28.4091
+offset_top = -0.000183105
+offset_right = 234.591
+offset_bottom = 114.0
+scale = Vector2(1.1384, 1.14222)
+theme_override_styles/normal = SubResource("StyleBoxTexture_fcp7b")
 
-[connection signal="pressed" from="Buttons Container/VBoxContainer/Play Button BG/PlayBtn" to="." method="_on_play_btn_pressed"]
-[connection signal="pressed" from="Buttons Container/VBoxContainer/Option Button BG/OptionBtn" to="." method="_on_option_btn_pressed"]
-[connection signal="pressed" from="Buttons Container/VBoxContainer/Exit Button BG/ExitBtn" to="." method="_on_exit_btn_pressed"]
-[connection signal="pressed" from="Equip Button Container/Button" to="Equip Button Container" method="_on_button_pressed"]
-[connection signal="pressed" from="Option/NinePatchRect/Panel/BackToMenuBtn" to="." method="_on_back_to_menu_btn_pressed"]
+[node name="Label" type="Label" parent="How to play/TextureRect/VBoxContainer/Control/Play Button"]
+layout_mode = 0
+offset_left = 98.7657
+offset_top = 32.3077
+offset_right = 234.766
+offset_bottom = 89.3077
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 40
+text = "Order"
+
+[node name="TextureRect" type="TextureRect" parent="How to play/TextureRect/VBoxContainer/Control/Play Button"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 99.0
+offset_bottom = 106.0
+texture = ExtResource("5_5avrt")
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Control/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Control2/How To Play Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="How to play/TextureRect/VBoxContainer/Control/Play Button" to="." method="_on_play_button_pressed"]
