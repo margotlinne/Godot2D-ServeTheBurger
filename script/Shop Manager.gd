@@ -4,8 +4,8 @@ extends HBoxContainer
 @onready var flowerBtn = $"Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2"
 @onready var stripeBtn = $"Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3"
 @onready var bedBtn = $"Control/VBoxContainer/plate4/Panel/HBoxContainer/Control/Label/Equip Btn4"
-@onready var panBtn = $"Control2/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn5"
-
+@onready var panBtn = $"Control/VBoxContainer/plate5/Panel/HBoxContainer/Control/Label/Equip Btn5"
+#Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4/
 @onready var basicPlate = get_node("/root/Node/Game/Left Hand/Player Plate/Basic Plate")
 @onready var flowerPlate = get_node("/root/Node/Game/Left Hand/Player Plate/Flower Plate")
 @onready var stripePlate = get_node("/root/Node/Game/Left Hand/Player Plate/Stripe Plate")
@@ -83,6 +83,7 @@ func _update_label():
 		#Global.shop.shop[i].equipped, "  ", Global.shop.shop[i].sold)
 	
 func _on_equip_btn_1_pressed():
+	Global.button_sound_play()
 	if !Global.shop.shop[0].equipped:
 		Global.shop.shop[0].equipped = true
 		_update_plate(0)
@@ -90,6 +91,7 @@ func _on_equip_btn_1_pressed():
 	_update_label()
 
 func _on_equip_btn_2_pressed():
+	Global.button_sound_play()
 	if !Global.shop.shop[1].sold:
 		if Global.total_earning >= Global.shop.shop[1].price:
 			Global.total_earning -= Global.shop.shop[1].price
@@ -106,6 +108,7 @@ func _on_equip_btn_2_pressed():
 
 
 func _on_equip_btn_3_pressed():
+	Global.button_sound_play()
 	if !Global.shop.shop[2].sold:
 		if Global.total_earning >= Global.shop.shop[2].price:
 			Global.total_earning -= Global.shop.shop[2].price
@@ -122,6 +125,7 @@ func _on_equip_btn_3_pressed():
 
 
 func _on_equip_btn_4_pressed():
+	Global.button_sound_play()
 	if !Global.shop.shop[3].sold:
 		if Global.total_earning >= Global.shop.shop[3].price:
 			Global.total_earning -= Global.shop.shop[3].price
@@ -138,6 +142,7 @@ func _on_equip_btn_4_pressed():
 
 
 func _on_equip_btn_5_pressed():
+	Global.button_sound_play()
 	if !Global.shop.shop[4].sold:
 		if Global.total_earning >= Global.shop.shop[4].price:
 			Global.total_earning -= Global.shop.shop[4].price

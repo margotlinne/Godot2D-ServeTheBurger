@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nfqyb0y7jmem"
+path="res://.godot/imported/My Kitty.mp3-f1c4607abc4c862de9e948ac9b769a84.mp3str"
+
+[deps]
+
+source_file="res://resources/music/My Kitty.mp3"
+dest_files=["res://.godot/imported/My Kitty.mp3-f1c4607abc4c862de9e948ac9b769a84.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

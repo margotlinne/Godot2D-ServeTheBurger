@@ -91,12 +91,10 @@ func _ready():
 
 	
 	update_requirement_label()
-	
-	
 	update_btn()
+	_update_btn_color()
 	
 func _process(delta):
-	_update_btn_color()
 	var count = 0
 	# onion
 	if ing_manager.clean && Global.score >= 20:
@@ -168,6 +166,7 @@ func _process(delta):
 	
 func achievement_appear(index):
 	if !Global.collection_ins.collection[index + 3].unlock:
+		Global.unlock_sound_play()
 		var new_ins = achievement_box.duplicate()
 		var count = 0
 		new_ins.index = index
@@ -240,6 +239,7 @@ func update_btn():
 		
 		
 func _on_right_button_pressed():
+	Global.button_sound_play()
 	if current_page == 1:
 		first_page.visible = false
 		second_page.visible = true
@@ -252,6 +252,7 @@ func _on_right_button_pressed():
 
 
 func _on_left_button_pressed():
+	Global.button_sound_play()
 	if current_page == 2:
 		second_page.visible = false
 		first_page.visible = true
@@ -278,28 +279,34 @@ func _update_btn_color():
 		
 		
 func _on_shop_button_pressed():	
+	Global.button_sound_play()
 	if shop_page.visible:
 		pass
 	else:
 		shop_page.visible = true
 		collection_page.visible = false
 		setting_page.visible = false
+	_update_btn_color()
 	
 func _on_collection_button_pressed():
+	Global.button_sound_play()
 	if collection_page.visible:
 		pass
 	else:
 		collection_page.visible = true
 		shop_page.visible = false
 		setting_page.visible = false
+	_update_btn_color()
 
 func _on_setting_button_pressed():
+	Global.button_sound_play()
 	if setting_page.visible:
 		pass
 	else:
 		setting_page.visible = true
 		shop_page.visible = false
 		collection_page.visible = false
+	_update_btn_color()
 
 func _on_test_1_pressed():
 	achievement_appear(0)

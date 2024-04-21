@@ -10,15 +10,30 @@ extends Panel
 func _process(delta):
 	var money = Global.total_earning / 100
 	
-	if money == 1:
+	if money >= 1:
 		phase1.visible = true
-	elif money == 2:
+	elif money >= 5:
+		phase1.visible = true
 		phase2.visible = true
-	elif money == 3:
+	elif money >= 10:
+		phase1.visible = true
+		phase2.visible = true
 		phase3.visible = true
-	elif money == 5:
+	elif money >= 20:
+		phase1.visible = true
+		phase2.visible = true
+		phase3.visible = true
 		phase4.visible = true
-	elif money == 6:
+	elif money >= 50:
+		phase1.visible = true
+		phase2.visible = true
+		phase3.visible = true
+		phase4.visible = true
 		phase5.visible = true
-	elif money == 10:
+	elif money >= 100:
+		phase1.visible = true
+		phase2.visible = true
+		phase3.visible = true
+		phase4.visible = true
+		phase5.visible = true
 		phase6.visible = true

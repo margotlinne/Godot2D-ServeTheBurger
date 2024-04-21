@@ -20,7 +20,7 @@ func _process(delta):
 			plate.frozen = false
 			
 	# 마우스 버튼이 눌렸을 때
-	if Global.game_start && is_mouse_pressed && !plate.frozen:
+	if Global.game_start && is_mouse_pressed && !plate.frozen && Engine.time_scale == 1: 
 		# 마우스의 현재 위치 얻기
 		var mouse_position = get_global_mouse_position()
 		

@@ -4,6 +4,7 @@ extends Sprite2D
 var ready_newBurger = false
 
 func sliding():
+	Global.serve_sound_play()
 	anim.play("slide")
 
 
