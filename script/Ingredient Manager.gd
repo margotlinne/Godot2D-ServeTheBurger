@@ -158,7 +158,7 @@ func update_ingredients():
 func _process(delta): 
 	update_ingredients()
 	#print(available_index)
-	var debuging = false
+	var debuging = true
 	timer += delta
 	#### (add) after first bun landed on plate
 	if !debuging && Global.game_start && !finish_pause && \

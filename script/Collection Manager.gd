@@ -1,47 +1,49 @@
 extends Control
 
 
-@onready var first_page = $ColorRect/Book/CollectionPage/HBoxContainer
-@onready var second_page = $ColorRect/Book/CollectionPage/HBoxContainer2
-@onready var third_page = $ColorRect/Book/CollectionPage/HBoxContainer3
+@onready var first_page = $ColorRect/Computer/CollectionPage/HBoxContainer
+@onready var second_page = $ColorRect/Computer/CollectionPage/HBoxContainer2
+@onready var third_page = $ColorRect/Computer/CollectionPage/HBoxContainer3
 
-@onready var rightBtn = $"ColorRect/Book/CollectionPage/Right Button"
-@onready var leftBtn = $"ColorRect/Book/CollectionPage/Left Button"
+@onready var rightBtn = $"ColorRect/Computer/CollectionPage/Right Button"
+@onready var leftBtn = $"ColorRect/Computer/CollectionPage/Left Button"
 
-@onready var shop_page = $ColorRect/Book/ShopPage/HBoxContainer4
-@onready var collection_page = $ColorRect/Book/CollectionPage
+@onready var shop_page = $ColorRect/Computer/ShopPage/HBoxContainer4
+@onready var collection_page = $ColorRect/Computer/CollectionPage
+@onready var setting_page = $ColorRect/Computer/SettingPage/HBoxContainer
 
-@onready var shopBtn = $"ColorRect/Book/Shop Button"
-@onready var collectionBtn = $ColorRect/Book/CollectionButton
+@onready var shopBtn = $"ColorRect/Computer/Shop Button"
+@onready var collectionBtn = $ColorRect/Computer/CollectionButton
+@onready var settingBtn = $ColorRect/Computer/SettingButton
 
-@onready var onion_req = $ColorRect/Book/CollectionPage/HBoxContainer/Control/VBoxContainer/onion/Lock/HBoxContainer/Control/Label
-@onready var onion_lock = $ColorRect/Book/CollectionPage/HBoxContainer/Control/VBoxContainer/onion/Lock
-@onready var tomato_req = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/tomato/Lock/HBoxContainer/Control/Label
-@onready var tomato_lock = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/tomato/Lock
-@onready var chickencutlet_req = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/chickencutlet/Lock/HBoxContainer/Control/Label
-@onready var chickencutlet_lock = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/chickencutlet/Lock
-@onready var pickle_req = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/pickle/Lock/HBoxContainer/Control/Label
-@onready var pickle_lock = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/pickle/Lock
-@onready var shrimp_req = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/shrimp/Lock/HBoxContainer/Control/Label
-@onready var shrimp_lock = $ColorRect/Book/CollectionPage/HBoxContainer/Control2/VBoxContainer/shrimp/Lock
-@onready var bacon_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/bacon/Lock/HBoxContainer/Control/Label
-@onready var bacon_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/bacon/Lock
-@onready var greenonion_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/greenonion/Lock/HBoxContainer/Control/Label
-@onready var greenonion_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/greenonion/Lock
-@onready var lemon_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/lemon/Lock/HBoxContainer/Control/Label
-@onready var lemon_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/lemon/Lock
-@onready var fish_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/fish/Lock/HBoxContainer/Control/Label
-@onready var fish_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control/VBoxContainer/fish/Lock
-@onready var drumstick_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/drumstick/Lock/HBoxContainer/Control/Label
-@onready var drumstick_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/drumstick/Lock
-@onready var flower_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/flower/Lock/HBoxContainer/Control/Label
-@onready var flower_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/flower/Lock
-@onready var spicysauce_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/spicysauce/Lock/HBoxContainer/Control/Label
-@onready var spicysauce_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/spicysauce/Lock
-@onready var mayonnaise_req = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Lock/HBoxContainer/Control/Label
-@onready var mayonnaise_lock = $ColorRect/Book/CollectionPage/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Lock
-@onready var pineapple_req = $ColorRect/Book/CollectionPage/HBoxContainer3/Control/VBoxContainer/pineapple/Lock/HBoxContainer/Control/Label
-@onready var pineapple_lock = $ColorRect/Book/CollectionPage/HBoxContainer3/Control/VBoxContainer/pineapple/Lock
+@onready var onion_req = $ColorRect/Computer/CollectionPage/HBoxContainer/Control/VBoxContainer/onion/Lock/HBoxContainer/Control/Label
+@onready var onion_lock = $ColorRect/Computer/CollectionPage/HBoxContainer/Control/VBoxContainer/onion/Lock
+@onready var tomato_req = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/tomato/Lock/HBoxContainer/Control/Label
+@onready var tomato_lock = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/tomato/Lock
+@onready var chickencutlet_req = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/chickencutlet/Lock/HBoxContainer/Control/Label
+@onready var chickencutlet_lock = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/chickencutlet/Lock
+@onready var pickle_req = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/pickle/Lock/HBoxContainer/Control/Label
+@onready var pickle_lock = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/pickle/Lock
+@onready var shrimp_req = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/shrimp/Lock/HBoxContainer/Control/Label
+@onready var shrimp_lock = $ColorRect/Computer/CollectionPage/HBoxContainer/Control2/VBoxContainer/shrimp/Lock
+@onready var bacon_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/bacon/Lock/HBoxContainer/Control/Label
+@onready var bacon_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/bacon/Lock
+@onready var greenonion_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/greenonion/Lock/HBoxContainer/Control/Label
+@onready var greenonion_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/greenonion/Lock
+@onready var lemon_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/lemon/Lock/HBoxContainer/Control/Label
+@onready var lemon_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/lemon/Lock
+@onready var fish_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/fish/Lock/HBoxContainer/Control/Label
+@onready var fish_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control/VBoxContainer/fish/Lock
+@onready var drumstick_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/drumstick/Lock/HBoxContainer/Control/Label
+@onready var drumstick_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/drumstick/Lock
+@onready var flower_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/flower/Lock/HBoxContainer/Control/Label
+@onready var flower_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/flower/Lock
+@onready var spicysauce_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/spicysauce/Lock/HBoxContainer/Control/Label
+@onready var spicysauce_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/spicysauce/Lock
+@onready var mayonnaise_req = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Lock/HBoxContainer/Control/Label
+@onready var mayonnaise_lock = $ColorRect/Computer/CollectionPage/HBoxContainer2/Control2/VBoxContainer/mayonnaise/Lock
+@onready var pineapple_req = $ColorRect/Computer/CollectionPage/HBoxContainer3/Control/VBoxContainer/pineapple/Lock/HBoxContainer/Control/Label
+@onready var pineapple_lock = $ColorRect/Computer/CollectionPage/HBoxContainer3/Control/VBoxContainer/pineapple/Lock
 
 @onready var achievement_box = $"../Achievement/Panel"
 @onready var ing_manager = get_node("/root/Node/Game")
@@ -264,15 +266,24 @@ func _update_btn_color():
 	if shop_page.visible:
 		shopBtn.self_modulate = Color(1, 1, 1, 1)
 		collectionBtn.self_modulate = Color(0.8, 0.8, 0.8, 0.8)
+		settingBtn.self_modulate = Color(0.8, 0.8, 0.8, 0.8)
 	if collection_page.visible:
 		collectionBtn.self_modulate = Color(1, 1, 1, 1)
-		shopBtn.self_modulate= Color(0.8, 0.8, 0.8, 0.8)		
+		shopBtn.self_modulate= Color(0.8, 0.8, 0.8, 0.8)
+		settingBtn.self_modulate = Color(0.8, 0.8, 0.8, 0.8)
+	if setting_page.visible:
+		settingBtn.self_modulate = Color(1, 1, 1, 1)
+		shopBtn.self_modulate= Color(0.8, 0.8, 0.8, 0.8)	
+		collectionBtn.self_modulate = Color(0.8, 0.8, 0.8, 0.8)
+		
+		
 func _on_shop_button_pressed():	
 	if shop_page.visible:
 		pass
 	else:
 		shop_page.visible = true
 		collection_page.visible = false
+		setting_page.visible = false
 	
 func _on_collection_button_pressed():
 	if collection_page.visible:
@@ -280,7 +291,15 @@ func _on_collection_button_pressed():
 	else:
 		collection_page.visible = true
 		shop_page.visible = false
+		setting_page.visible = false
 
+func _on_setting_button_pressed():
+	if setting_page.visible:
+		pass
+	else:
+		setting_page.visible = true
+		shop_page.visible = false
+		collection_page.visible = false
 
 func _on_test_1_pressed():
 	achievement_appear(0)
@@ -299,4 +318,7 @@ func _on_test_4_pressed():
 
 func _on_test_5_pressed():
 	achievement_appear(4)
+
+
+
 

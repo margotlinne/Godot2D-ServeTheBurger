@@ -1,20 +1,17 @@
 extends Control
 
 @onready var collectionBtn = $"Collection Panel/Collection Button"
-@onready var settingBtn = $"Setting Panel/Setting sprite/Setting Button"
 @onready var collection_canvas = $"Collection Canvas"
 
-@onready var blackScreen= $"Collection Panel/Black Screen"
-
-
-func _on_setting_button_pressed():
-	pass # Replace with function body.
+@onready var screen= $"Computer Panel/Computer screen"
 
 
 func _on_collection_button_pressed():
 	if !Global.game_over && Global.game_start:
 		collection_canvas.visible = on_off(collection_canvas.visible)
-		blackScreen.visible = on_off(blackScreen.visible)
+		if collection_canvas.visible:
+			screen.modulate = Color(1,1,1,1)
+		else: screen.modulate = Color(0,0,0,1)
 	
 	if collection_canvas.visible:
 		Engine.time_scale = 0
