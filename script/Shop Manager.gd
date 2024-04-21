@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+@onready var audio_manager = get_node("/root/Node/Audio Manager")
+
 @onready var basicBtn = $"Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1"
 @onready var flowerBtn = $"Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2"
 @onready var stripeBtn = $"Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3"
@@ -27,7 +29,6 @@ func _ready():
 	plate.append(stripePlate)
 	plate.append(bedPlate)
 	plate.append(panPlate)
-	
 	
 
 	SaveLoad.load_shop()
@@ -83,7 +84,7 @@ func _update_label():
 		#Global.shop.shop[i].equipped, "  ", Global.shop.shop[i].sold)
 	
 func _on_equip_btn_1_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if !Global.shop.shop[0].equipped:
 		Global.shop.shop[0].equipped = true
 		_update_plate(0)
@@ -91,7 +92,7 @@ func _on_equip_btn_1_pressed():
 	_update_label()
 
 func _on_equip_btn_2_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if !Global.shop.shop[1].sold:
 		if Global.total_earning >= Global.shop.shop[1].price:
 			Global.total_earning -= Global.shop.shop[1].price
@@ -108,7 +109,7 @@ func _on_equip_btn_2_pressed():
 
 
 func _on_equip_btn_3_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if !Global.shop.shop[2].sold:
 		if Global.total_earning >= Global.shop.shop[2].price:
 			Global.total_earning -= Global.shop.shop[2].price
@@ -125,7 +126,7 @@ func _on_equip_btn_3_pressed():
 
 
 func _on_equip_btn_4_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if !Global.shop.shop[3].sold:
 		if Global.total_earning >= Global.shop.shop[3].price:
 			Global.total_earning -= Global.shop.shop[3].price
@@ -142,7 +143,7 @@ func _on_equip_btn_4_pressed():
 
 
 func _on_equip_btn_5_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if !Global.shop.shop[4].sold:
 		if Global.total_earning >= Global.shop.shop[4].price:
 			Global.total_earning -= Global.shop.shop[4].price

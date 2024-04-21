@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dani1h6ti56p5"]
+[gd_scene load_steps=21 format=3 uid="uid://dani1h6ti56p5"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_gkag3"]
 [ext_resource type="Texture2D" uid="uid://dlhcqo7vtilgu" path="res://image/bg2.png" id="2_lpweo"]
-[ext_resource type="Texture2D" uid="uid://82xyyy5c14lx" path="res://image/UI box1.png" id="3_18d7l"]
+[ext_resource type="Texture2D" uid="uid://bkarli5m1lpat" path="res://image/new ui.png" id="3_r87vi"]
 [ext_resource type="Texture2D" uid="uid://c5svgcuei61m2" path="res://image/burger_img2.png" id="3_upylm"]
 [ext_resource type="Script" path="res://script/Hamburger Animation.gd" id="4_ogwui"]
 [ext_resource type="FontFile" uid="uid://cfxooqqcxsd1x" path="res://font/goryeong_ddalgi.ttf" id="4_tgkd0"]
@@ -12,9 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://bsl2vi1anv7cj" path="res://image/knife.png" id="6_uwhpf"]
 [ext_resource type="Texture2D" uid="uid://c3uvba7tx216l" path="res://image/folk.png" id="7_4lg4o"]
 [ext_resource type="Texture2D" uid="uid://b2yenh0bblrrj" path="res://image/bg4.png" id="7_n2h5p"]
+[ext_resource type="Script" path="res://script/Audio Manager.gd" id="13_po7gd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcp7b"]
-texture = ExtResource("3_18d7l")
+texture = ExtResource("3_r87vi")
+region_rect = Rect2(155, 1013, 885, 382)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rhfhe"]
+texture = ExtResource("3_r87vi")
+region_rect = Rect2(155, 1013, 885, 382)
+modulate_color = Color(1, 1, 1, 0.654902)
 
 [sub_resource type="Animation" id="Animation_8ycdp"]
 resource_name = "idle_titleburger"
@@ -312,6 +319,9 @@ _data = {
 "idle_title": SubResource("Animation_6wnsq")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k75e"]
+bg_color = Color(0.741176, 0.447059, 0.796078, 0.305882)
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -333,22 +343,26 @@ stretch_mode = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="TextureRect"]
 layout_mode = 0
-offset_left = 640.0
+offset_left = 570.0
 offset_top = 513.0
-offset_right = 1153.0
+offset_right = 1083.0
 offset_bottom = 627.0
 scale = Vector2(0.941621, 1.02143)
-theme_override_constants/separation = 250
+theme_override_constants/separation = 300
 
 [node name="Control" type="Control" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
 
 [node name="Play Button" type="Button" parent="TextureRect/VBoxContainer/Control"]
-self_modulate = Color(0.992157, 0.968627, 0, 1)
+self_modulate = Color(1, 1, 0.662745, 1)
 layout_mode = 0
 offset_right = 263.0
 offset_bottom = 114.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_fcp7b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rhfhe")
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/Control/Play Button"]
 layout_mode = 0
@@ -363,10 +377,10 @@ text = "Order"
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/Control/Play Button"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 7.0
-offset_right = 99.0
-offset_bottom = 106.0
+offset_left = 18.054
+offset_top = 10.7692
+offset_right = 103.054
+offset_bottom = 109.769
 texture = ExtResource("5_5avrt")
 
 [node name="Control2" type="Control" parent="TextureRect/VBoxContainer"]
@@ -378,6 +392,10 @@ layout_mode = 0
 offset_right = 263.0
 offset_bottom = 114.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_fcp7b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_rhfhe")
+theme_override_styles/focus = SubResource("StyleBoxTexture_rhfhe")
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/Control2/How To Play Button"]
 layout_mode = 0
@@ -422,10 +440,10 @@ offset_bottom = 40.0
 grow_horizontal = 0
 scale = Vector2(5.01976, 8.55165)
 
-[node name="Node2D" type="Node2D" parent="Burger Container"]
+[node name="Hamburger" type="Node2D" parent="Burger Container"]
 position = Vector2(48.2095, 55.8956)
 
-[node name="Hand Sprite" type="Sprite2D" parent="Burger Container/Node2D"]
+[node name="Hand Sprite" type="Sprite2D" parent="Burger Container/Hamburger"]
 position = Vector2(87.458, 52.6442)
 rotation = -0.5308
 scale = Vector2(0.128653, 0.142278)
@@ -434,13 +452,13 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(2690, 785, 217, 2015)
 
-[node name="Burger Animation" type="AnimationPlayer" parent="Burger Container/Node2D/Hand Sprite"]
+[node name="Burger Animation" type="AnimationPlayer" parent="Burger Container/Hamburger/Hand Sprite"]
 libraries = {
 "": SubResource("AnimationLibrary_l8ina")
 }
 script = ExtResource("4_ogwui")
 
-[node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite"]
+[node name="Plate Sprite" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite"]
 texture_filter = 1
 position = Vector2(1.97678, -997.077)
 scale = Vector2(0.834126, 0.853693)
@@ -448,7 +466,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(118, 70, 320, 77)
 
-[node name="Burger Sprite1" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite1" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-16.6476, -43.1023)
 rotation = -0.000464646
 scale = Vector2(1.00848, 0.976177)
@@ -457,7 +475,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(172, 2633, 215, 55)
 
-[node name="Burger Sprite2" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite2" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-18.8065, -66.2198)
 rotation = -0.0011914
 scale = Vector2(1.00848, 0.976177)
@@ -466,7 +484,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(160, 2359, 238, 87)
 
-[node name="Burger Sprite3" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite3" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-15.9761, -97.3707)
 rotation = -0.0017871
 scale = Vector2(0.986977, 1.00341)
@@ -475,7 +493,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(153, 938, 252, 67)
 
-[node name="Burger Sprite4" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite4" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-17.9898, -113.518)
 rotation = -0.00119143
 scale = Vector2(0.918122, 1.07866)
@@ -484,7 +502,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(165, 1155, 228, 67)
 
-[node name="Burger Sprite5" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite5" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-25.3275, -127.494)
 rotation = -0.0273159
 scale = Vector2(1.01128, 0.973273)
@@ -493,7 +511,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(149, 735, 260, 58)
 
-[node name="Burger Sprite6" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite6" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-19.3277, -159.671)
 rotation = 0.0355196
 scale = Vector2(0.986977, 1.00341)
@@ -502,7 +520,7 @@ texture = ExtResource("3_upylm")
 region_enabled = true
 region_rect = Rect2(145, 826, 269, 78)
 
-[node name="Burger Sprite7" type="Sprite2D" parent="Burger Container/Node2D/Hand Sprite/Plate Sprite"]
+[node name="Burger Sprite7" type="Sprite2D" parent="Burger Container/Hamburger/Hand Sprite/Plate Sprite"]
 position = Vector2(-30.422, -214.438)
 rotation = -0.00119137
 scale = Vector2(1.01966, 0.962068)
@@ -526,11 +544,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Node2D" type="Node2D" parent="Title Container"]
-position = Vector2(-199, 40)
+position = Vector2(-215, 0)
 
 [node name="Title Sprite" type="Sprite2D" parent="Title Container/Node2D"]
 position = Vector2(5.49407, -33.8115)
-scale = Vector2(1.87671, 1.45208)
+scale = Vector2(1.72828, 1.34637)
 texture = ExtResource("5_ippr8")
 
 [node name="Title Animation" type="AnimationPlayer" parent="Title Container/Node2D/Title Sprite"]
@@ -558,6 +576,7 @@ texture = ExtResource("7_n2h5p")
 stretch_mode = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="How to play/TextureRect"]
+layout_mode = 0
 offset_left = 988.0
 offset_top = 546.0
 offset_right = 1251.0
@@ -591,11 +610,96 @@ text = "Order"
 
 [node name="TextureRect" type="TextureRect" parent="How to play/TextureRect/VBoxContainer/Control/Play Button"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 7.0
-offset_right = 99.0
-offset_bottom = 106.0
+offset_left = 11.6458
+offset_top = 9.96924
+offset_right = 96.6458
+offset_bottom = 108.969
 texture = ExtResource("5_5avrt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="How to play/TextureRect"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 31.0
+offset_right = 1122.0
+offset_bottom = 526.0
+theme_override_constants/separation = 380
+
+[node name="Control" type="Control" parent="How to play/TextureRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="How to play/TextureRect/HBoxContainer/Control"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 495.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k75e")
+
+[node name="Label" type="Label" parent="How to play/TextureRect/HBoxContainer/Control/Panel"]
+layout_mode = 0
+offset_top = 369.0
+offset_right = 592.0
+offset_bottom = 565.0
+scale = Vector2(0.574491, 0.6526)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 40
+text = "Control plate with mouse. Click and drag at the same time. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="How to play/TextureRect/HBoxContainer/Control/Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Control2" type="Control" parent="How to play/TextureRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="How to play/TextureRect/HBoxContainer/Control2"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 495.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k75e")
+
+[node name="Label" type="Label" parent="How to play/TextureRect/HBoxContainer/Control2/Panel"]
+layout_mode = 0
+offset_top = 369.0
+offset_right = 592.0
+offset_bottom = 565.0
+scale = Vector2(0.574491, 0.6526)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 40
+text = "Control plate with mouse. Click and drag at the same time. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Control3" type="Control" parent="How to play/TextureRect/HBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="How to play/TextureRect/HBoxContainer/Control3"]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 495.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1k75e")
+
+[node name="Label" type="Label" parent="How to play/TextureRect/HBoxContainer/Control3/Panel"]
+layout_mode = 0
+offset_top = 369.0
+offset_right = 592.0
+offset_bottom = 565.0
+scale = Vector2(0.574491, 0.6526)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_tgkd0")
+theme_override_font_sizes/font_size = 40
+text = "Control plate with mouse. Click and drag at the same time. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Audio Manager" type="Node2D" parent="."]
+script = ExtResource("13_po7gd")
 
 [connection signal="pressed" from="TextureRect/VBoxContainer/Control/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TextureRect/VBoxContainer/Control2/How To Play Button" to="." method="_on_how_to_play_button_pressed"]

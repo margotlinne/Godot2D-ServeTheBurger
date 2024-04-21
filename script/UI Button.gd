@@ -1,5 +1,6 @@
 extends Control
 
+@onready var audio_manager =get_node("/root/Node/Audio Manager")
 @onready var collectionBtn = $"Collection Panel/Collection Button"
 @onready var collection_canvas = $"Collection Canvas"
 
@@ -7,10 +8,12 @@ extends Control
 
 @onready var player_area = get_node("/root/Node/Game/Left Hand/Detect Btn")
 
+func _ready():
+
 func _on_collection_button_pressed():
 	if !Global.game_over && Global.game_start:
 		print("pressed")
-		Global.button_sound_play()
+		audio_manager.audio.button_sound_play()
 		collection_canvas.visible = on_off(collection_canvas.visible)
 		if collection_canvas.visible:
 			player_area.visible = false

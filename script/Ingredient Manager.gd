@@ -1,5 +1,7 @@
 extends Control
 
+@onready var audio_manager = get_node("/root/Node/Audio Manager")
+
 var instance = null
 
 var ingredients = []
@@ -182,7 +184,7 @@ func _process(delta):
 			if ins_ingredient[i] != null && i != 0:
 				# game over when ingredient fall down
 				if ins_ingredient[i].deleted:
-					Global.gameover_sound_play()
+					audio_manager.audio.gameover_sound_play()
 					#for k in range(result.get_child_count()):
 						#print(result.get_child(k).get_groups())
 						#print(result.get_child(k).visible)
@@ -198,7 +200,7 @@ func _process(delta):
 				#print(ins_ingredient.size())				
 				#print(plate.get_parent().global_position)
 				
-				Global.stack_sound_play()
+				audio_manager.audio.stack_sound_play()
 				var original_scale = ins_ingredient[i].global_scale
 				var original_position = ins_ingredient[i].global_position
 				
@@ -237,12 +239,12 @@ func _process(delta):
 					#print("perfect!")
 					total_perfect += 1
 					perfect_anim.play("perfect")
-					Global.perfect_sound_play()
+					audio_manager.audio.perfect_sound_play()
 					#print(total_perfect)
 						
 				# if it fall down somehow
 				if new_instance.deleted:
-					Global.gameover_sound_play()
+					audio_manager.audio.gameover_sound_play()
 					print("game over - stacked up one fell")
 					Global.game_over = true
 						
@@ -270,22 +272,22 @@ func _process(delta):
 					
 				Global.score += 1
 				if new_instance.is_in_group("level1"):
-					Global.coinTxt_sound_play()
+					audio_manager.audio.coinTxt_sound_play()
 					earned_coinTxt.text = str("+ 10 coin")
 					save_earning += 10
 					coin_anim.play("coin")				
 				elif new_instance.is_in_group("level2"):
-					Global.coinTxt_sound_play()
+					audio_manager.audio.coinTxt_sound_play()
 					earned_coinTxt.text = str("+ 20 coin")
 					save_earning += 20
 					coin_anim.play("coin")			
 				elif new_instance.is_in_group("level3"):
-					Global.coinTxt_sound_play()
+					audio_manager.audio.coinTxt_sound_play()
 					earned_coinTxt.text = str("+ 30 coin")
 					save_earning += 30
 					coin_anim.play("coin")		
 				elif new_instance.is_in_group("level4"):
-					Global.coinTxt_sound_play()
+					audio_manager.audio.coinTxt_sound_play()
 					earned_coinTxt.text = str("+ 40 coin")
 					save_earning += 40
 					coin_anim.play("coin")			
@@ -299,7 +301,7 @@ func _process(delta):
 				warning.visible = true
 				warning.get_child(0).play("warning")
 				if ins_ingredient[stacked_items - 1].global_position.y <= 90:
-					Global.gameover_sound_play()
+					audio_manager.audio.gameover_sound_play()
 					Global.game_over = true
 					reached_limit = true
 					$"GameOver/BG/Continue Button".visible = false
@@ -370,7 +372,7 @@ func _process(delta):
 	
 	# when right hand timed out and it's game over
 	if right_hand.loosing_power:
-		Global.right_hand_sound_play()
+		audio_manager.audio.right_hand_sound_play()
 		var bun = last_pos.get_child(0)
 		right_hand.moving = false
 		# bun falls down
@@ -480,7 +482,7 @@ func finish_bun():
 # spawn last bun and finish the burger
 func _on_finish_button_button_down():
 	if Global.score >= 5 && !Global.game_over:
-		Global.bell_sound_play()
+		audio_manager.audio.bell_sound_play()
 		#print(right_hand.position)
 		finish_pause = true
 		if !right_hand.moving:

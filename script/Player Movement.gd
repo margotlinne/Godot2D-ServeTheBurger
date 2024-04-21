@@ -1,5 +1,7 @@
 extends Panel
 
+@onready var audio_manager = get_node("/root/Node/Audio Manager")
+
 var is_mouse_pressed = false
 var original_position = Vector2.ZERO
 
@@ -10,6 +12,7 @@ func _ready():
 	Global.game_start = false
 	# 시작 시 원래 위치 저장
 	original_position = position
+	
 
 func _process(delta):
 	
@@ -38,7 +41,7 @@ func _input(event):
 	set_process_input(true)
 	if !Global.game_start:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			Global.button_sound_play()
+			audio_manager.audio.button_sound_play()
 			Global.game_start = true
 			
 func _on_detect_btn_button_down():

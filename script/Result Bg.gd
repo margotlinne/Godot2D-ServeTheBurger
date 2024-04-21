@@ -1,10 +1,12 @@
 extends Sprite2D
 
+@onready var audio_manager = get_node("/root/Node/Audio Manager")
+
 @onready var anim = $AnimationPlayer
 var ready_newBurger = false
 
 func sliding():
-	Global.serve_sound_play()
+	audio_manager.audio.serve_sound_play()
 	anim.play("slide")
 
 

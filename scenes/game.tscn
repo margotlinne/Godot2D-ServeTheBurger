@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://cpspwtuflbo8q"]
+[gd_scene load_steps=103 format=3 uid="uid://cpspwtuflbo8q"]
 
 [ext_resource type="Texture2D" uid="uid://d1nwrtsd78def" path="res://image/bg.png" id="1_180qy"]
 [ext_resource type="Script" path="res://script/Delete Width.gd" id="2_16bcx"]
@@ -34,21 +34,8 @@
 [ext_resource type="Texture2D" uid="uid://2jk8vbs8a5ix" path="res://image/arrow_l.png" id="25_phccn"]
 [ext_resource type="Texture2D" uid="uid://cbd12rscj38v" path="res://image/setting.png" id="27_2pya0"]
 [ext_resource type="AudioStream" uid="uid://nfqyb0y7jmem" path="res://resources/music/My Kitty.mp3" id="32_8abie"]
-[ext_resource type="AudioStream" uid="uid://n3qe4mi7ymta" path="res://resources/sfx/DM-CGS-21.wav" id="33_gyi03"]
 [ext_resource type="Script" path="res://script/Audio Manager.gd" id="35_1fv04"]
-[ext_resource type="PackedScene" uid="uid://mgdw6gyc5sh6" path="res://scenes/sfx.tscn" id="35_hb7ig"]
-[ext_resource type="AudioStream" uid="uid://l3k554pmwsj5" path="res://resources/sfx/337049__shinephoenixstormcrow__320655__rhodesmas__level-up-01.mp3" id="37_nlt0j"]
-[ext_resource type="AudioStream" uid="uid://obhnydc84t6a" path="res://resources/sfx/149268__organicmanpl__ding-3.wav" id="37_tcs5y"]
-[ext_resource type="AudioStream" uid="uid://0k3bfuucg3yo" path="res://resources/sfx/531021__creeeeak__bell2.wav" id="38_1pdul"]
-[ext_resource type="AudioStream" uid="uid://cmw10ylx0k2oy" path="res://resources/sfx/275055__ashtalon__sigh.wav" id="38_1554x"]
-[ext_resource type="AudioStream" uid="uid://biy4tud0pryxf" path="res://resources/sfx/DM-CGS-40.wav" id="38_keqq8"]
-[ext_resource type="AudioStream" uid="uid://c8qkmvi5wjpen" path="res://resources/sfx/630018__flem0527__singular-coin-dropping.wav" id="39_bey1h"]
-[ext_resource type="AudioStream" uid="uid://cegu3sbet3fqn" path="res://resources/sfx/699511__valenspire__coin_drop_16.wav" id="39_l8lll"]
-[ext_resource type="AudioStream" uid="uid://dgapdxjoyh5m8" path="res://resources/sfx/DM-CGS-32.wav" id="39_vdm2v"]
-[ext_resource type="AudioStream" uid="uid://dtbjwklo0nq37" path="res://resources/sfx/401333__ckvoiceover__man-gasp-of-breath.wav" id="41_kknsx"]
-[ext_resource type="AudioStream" uid="uid://dcuhprhas6f76" path="res://resources/sfx/349283__deleted_user_2104797__coin-on-coins_09.wav" id="41_nfiua"]
-[ext_resource type="AudioStream" uid="uid://bsbbudfs2eofe" path="res://resources/sfx/DM-CGS-26.wav" id="45_fibkl"]
-[ext_resource type="AudioStream" uid="uid://u823bq7hs2dv" path="res://resources/sfx/DM-CGS-39.wav" id="46_knhpl"]
+[ext_resource type="PackedScene" uid="uid://bt17m0hhvs7u0" path="res://scenes/sfx.tscn" id="35_7ktqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vixve"]
 size = Vector2(63, 30.9745)
@@ -6135,66 +6122,10 @@ stream = ExtResource("32_8abie")
 autoplay = true
 bus = &"Music"
 
-[node name="Sfx" parent="." instance=ExtResource("35_hb7ig")]
+[node name="Sfx" parent="." instance=ExtResource("35_7ktqo")]
 
 [node name="Audio Manager" type="Node2D" parent="."]
 script = ExtResource("35_1fv04")
-
-[node name="Button_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("33_gyi03")
-bus = &"SFX"
-
-[node name="Unlock_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("37_nlt0j")
-bus = &"SFX"
-
-[node name="RightHand_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("38_1554x")
-bus = &"SFX"
-
-[node name="Hover_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("38_keqq8")
-bus = &"SFX"
-
-[node name="Coin_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("39_l8lll")
-volume_db = 15.0
-bus = &"SFX"
-
-[node name="DropCoin_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("39_bey1h")
-volume_db = 10.0
-bus = &"SFX"
-
-[node name="CoinTxt_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("41_nfiua")
-bus = &"SFX"
-
-[node name="Stack_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("39_vdm2v")
-bus = &"SFX"
-
-[node name="Bell_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("37_tcs5y")
-bus = &"SFX"
-
-[node name="Perfect_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("45_fibkl")
-volume_db = -10.0
-bus = &"SFX"
-
-[node name="FinishBurger_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("46_knhpl")
-volume_db = 24.0
-bus = &"SFX"
-
-[node name="GameOver_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("41_kknsx")
-bus = &"SFX"
-
-[node name="Serve_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio Manager"]
-stream = ExtResource("38_1pdul")
-bus = &"SFX"
 
 [connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]
 [connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]

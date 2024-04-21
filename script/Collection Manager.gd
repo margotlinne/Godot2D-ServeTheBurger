@@ -1,5 +1,6 @@
 extends Control
 
+@onready var audio_manager = get_node("/root/Node/Audio Manager")
 
 @onready var first_page = $ColorRect/Computer/CollectionPage/HBoxContainer
 @onready var second_page = $ColorRect/Computer/CollectionPage/HBoxContainer2
@@ -166,7 +167,7 @@ func _process(delta):
 	
 func achievement_appear(index):
 	if !Global.collection_ins.collection[index + 3].unlock:
-		Global.unlock_sound_play()
+		audio_manager.audio.unlock_sound_play()
 		var new_ins = achievement_box.duplicate()
 		var count = 0
 		new_ins.index = index
@@ -239,7 +240,7 @@ func update_btn():
 		
 		
 func _on_right_button_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if current_page == 1:
 		first_page.visible = false
 		second_page.visible = true
@@ -252,7 +253,7 @@ func _on_right_button_pressed():
 
 
 func _on_left_button_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if current_page == 2:
 		second_page.visible = false
 		first_page.visible = true
@@ -279,7 +280,7 @@ func _update_btn_color():
 		
 		
 func _on_shop_button_pressed():	
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if shop_page.visible:
 		pass
 	else:
@@ -289,7 +290,7 @@ func _on_shop_button_pressed():
 	_update_btn_color()
 	
 func _on_collection_button_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if collection_page.visible:
 		pass
 	else:
@@ -299,7 +300,7 @@ func _on_collection_button_pressed():
 	_update_btn_color()
 
 func _on_setting_button_pressed():
-	Global.button_sound_play()
+	audio_manager.audio.button_sound_play()
 	if setting_page.visible:
 		pass
 	else:
