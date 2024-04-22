@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var anim = $AnimationPlayer
 func _process(delta):

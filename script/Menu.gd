@@ -1,10 +1,8 @@
 extends Control
 
-@onready var howtoplay_canvas = $"How to play"
+@onready var howtoplay_canvas = $"../How to play"
 
 @onready var audio_manager = get_node("/root/Menu/Audio Manager")
-
-
 
 
 

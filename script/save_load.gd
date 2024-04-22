@@ -10,8 +10,8 @@ const EQUIPFILE = "user://equipfile.save"
 
 func _ready():
 
-	debug_set_zero()
-	reset_collection_shop()
+	#debug_set_zero()
+	#reset_collection_shop()
 	
 	load_data()
 	load_collection()

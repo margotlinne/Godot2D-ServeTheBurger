@@ -13,7 +13,11 @@ config_version=5
 config/name="Serve The Burger"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
-config/icon="res://image/icon.svg"
+boot_splash/bg_color=Color(0.803922, 0.815686, 0.631373, 1)
+boot_splash/image="res://image/png banner.png"
+boot_splash/fullsize=false
+config/icon="res://image/burger_icon.png"
+boot_splash/minimum_display_time=3000
 
 [autoload]
 

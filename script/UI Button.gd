@@ -8,8 +8,6 @@ extends Control
 
 @onready var player_area = get_node("/root/Node/Game/Left Hand/Detect Btn")
 
-func _ready():
-
 func _on_collection_button_pressed():
 	if !Global.game_over && Global.game_start:
 		print("pressed")

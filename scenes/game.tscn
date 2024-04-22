@@ -782,7 +782,6 @@ shape = SubResource("RectangleShape2D_xykb2")
 script = ExtResource("2_16bcx")
 
 [node name="Start" type="Control" parent="."]
-visible = false
 z_index = 4
 layout_mode = 3
 anchors_preset = 15
@@ -801,86 +800,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.301961, 0.301961, 0.301961, 0.478431)
 script = ExtResource("18_wro1p")
-
-[node name="Coin explain" type="Label" parent="Start/ColorRect"]
-modulate = Color(1, 1, 1, 0.368627)
-layout_mode = 1
-offset_left = 35.0
-offset_top = 129.0
-offset_right = 331.0
-offset_bottom = 228.0
-theme_override_colors/font_color = Color(0.109804, 0.109804, 0.0901961, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 20
-text = "Coin from serving burgers, you can use this to buy new plates."
-autowrap_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect/Coin explain"]
-modulate = Color(0.239216, 0.239216, 0.227451, 1)
-position = Vector2(53, -22)
-rotation = -1.57079
-scale = Vector2(0.580501, 0.501094)
-texture = ExtResource("24_3vv1r")
-
-[node name="Layer explain" type="Label" parent="Start/ColorRect"]
-modulate = Color(1, 1, 1, 0.368627)
-layout_mode = 1
-offset_left = 352.0
-offset_top = 9.0
-offset_right = 648.0
-offset_bottom = 108.0
-theme_override_colors/font_color = Color(0.109804, 0.109804, 0.0901961, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 20
-text = "This indicates how many layers burger you're building on the plate atm."
-autowrap_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect/Layer explain"]
-modulate = Color(0.239216, 0.239216, 0.227451, 1)
-position = Vector2(-32, 39)
-rotation = -3.14159
-scale = Vector2(0.580501, 0.501094)
-texture = ExtResource("24_3vv1r")
-
-[node name="Monitor button explain" type="Label" parent="Start/ColorRect"]
-modulate = Color(1, 1, 1, 0.368627)
-layout_mode = 1
-offset_left = 852.0
-offset_top = 118.0
-offset_right = 1148.0
-offset_bottom = 217.0
-theme_override_colors/font_color = Color(0.109804, 0.109804, 0.0901961, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 20
-text = "Collections, shop, setting"
-autowrap_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect/Monitor button explain"]
-modulate = Color(0.239216, 0.239216, 0.227451, 1)
-position = Vector2(192, -24)
-rotation = -0.785397
-scale = Vector2(0.580501, 0.501094)
-texture = ExtResource("24_3vv1r")
-
-[node name="Finish button explain" type="Label" parent="Start/ColorRect"]
-modulate = Color(1, 1, 1, 0.368627)
-layout_mode = 1
-offset_left = 719.0
-offset_top = 493.0
-offset_right = 1015.0
-offset_bottom = 643.0
-theme_override_colors/font_color = Color(0.109804, 0.109804, 0.0901961, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 20
-text = "When it's over 5 layers, you can finish burger. By clicking it, right hand with top bun will appear and click again to make it fall. "
-autowrap_mode = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Start/ColorRect/Finish button explain"]
-modulate = Color(0.239216, 0.239216, 0.227451, 1)
-position = Vector2(311, 68)
-rotation = -6.28318
-scale = Vector2(0.580501, 0.501094)
-texture = ExtResource("24_3vv1r")
 
 [node name="Control" type="Control" parent="Start/ColorRect"]
 layout_mode = 1
@@ -1055,74 +974,707 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.780392)
 
-[node name="Burger" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(124, 80)
+[node name="Control" type="Control" parent="Game/Dark Mode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Burger2" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(347, 80)
+[node name="first row" type="Control" parent="Game/Dark Mode/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Burger3" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(568, 80)
+[node name="Burger" parent="Game/Dark Mode/Control/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 80.0
 
-[node name="Burger4" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(798, 80)
+[node name="Burger2" parent="Game/Dark Mode/Control/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 80.0
 
-[node name="Burger5" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(1005, 80)
+[node name="Burger3" parent="Game/Dark Mode/Control/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 80.0
+offset_right = 568.0
+offset_bottom = 80.0
 
-[node name="Burger6" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(231, 187)
+[node name="Burger4" parent="Game/Dark Mode/Control/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 80.0
+offset_right = 798.0
+offset_bottom = 80.0
 
-[node name="Burger7" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(460, 187)
+[node name="Burger5" parent="Game/Dark Mode/Control/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 80.0
+offset_right = 1005.0
+offset_bottom = 80.0
 
-[node name="Burger8" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(696, 187)
+[node name="second row" type="Control" parent="Game/Dark Mode/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Burger9" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(908, 186)
+[node name="Burger6" parent="Game/Dark Mode/Control/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 187.0
+offset_right = 231.0
+offset_bottom = 187.0
 
-[node name="Burger10" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(124, 310)
+[node name="Burger7" parent="Game/Dark Mode/Control/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 187.0
+offset_right = 460.0
+offset_bottom = 187.0
 
-[node name="Burger11" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(347, 310)
+[node name="Burger8" parent="Game/Dark Mode/Control/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 187.0
+offset_right = 696.0
+offset_bottom = 187.0
 
-[node name="Burger12" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(568, 310)
+[node name="Burger9" parent="Game/Dark Mode/Control/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 186.0
+offset_right = 908.0
+offset_bottom = 186.0
 
-[node name="Burger13" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(798, 310)
+[node name="third row" type="Control" parent="Game/Dark Mode/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Burger14" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(1005, 310)
+[node name="Burger12" parent="Game/Dark Mode/Control/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 310.0
+offset_right = 568.0
+offset_bottom = 310.0
 
-[node name="Burger15" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(231, 417)
+[node name="Burger10" parent="Game/Dark Mode/Control/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 310.0
+offset_right = 124.0
+offset_bottom = 310.0
 
-[node name="Burger16" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(460, 417)
+[node name="Burger11" parent="Game/Dark Mode/Control/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 310.0
+offset_right = 347.0
+offset_bottom = 310.0
 
-[node name="Burger17" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(696, 417)
+[node name="Burger13" parent="Game/Dark Mode/Control/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 310.0
+offset_right = 798.0
+offset_bottom = 310.0
 
-[node name="Burger18" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(908, 416)
+[node name="Burger14" parent="Game/Dark Mode/Control/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 310.0
+offset_right = 1005.0
+offset_bottom = 310.0
 
-[node name="Burger19" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(124, 539)
+[node name="fourth row" type="Control" parent="Game/Dark Mode/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Burger20" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(347, 539)
+[node name="Burger15" parent="Game/Dark Mode/Control/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 417.0
+offset_right = 231.0
+offset_bottom = 417.0
 
-[node name="Burger21" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(568, 539)
+[node name="Burger16" parent="Game/Dark Mode/Control/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 417.0
+offset_right = 460.0
+offset_bottom = 417.0
 
-[node name="Burger22" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(798, 539)
+[node name="Burger17" parent="Game/Dark Mode/Control/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 417.0
+offset_right = 696.0
+offset_bottom = 417.0
 
-[node name="Burger23" parent="Game/Dark Mode" instance=ExtResource("11_a3hiu")]
-position = Vector2(1005, 539)
+[node name="Burger18" parent="Game/Dark Mode/Control/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 416.0
+offset_right = 908.0
+offset_bottom = 416.0
+
+[node name="fifth row" type="Control" parent="Game/Dark Mode/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger19" parent="Game/Dark Mode/Control/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 539.0
+offset_right = 124.0
+offset_bottom = 539.0
+
+[node name="Burger20" parent="Game/Dark Mode/Control/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 539.0
+offset_right = 347.0
+offset_bottom = 539.0
+
+[node name="Burger21" parent="Game/Dark Mode/Control/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 539.0
+offset_right = 568.0
+offset_bottom = 539.0
+
+[node name="Burger22" parent="Game/Dark Mode/Control/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 539.0
+offset_right = 798.0
+offset_bottom = 539.0
+
+[node name="Burger23" parent="Game/Dark Mode/Control/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 539.0
+offset_right = 1005.0
+offset_bottom = 539.0
+
+[node name="Control2" type="Control" parent="Game/Dark Mode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1005.0
+offset_top = 6.0
+offset_right = 1005.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="second row" type="Control" parent="Game/Dark Mode/Control2"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -117.0
+offset_right = 43.0
+offset_bottom = -77.0
+
+[node name="Burger6" parent="Game/Dark Mode/Control2/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 187.0
+offset_right = 231.0
+offset_bottom = 187.0
+
+[node name="Burger7" parent="Game/Dark Mode/Control2/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 187.0
+offset_right = 460.0
+offset_bottom = 187.0
+
+[node name="Burger8" parent="Game/Dark Mode/Control2/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 187.0
+offset_right = 696.0
+offset_bottom = 187.0
+
+[node name="Burger9" parent="Game/Dark Mode/Control2/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 186.0
+offset_right = 908.0
+offset_bottom = 186.0
+
+[node name="first row" type="Control" parent="Game/Dark Mode/Control2"]
+anchors_preset = 0
+offset_left = -8.0
+offset_top = 102.0
+offset_right = 32.0
+offset_bottom = 142.0
+
+[node name="Burger" parent="Game/Dark Mode/Control2/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 80.0
+
+[node name="Burger2" parent="Game/Dark Mode/Control2/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 80.0
+
+[node name="Burger3" parent="Game/Dark Mode/Control2/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 80.0
+offset_right = 568.0
+offset_bottom = 80.0
+
+[node name="Burger4" parent="Game/Dark Mode/Control2/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 80.0
+offset_right = 798.0
+offset_bottom = 80.0
+
+[node name="Burger5" parent="Game/Dark Mode/Control2/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 80.0
+offset_right = 1005.0
+offset_bottom = 80.0
+
+[node name="third row" type="Control" parent="Game/Dark Mode/Control2"]
+anchors_preset = 0
+offset_left = -4.0
+offset_top = 106.0
+offset_right = 36.0
+offset_bottom = 146.0
+
+[node name="Burger12" parent="Game/Dark Mode/Control2/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 310.0
+offset_right = 568.0
+offset_bottom = 310.0
+
+[node name="Burger10" parent="Game/Dark Mode/Control2/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 310.0
+offset_right = 124.0
+offset_bottom = 310.0
+
+[node name="Burger11" parent="Game/Dark Mode/Control2/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 310.0
+offset_right = 347.0
+offset_bottom = 310.0
+
+[node name="Burger13" parent="Game/Dark Mode/Control2/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 310.0
+offset_right = 798.0
+offset_bottom = 310.0
+
+[node name="Burger14" parent="Game/Dark Mode/Control2/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 310.0
+offset_right = 1005.0
+offset_bottom = 310.0
+
+[node name="fourth row" type="Control" parent="Game/Dark Mode/Control2"]
+anchors_preset = 0
+offset_top = -112.0
+offset_right = 40.0
+offset_bottom = -72.0
+
+[node name="Burger15" parent="Game/Dark Mode/Control2/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 417.0
+offset_right = 231.0
+offset_bottom = 417.0
+
+[node name="Burger16" parent="Game/Dark Mode/Control2/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 417.0
+offset_right = 460.0
+offset_bottom = 417.0
+
+[node name="Burger17" parent="Game/Dark Mode/Control2/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 417.0
+offset_right = 696.0
+offset_bottom = 417.0
+
+[node name="Burger18" parent="Game/Dark Mode/Control2/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 416.0
+offset_right = 908.0
+offset_bottom = 416.0
+
+[node name="fifth row" type="Control" parent="Game/Dark Mode/Control2"]
+anchors_preset = 0
+offset_left = -113.0
+offset_top = -5.0
+offset_right = -73.0
+offset_bottom = 35.0
+
+[node name="Burger20" parent="Game/Dark Mode/Control2/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 539.0
+offset_right = 347.0
+offset_bottom = 539.0
+
+[node name="Burger21" parent="Game/Dark Mode/Control2/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 539.0
+offset_right = 568.0
+offset_bottom = 539.0
+
+[node name="Burger22" parent="Game/Dark Mode/Control2/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 539.0
+offset_right = 798.0
+offset_bottom = 539.0
+
+[node name="Burger23" parent="Game/Dark Mode/Control2/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 539.0
+offset_right = 1005.0
+offset_bottom = 539.0
+
+[node name="Control3" type="Control" parent="Game/Dark Mode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 999.0
+offset_top = 595.0
+offset_right = 999.0
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="first row" type="Control" parent="Game/Dark Mode/Control3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger" parent="Game/Dark Mode/Control3/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 80.0
+
+[node name="Burger2" parent="Game/Dark Mode/Control3/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 80.0
+
+[node name="Burger3" parent="Game/Dark Mode/Control3/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 80.0
+offset_right = 568.0
+offset_bottom = 80.0
+
+[node name="Burger4" parent="Game/Dark Mode/Control3/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 80.0
+offset_right = 798.0
+offset_bottom = 80.0
+
+[node name="Burger5" parent="Game/Dark Mode/Control3/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 80.0
+offset_right = 1005.0
+offset_bottom = 80.0
+
+[node name="second row" type="Control" parent="Game/Dark Mode/Control3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger6" parent="Game/Dark Mode/Control3/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 187.0
+offset_right = 231.0
+offset_bottom = 187.0
+
+[node name="Burger7" parent="Game/Dark Mode/Control3/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 187.0
+offset_right = 460.0
+offset_bottom = 187.0
+
+[node name="Burger8" parent="Game/Dark Mode/Control3/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 187.0
+offset_right = 696.0
+offset_bottom = 187.0
+
+[node name="Burger9" parent="Game/Dark Mode/Control3/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 186.0
+offset_right = 908.0
+offset_bottom = 186.0
+
+[node name="third row" type="Control" parent="Game/Dark Mode/Control3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger12" parent="Game/Dark Mode/Control3/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 310.0
+offset_right = 568.0
+offset_bottom = 310.0
+
+[node name="Burger10" parent="Game/Dark Mode/Control3/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 310.0
+offset_right = 124.0
+offset_bottom = 310.0
+
+[node name="Burger11" parent="Game/Dark Mode/Control3/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 310.0
+offset_right = 347.0
+offset_bottom = 310.0
+
+[node name="Burger13" parent="Game/Dark Mode/Control3/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 310.0
+offset_right = 798.0
+offset_bottom = 310.0
+
+[node name="Burger14" parent="Game/Dark Mode/Control3/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 310.0
+offset_right = 1005.0
+offset_bottom = 310.0
+
+[node name="fourth row" type="Control" parent="Game/Dark Mode/Control3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger15" parent="Game/Dark Mode/Control3/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 417.0
+offset_right = 231.0
+offset_bottom = 417.0
+
+[node name="Burger16" parent="Game/Dark Mode/Control3/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 417.0
+offset_right = 460.0
+offset_bottom = 417.0
+
+[node name="Burger17" parent="Game/Dark Mode/Control3/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 417.0
+offset_right = 696.0
+offset_bottom = 417.0
+
+[node name="Burger18" parent="Game/Dark Mode/Control3/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 416.0
+offset_right = 908.0
+offset_bottom = 416.0
+
+[node name="fifth row" type="Control" parent="Game/Dark Mode/Control3"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Burger19" parent="Game/Dark Mode/Control3/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 539.0
+offset_right = 124.0
+offset_bottom = 539.0
+
+[node name="Burger20" parent="Game/Dark Mode/Control3/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 539.0
+offset_right = 347.0
+offset_bottom = 539.0
+
+[node name="Burger21" parent="Game/Dark Mode/Control3/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 539.0
+offset_right = 568.0
+offset_bottom = 539.0
+
+[node name="Burger22" parent="Game/Dark Mode/Control3/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 539.0
+offset_right = 798.0
+offset_bottom = 539.0
+
+[node name="Burger23" parent="Game/Dark Mode/Control3/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 539.0
+offset_right = 1005.0
+offset_bottom = 539.0
+
+[node name="Control4" type="Control" parent="Game/Dark Mode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 608.0
+offset_right = 1.0
+offset_bottom = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="second row" type="Control" parent="Game/Dark Mode/Control4"]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = -117.0
+offset_right = 43.0
+offset_bottom = -77.0
+
+[node name="Burger6" parent="Game/Dark Mode/Control4/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 187.0
+offset_right = 231.0
+offset_bottom = 187.0
+
+[node name="Burger7" parent="Game/Dark Mode/Control4/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 187.0
+offset_right = 460.0
+offset_bottom = 187.0
+
+[node name="Burger8" parent="Game/Dark Mode/Control4/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 187.0
+offset_right = 696.0
+offset_bottom = 187.0
+
+[node name="Burger9" parent="Game/Dark Mode/Control4/second row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 186.0
+offset_right = 908.0
+offset_bottom = 186.0
+
+[node name="first row" type="Control" parent="Game/Dark Mode/Control4"]
+anchors_preset = 0
+offset_left = -8.0
+offset_top = 102.0
+offset_right = 32.0
+offset_bottom = 142.0
+
+[node name="Burger" parent="Game/Dark Mode/Control4/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 80.0
+
+[node name="Burger2" parent="Game/Dark Mode/Control4/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 80.0
+offset_right = 347.0
+offset_bottom = 80.0
+
+[node name="Burger3" parent="Game/Dark Mode/Control4/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 80.0
+offset_right = 568.0
+offset_bottom = 80.0
+
+[node name="Burger4" parent="Game/Dark Mode/Control4/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 80.0
+offset_right = 798.0
+offset_bottom = 80.0
+
+[node name="Burger5" parent="Game/Dark Mode/Control4/first row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 80.0
+offset_right = 1005.0
+offset_bottom = 80.0
+
+[node name="third row" type="Control" parent="Game/Dark Mode/Control4"]
+anchors_preset = 0
+offset_left = -4.0
+offset_top = 106.0
+offset_right = 36.0
+offset_bottom = 146.0
+
+[node name="Burger12" parent="Game/Dark Mode/Control4/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 310.0
+offset_right = 568.0
+offset_bottom = 310.0
+
+[node name="Burger10" parent="Game/Dark Mode/Control4/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 124.0
+offset_top = 310.0
+offset_right = 124.0
+offset_bottom = 310.0
+
+[node name="Burger11" parent="Game/Dark Mode/Control4/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 310.0
+offset_right = 347.0
+offset_bottom = 310.0
+
+[node name="Burger13" parent="Game/Dark Mode/Control4/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 310.0
+offset_right = 798.0
+offset_bottom = 310.0
+
+[node name="Burger14" parent="Game/Dark Mode/Control4/third row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 310.0
+offset_right = 1005.0
+offset_bottom = 310.0
+
+[node name="fourth row" type="Control" parent="Game/Dark Mode/Control4"]
+anchors_preset = 0
+offset_top = -112.0
+offset_right = 40.0
+offset_bottom = -72.0
+
+[node name="Burger15" parent="Game/Dark Mode/Control4/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 231.0
+offset_top = 417.0
+offset_right = 231.0
+offset_bottom = 417.0
+
+[node name="Burger16" parent="Game/Dark Mode/Control4/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 460.0
+offset_top = 417.0
+offset_right = 460.0
+offset_bottom = 417.0
+
+[node name="Burger17" parent="Game/Dark Mode/Control4/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 696.0
+offset_top = 417.0
+offset_right = 696.0
+offset_bottom = 417.0
+
+[node name="Burger18" parent="Game/Dark Mode/Control4/fourth row" instance=ExtResource("11_a3hiu")]
+offset_left = 908.0
+offset_top = 416.0
+offset_right = 908.0
+offset_bottom = 416.0
+
+[node name="fifth row" type="Control" parent="Game/Dark Mode/Control4"]
+anchors_preset = 0
+offset_left = -113.0
+offset_top = -5.0
+offset_right = -73.0
+offset_bottom = 35.0
+
+[node name="Burger20" parent="Game/Dark Mode/Control4/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 347.0
+offset_top = 539.0
+offset_right = 347.0
+offset_bottom = 539.0
+
+[node name="Burger21" parent="Game/Dark Mode/Control4/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 568.0
+offset_top = 539.0
+offset_right = 568.0
+offset_bottom = 539.0
+
+[node name="Burger22" parent="Game/Dark Mode/Control4/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 798.0
+offset_top = 539.0
+offset_right = 798.0
+offset_bottom = 539.0
+
+[node name="Burger23" parent="Game/Dark Mode/Control4/fifth row" instance=ExtResource("11_a3hiu")]
+offset_left = 1005.0
+offset_top = 539.0
+offset_right = 1005.0
+offset_bottom = 539.0
 
 [node name="UI" type="Control" parent="Game"]
 z_index = 6
@@ -5831,7 +6383,7 @@ grow_vertical = 2
 script = ExtResource("11_xmaf4")
 
 [node name="Move" type="Node2D" parent="Game/Right Hand"]
-position = Vector2(67, -148)
+position = Vector2(67, -144)
 
 [node name="Hand Sprite" type="Sprite2D" parent="Game/Right Hand/Move"]
 z_index = 3

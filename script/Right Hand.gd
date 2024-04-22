@@ -24,6 +24,7 @@ func _ready():
 	set_default()
 		
 func _process(delta):
+	print(hand.position)
 	var left_gap = int(hand.position.x) - left_edge
 	var right_gap = int(hand.position.x)
 	

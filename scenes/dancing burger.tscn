@@ -37,9 +37,14 @@ _data = {
 "idle": SubResource("Animation_f41px")
 }
 
-[node name="Burger" type="Node2D"]
+[node name="Burger" type="Control"]
 modulate = Color(1, 1, 1, 0.678431)
-position = Vector2(70, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 52.0
+offset_right = 70.0
+offset_bottom = 52.0
 scale = Vector2(0.550858, 0.572394)
 script = ExtResource("1_5p3fr")
 
