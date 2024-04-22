@@ -30,5 +30,5 @@ func _process(delta):
 		#print(fall_pos)
 		#print(mid_pos)
 		#print(position)
-	else:
-		ready_for_tween = true
+#	else:
+#		ready_for_tween = true

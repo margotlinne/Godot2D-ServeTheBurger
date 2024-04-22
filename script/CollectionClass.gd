@@ -3,7 +3,6 @@ class Collection:
 	var unlock : bool 
 	var path : String
 	var requirement_label : String
-	var achievement_done : bool
 	
 	func _init(name: String, unlock: bool, path: String, requirement_label: String):
 		self.name = name

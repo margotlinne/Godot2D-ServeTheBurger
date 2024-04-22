@@ -4,7 +4,6 @@ const SCOREFILE = "user://scorefile.save"
 const COINFILE = "user://coinfile.save"
 const BURGERFILE = "user://burgerfile.save"
 const COLLECTIONFILE = "user://collectionfile.save"
-const ACHIEVEMENTFILE = "user://achievementfile.save"
 const SHOPFILE = "user://shopfile.save"
 const EQUIPFILE = "user://equipfile.save"
 
@@ -86,16 +85,9 @@ func save_collection():
 		collection_file.store_string(str(Global.collection_ins.collection[i].unlock))
 		if i < Global.collection_ins.collection.size() - 1:
 			collection_file.store_string(",")
-			
-	var achievement_file = FileAccess.open(ACHIEVEMENTFILE, FileAccess.WRITE_READ)
-	for i in range(Global.collection_ins.collection.size()):
-		achievement_file.store_string(str(Global.collection_ins.collection[i].achievement_done))
-		if i < Global.collection_ins.collection.size() - 1:
-			achievement_file.store_string(",")
 	
 func load_collection():
 	var collection_file = FileAccess.open(COLLECTIONFILE, FileAccess.READ)
-	var achievement_file = FileAccess.open(ACHIEVEMENTFILE, FileAccess.READ)
 	if FileAccess.file_exists(COLLECTIONFILE):
 		var collection_str = collection_file.get_as_text()
 		var collection_array = collection_str.split(",")
@@ -106,17 +98,7 @@ func load_collection():
 				Global.collection_ins.collection[i].unlock = false
 			else:
 				Global.collection_ins.collection[i].unlock = true
-				
-	if FileAccess.file_exists(ACHIEVEMENTFILE):
-		var achievement_str = achievement_file.get_as_text()
-		var achievement_array = achievement_str.split(",")
-		
-		for i in range(min(Global.collection_ins.collection.size(), achievement_array.size())):
-			#print(Global.collection_ins.collection[i].name, "  ", collection_array[i])
-			if achievement_array[i] == "false":
-				Global.collection_ins.collection[i].achievement_done = false
-			else:
-				Global.collection_ins.collection[i].achievement_done = true
+			
 
 func save_shop():
 	var shop_file = FileAccess.open(SHOPFILE, FileAccess.WRITE_READ)
