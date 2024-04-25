@@ -498,13 +498,10 @@ func _on_finish_button_button_down():
 			
 # instnatiate ingredients randomly
 func instantiate_ingredient(pos):
-	#print(available_index)
-	#print("instantiate!")
 	random_index = randi_range(0, available_index.size()-1)
 	var instance = ingredients[available_index[random_index]].instantiate()
 	ins_ingredient.append(instance)
 	# add null to stacked item array so the size is same as instantiated ingredient array
-	#stacked_ing.append(null)
 	instance.position = pos
 	canvas.add_child(instance)
 
