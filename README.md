@@ -10,7 +10,8 @@
 
 <br>
 
-<img src="./readme_assets/gameplay.png">
+![image](https://github.com/margotlinne/Godot2D-ServeTheBurger/assets/85787151/cf8c2ed1-b91e-479c-8aea-e49e94e442fd)
+
 
 해당 프로젝트는 처음으로 고도라는 엔진을 사용해서 제작해본 게임이다. 
 
