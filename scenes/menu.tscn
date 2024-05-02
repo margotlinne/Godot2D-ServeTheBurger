@@ -1389,7 +1389,7 @@ stream = ExtResource("22_37suh")
 volume_db = -10.0
 autoplay = true
 
-[node name="Label" type="Label" parent="."]
+[node name="watermark" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1404,7 +1404,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0.745098, 0.682353, 0.0196078, 1)
 theme_override_fonts/font = ExtResource("4_tgkd0")
 theme_override_font_sizes/font_size = 20
-text = "M.Linne"
+text = "margotAde"
 horizontal_alignment = 2
 vertical_alignment = 2
 
