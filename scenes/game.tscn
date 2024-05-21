@@ -160,6 +160,79 @@ _data = {
 "slide": SubResource("Animation_3r6n4")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msguh"]
+bg_color = Color(0.905882, 0.862745, 0.168627, 0.188235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n2u7"]
+bg_color = Color(0.929412, 0.937255, 0.654902, 0.486275)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1t3n8"]
+texture = ExtResource("13_fk6mh")
+region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yokst"]
+texture = ExtResource("13_fk6mh")
+region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
+modulate_color = Color(1, 1, 1, 0.482353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3m6y"]
+bg_color = Color(0.843137, 0.780392, 0.443137, 0.345098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b41x3"]
+bg_color = Color(0.4, 0.627451, 0.792157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aagc"]
+bg_color = Color(0.796078, 0.627451, 0.94902, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ftfk"]
+bg_color = Color(0.917647, 0.784314, 0.231373, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqauf"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cxcu"]
+texture = ExtResource("24_3vv1r")
+region_rect = Rect2(6, 10, 60, 55)
+modulate_color = Color(0.85098, 0.772549, 0.368627, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71qdm"]
+texture = ExtResource("24_3vv1r")
+region_rect = Rect2(6, 10, 60, 55)
+modulate_color = Color(0.85098, 0.772549, 0.368627, 0.654902)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v08i4"]
+texture = ExtResource("25_phccn")
+region_rect = Rect2(8, 6, 62, 84)
+modulate_color = Color(0.85098, 0.772549, 0.368627, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_og6ty"]
+texture = ExtResource("25_phccn")
+region_rect = Rect2(8, 6, 62, 84)
+modulate_color = Color(0.85098, 0.772549, 0.368627, 0.654902)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3weg"]
+texture = ExtResource("23_d8p2i")
+region_rect = Rect2(39, 923, 180, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jeqg3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbgy4"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8soa"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_detail = 5
@@ -283,79 +356,6 @@ tracks/1/keys = {
 _data = {
 "coin": SubResource("Animation_oho4t")
 }
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msguh"]
-bg_color = Color(0.905882, 0.862745, 0.168627, 0.188235)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7n2u7"]
-bg_color = Color(0.929412, 0.937255, 0.654902, 0.486275)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1t3n8"]
-texture = ExtResource("13_fk6mh")
-region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yokst"]
-texture = ExtResource("13_fk6mh")
-region_rect = Rect2(1809.9, 494.174, 322.788, 322.788)
-modulate_color = Color(1, 1, 1, 0.482353)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3m6y"]
-bg_color = Color(0.843137, 0.780392, 0.443137, 0.345098)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b41x3"]
-bg_color = Color(0.4, 0.627451, 0.792157, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aagc"]
-bg_color = Color(0.796078, 0.627451, 0.94902, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ftfk"]
-bg_color = Color(0.917647, 0.784314, 0.231373, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqauf"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1cxcu"]
-texture = ExtResource("24_3vv1r")
-region_rect = Rect2(6, 10, 60, 55)
-modulate_color = Color(0.85098, 0.772549, 0.368627, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_71qdm"]
-texture = ExtResource("24_3vv1r")
-region_rect = Rect2(6, 10, 60, 55)
-modulate_color = Color(0.85098, 0.772549, 0.368627, 0.654902)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v08i4"]
-texture = ExtResource("25_phccn")
-region_rect = Rect2(8, 6, 62, 84)
-modulate_color = Color(0.85098, 0.772549, 0.368627, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_og6ty"]
-texture = ExtResource("25_phccn")
-region_rect = Rect2(8, 6, 62, 84)
-modulate_color = Color(0.85098, 0.772549, 0.368627, 0.654902)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3weg"]
-texture = ExtResource("23_d8p2i")
-region_rect = Rect2(39, 923, 180, 45)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qg7x"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jeqg3"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbgy4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4yet"]
 texture = ExtResource("14_vct2k")
@@ -782,7 +782,7 @@ shape = SubResource("RectangleShape2D_xykb2")
 script = ExtResource("2_16bcx")
 
 [node name="Start" type="Control" parent="."]
-z_index = 4
+z_index = 8
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1686,431 +1686,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("11_epsa7")
 
-[node name="Finish Button" type="Panel" parent="Game/UI"]
-z_index = 2
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -87.0001
-offset_top = -95.0001
-offset_right = -47.0001
-offset_bottom = -55.0001
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(2.21984, 2.30479)
-theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
-script = ExtResource("7_vhba4")
-
-[node name="sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
-position = Vector2(13.5146, 13.0164)
-scale = Vector2(0.111897, 0.105734)
-texture = ExtResource("14_vct2k")
-region_enabled = true
-region_rect = Rect2(1666, 621, 358, 374)
-
-[node name="Finish Button" type="Button" parent="Game/UI/Finish Button/sprite"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -145.306
-offset_top = -49.2104
-offset_right = -145.306
-offset_bottom = -49.2104
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.806946, 0.522022)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_if3fn")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_se4g0")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_ywxfu")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_71gsq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Finish Button"]
-libraries = {
-"": SubResource("AnimationLibrary_w55ey")
-}
-
-[node name="Money Panel" type="Panel" parent="Game/UI"]
-z_index = 2
-layout_mode = 1
-offset_left = 28.0
-offset_top = 28.0
-offset_right = 68.0
-offset_bottom = 68.0
-scale = Vector2(2.71668, 1.17641)
-theme_override_styles/panel = SubResource("StyleBoxTexture_0aoym")
-script = ExtResource("15_0ihby")
-
-[node name="coin phase6" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(1.84048, 2.55013)
-scale = Vector2(0.124216, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(-52.9025, 51.4192)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(-31.0116, 57.2928)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(-12.9704, 70.5896)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(17.2345, 61.6187)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(44.8153, 63.6106)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
-position = Vector2(-4.2113, 46.6212)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="coin phase5" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(1.47238, 7.6504)
-scale = Vector2(0.0706763, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(-66.8845, 48.541)
-rotation = -0.785397
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(-30.2625, 57.6547)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(-12.9704, 70.5896)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(17.2345, 61.6187)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(57.7494, 60.5726)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
-position = Vector2(70.6481, 46.1455)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="coin phase4" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(1.10429, 18.701)
-scale = Vector2(0.0706763, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-63.3227, 35.728)
-rotation = 0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-42.3675, 44.8425)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-18.3989, 54.435)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(27.7805, 44.8192)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(51.6084, 60.7268)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(73.7185, 46.0684)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin7" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-57.791, 2.45572)
-rotation = 0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin8" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-37.4915, 12.0884)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin9" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(-13.1261, 21.5103)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin10" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(33.0533, 11.8945)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin11" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(55.7109, 27.6599)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin12" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
-position = Vector2(78.9913, 13.1437)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="coin phase3" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(1.47238, 22.9512)
-scale = Vector2(0.0826805, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(-66.5452, 42.1228)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(-42.3675, 41.6395)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(-9.19684, 60.951)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(30.6989, 51.0598)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(60.8198, 60.4955)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
-position = Vector2(9.4671, 38.2108)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="coin phase2" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(2.94477, 28.9015)
-scale = Vector2(0.100124, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(-57.2578, 38.7327)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(-30.2625, 48.0456)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(-12.9704, 70.5896)
-rotation = 0.785397
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(17.2345, 61.6187)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(45.3938, 48.0456)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
-position = Vector2(12.5376, 38.1338)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="coin phase1" type="Node2D" parent="Game/UI/Money Panel"]
-visible = false
-position = Vector2(1.10429, 31.4517)
-scale = Vector2(0.0854001, 0.171494)
-
-[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(-52.9025, 51.4192)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(-31.0116, 57.2928)
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(-12.9704, 70.5896)
-rotation = 0.261799
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(17.2345, 61.6187)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(44.8153, 63.6106)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
-position = Vector2(-4.2113, 46.6212)
-rotation = -0.523598
-scale = Vector2(1.72103, 1.70891)
-texture = ExtResource("15_rdk4n")
-
-[node name="Coin jar" type="Sprite2D" parent="Game/UI/Money Panel"]
-position = Vector2(1.10429, 15.3008)
-scale = Vector2(0.054826, 0.103348)
-texture = ExtResource("14_vct2k")
-region_enabled = true
-region_rect = Rect2(1187, 770, 392, 712)
-
-[node name="Coin Text" type="Label" parent="Game/UI/Money Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.22092
-offset_top = -14.0497
-offset_right = 91.7791
-offset_bottom = 42.9503
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.21502, 0.556029)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 40
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Coin Dest Pos" type="Node2D" parent="Game/UI/Money Panel"]
-position = Vector2(1.10429, 23.8013)
-
-[node name="Score Panel" type="Panel" parent="Game/UI"]
-z_index = 2
-layout_mode = 1
-offset_left = 174.0
-offset_top = 28.0
-offset_right = 214.0
-offset_bottom = 68.0
-scale = Vector2(2.71668, 1.17641)
-theme_override_styles/panel = SubResource("StyleBoxTexture_0aoym")
-
-[node name="Earned coin" type="Label" parent="Game/UI/Score Panel"]
-layout_mode = 0
-offset_left = 9.93859
-offset_top = 37.4019
-offset_right = 82.9386
-offset_bottom = 81.4019
-scale = Vector2(0.403485, 0.803601)
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.52549, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Score Panel/Earned coin"]
-libraries = {
-"": SubResource("AnimationLibrary_ka7lk")
-}
-
-[node name="Score sprite" type="Sprite2D" parent="Game/UI/Score Panel"]
-position = Vector2(1.10429, 15.3008)
-scale = Vector2(0.054826, 0.103348)
-texture = ExtResource("14_vct2k")
-region_enabled = true
-region_rect = Rect2(1681, 1186, 353, 672)
-
-[node name="burger" type="Sprite2D" parent="Game/UI/Score Panel/Score sprite"]
-scale = Vector2(3.14845, 3.30301)
-texture = ExtResource("13_fk6mh")
-region_enabled = true
-region_rect = Rect2(2747, 507, 73.0002, 68)
-
-[node name="Score Label" type="Label" parent="Game/UI/Score Panel/Score sprite"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -15.3665
-offset_top = -434.701
-offset_right = 107.634
-offset_bottom = -376.701
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.86468, 5.12282)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("17_roojl")
-theme_override_font_sizes/font_size = 40
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("6_ef2qw")
-
 [node name="Collection Canvas" type="Control" parent="Game/UI"]
-visible = false
+z_index = 5
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2120,7 +1697,7 @@ grow_vertical = 2
 script = ExtResource("16_j1u6a")
 
 [node name="ColorRect" type="ColorRect" parent="Game/UI/Collection Canvas"]
-z_index = 2
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -5905,8 +5482,8 @@ theme_override_fonts/font = ExtResource("17_roojl")
 theme_override_font_sizes/font_size = 40
 text = "Setting"
 
-[node name="Computer Panel" type="Panel" parent="Game/UI"]
-z_index = 3
+[node name="Computer Panel" type="Panel" parent="Game/UI/Collection Canvas"]
+z_index = -5
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -5919,7 +5496,7 @@ grow_horizontal = 0
 scale = Vector2(1.8315, 1.63781)
 theme_override_styles/panel = SubResource("StyleBoxFlat_7qg7x")
 
-[node name="Computer screen" type="Sprite2D" parent="Game/UI/Computer Panel"]
+[node name="Computer screen" type="Sprite2D" parent="Game/UI/Collection Canvas/Computer Panel"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(23.5684, 14.425)
 scale = Vector2(0.0815457, 0.0863806)
@@ -5927,14 +5504,14 @@ texture = ExtResource("14_vct2k")
 region_enabled = true
 region_rect = Rect2(588, 1531, 371, 260)
 
-[node name="Computer" type="Sprite2D" parent="Game/UI/Computer Panel"]
+[node name="Computer" type="Sprite2D" parent="Game/UI/Collection Canvas/Computer Panel"]
 position = Vector2(23.1957, 20.1585)
 scale = Vector2(0.0815457, 0.0863806)
 texture = ExtResource("14_vct2k")
 region_enabled = true
 region_rect = Rect2(51, 1434, 508, 535)
 
-[node name="Collection Button" type="Button" parent="Game/UI/Computer Panel"]
+[node name="Collection Button" type="Button" parent="Game/UI/Collection Canvas/Computer Panel"]
 layout_mode = 0
 offset_left = 6.00607
 offset_top = 0.610572
@@ -5946,6 +5523,429 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_fbgy4")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_fbgy4")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_fbgy4")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fbgy4")
+
+[node name="Finish Button" type="Panel" parent="Game/UI"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0001
+offset_top = -95.0001
+offset_right = -47.0001
+offset_bottom = -55.0001
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2.21984, 2.30479)
+theme_override_styles/panel = SubResource("StyleBoxFlat_k8soa")
+script = ExtResource("7_vhba4")
+
+[node name="sprite" type="Sprite2D" parent="Game/UI/Finish Button"]
+position = Vector2(13.5146, 13.0164)
+scale = Vector2(0.111897, 0.105734)
+texture = ExtResource("14_vct2k")
+region_enabled = true
+region_rect = Rect2(1666, 621, 358, 374)
+
+[node name="Finish Button" type="Button" parent="Game/UI/Finish Button/sprite"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -145.306
+offset_top = -49.2104
+offset_right = -145.306
+offset_bottom = -49.2104
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.806946, 0.522022)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_if3fn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_se4g0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ywxfu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_71gsq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_la7n3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Finish Button"]
+libraries = {
+"": SubResource("AnimationLibrary_w55ey")
+}
+
+[node name="Money Panel" type="Panel" parent="Game/UI"]
+z_index = 2
+layout_mode = 1
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 68.0
+scale = Vector2(2.71668, 1.17641)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0aoym")
+script = ExtResource("15_0ihby")
+
+[node name="coin phase6" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(1.84048, 2.55013)
+scale = Vector2(0.124216, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(-52.9025, 51.4192)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(-31.0116, 57.2928)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(-12.9704, 70.5896)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(17.2345, 61.6187)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(44.8153, 63.6106)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase6"]
+position = Vector2(-4.2113, 46.6212)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="coin phase5" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(1.47238, 7.6504)
+scale = Vector2(0.0706763, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(-66.8845, 48.541)
+rotation = -0.785397
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(-30.2625, 57.6547)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(-12.9704, 70.5896)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(17.2345, 61.6187)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(57.7494, 60.5726)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase5"]
+position = Vector2(70.6481, 46.1455)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="coin phase4" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(1.10429, 18.701)
+scale = Vector2(0.0706763, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-63.3227, 35.728)
+rotation = 0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-42.3675, 44.8425)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-18.3989, 54.435)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(27.7805, 44.8192)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(51.6084, 60.7268)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(73.7185, 46.0684)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin7" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-57.791, 2.45572)
+rotation = 0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin8" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-37.4915, 12.0884)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin9" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(-13.1261, 21.5103)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin10" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(33.0533, 11.8945)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin11" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(55.7109, 27.6599)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin12" type="Sprite2D" parent="Game/UI/Money Panel/coin phase4"]
+position = Vector2(78.9913, 13.1437)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="coin phase3" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(1.47238, 22.9512)
+scale = Vector2(0.0826805, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(-66.5452, 42.1228)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(-42.3675, 41.6395)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(-9.19684, 60.951)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(30.6989, 51.0598)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(60.8198, 60.4955)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase3"]
+position = Vector2(9.4671, 38.2108)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="coin phase2" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(2.94477, 28.9015)
+scale = Vector2(0.100124, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(-57.2578, 38.7327)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(-30.2625, 48.0456)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(-12.9704, 70.5896)
+rotation = 0.785397
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(17.2345, 61.6187)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(45.3938, 48.0456)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase2"]
+position = Vector2(12.5376, 38.1338)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="coin phase1" type="Node2D" parent="Game/UI/Money Panel"]
+visible = false
+position = Vector2(1.10429, 31.4517)
+scale = Vector2(0.0854001, 0.171494)
+
+[node name="Coin" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(-52.9025, 51.4192)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin2" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(-31.0116, 57.2928)
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin3" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(-12.9704, 70.5896)
+rotation = 0.261799
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin4" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(17.2345, 61.6187)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin5" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(44.8153, 63.6106)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin6" type="Sprite2D" parent="Game/UI/Money Panel/coin phase1"]
+position = Vector2(-4.2113, 46.6212)
+rotation = -0.523598
+scale = Vector2(1.72103, 1.70891)
+texture = ExtResource("15_rdk4n")
+
+[node name="Coin jar" type="Sprite2D" parent="Game/UI/Money Panel"]
+position = Vector2(1.10429, 15.3008)
+scale = Vector2(0.054826, 0.103348)
+texture = ExtResource("14_vct2k")
+region_enabled = true
+region_rect = Rect2(1187, 770, 392, 712)
+
+[node name="Coin Text" type="Label" parent="Game/UI/Money Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.22092
+offset_top = -14.0497
+offset_right = 91.7791
+offset_bottom = 42.9503
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.21502, 0.556029)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_roojl")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coin Dest Pos" type="Node2D" parent="Game/UI/Money Panel"]
+position = Vector2(1.10429, 23.8013)
+
+[node name="Score Panel" type="Panel" parent="Game/UI"]
+z_index = 2
+layout_mode = 1
+offset_left = 174.0
+offset_top = 28.0
+offset_right = 214.0
+offset_bottom = 68.0
+scale = Vector2(2.71668, 1.17641)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0aoym")
+
+[node name="Earned coin" type="Label" parent="Game/UI/Score Panel"]
+layout_mode = 0
+offset_left = 9.93859
+offset_top = 37.4019
+offset_right = 82.9386
+offset_bottom = 81.4019
+scale = Vector2(0.403485, 0.803601)
+theme_override_colors/font_color = Color(0.733333, 0.733333, 0.52549, 1)
+theme_override_fonts/font = ExtResource("17_roojl")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Game/UI/Score Panel/Earned coin"]
+libraries = {
+"": SubResource("AnimationLibrary_ka7lk")
+}
+
+[node name="Score sprite" type="Sprite2D" parent="Game/UI/Score Panel"]
+position = Vector2(1.10429, 15.3008)
+scale = Vector2(0.054826, 0.103348)
+texture = ExtResource("14_vct2k")
+region_enabled = true
+region_rect = Rect2(1681, 1186, 353, 672)
+
+[node name="burger" type="Sprite2D" parent="Game/UI/Score Panel/Score sprite"]
+scale = Vector2(3.14845, 3.30301)
+texture = ExtResource("13_fk6mh")
+region_enabled = true
+region_rect = Rect2(2747, 507, 73.0002, 68)
+
+[node name="Score Label" type="Label" parent="Game/UI/Score Panel/Score sprite"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.3665
+offset_top = -434.701
+offset_right = 107.634
+offset_bottom = -376.701
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.86468, 5.12282)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("17_roojl")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_ef2qw")
 
 [node name="Achievement" type="Control" parent="Game/UI"]
 layout_mode = 1
@@ -6680,7 +6680,6 @@ bus = &"Music"
 script = ExtResource("35_1fv04")
 
 [connection signal="animation_finished" from="Hamburger/BG/AnimationPlayer" to="Hamburger/BG" method="_on_animation_player_animation_finished"]
-[connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4/Control/VBoxContainer/plate1/Panel/HBoxContainer/Control/Label/Equip Btn1" to="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4" method="_on_equip_btn_1_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4/Control/VBoxContainer/plate2/Panel/HBoxContainer/Control/Label/Equip Btn2" to="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4" method="_on_equip_btn_2_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4/Control/VBoxContainer/plate3/Panel/HBoxContainer/Control/Label/Equip Btn3" to="Game/UI/Collection Canvas/ColorRect/Computer/ShopPage/HBoxContainer4" method="_on_equip_btn_3_pressed"]
@@ -6691,7 +6690,8 @@ script = ExtResource("35_1fv04")
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/Shop Button" to="Game/UI/Collection Canvas" method="_on_shop_button_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/CollectionButton" to="Game/UI/Collection Canvas" method="_on_collection_button_pressed"]
 [connection signal="pressed" from="Game/UI/Collection Canvas/ColorRect/Computer/SettingButton" to="Game/UI/Collection Canvas" method="_on_setting_button_pressed"]
-[connection signal="pressed" from="Game/UI/Computer Panel/Collection Button" to="Game/UI" method="_on_collection_button_pressed"]
+[connection signal="pressed" from="Game/UI/Collection Canvas/Computer Panel/Collection Button" to="Game/UI" method="_on_collection_button_pressed"]
+[connection signal="button_down" from="Game/UI/Finish Button/sprite/Finish Button" to="Game" method="_on_finish_button_button_down"]
 [connection signal="pressed" from="Game/UI/Achievement/test1" to="Game/UI/Collection Canvas" method="_on_test_1_pressed"]
 [connection signal="pressed" from="Game/UI/Achievement/test2" to="Game/UI/Collection Canvas" method="_on_test_2_pressed"]
 [connection signal="pressed" from="Game/UI/Achievement/test3" to="Game/UI/Collection Canvas" method="_on_test_3_pressed"]

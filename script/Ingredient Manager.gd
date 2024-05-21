@@ -139,12 +139,14 @@ func _ready():
 	particles.append(bed_particle)
 	particles.append(pan_particle)
 	
+	for i in range(Global.collection_ins.collection.size()):
+		var new_ingredient = load(Global.collection_ins.collection[i].path)
+		ingredients.append(new_ingredient)
+	
 	
 func update_ingredients():
 	SaveLoad.save_collection()
 	for i in range(Global.collection_ins.collection.size()):
-		var new_ingredient = load(Global.collection_ins.collection[i].path)
-		ingredients.append(new_ingredient)
 		if Global.collection_ins.collection[i].unlock:
 			if available_index.size() == 0:
 				available_index.append(i)

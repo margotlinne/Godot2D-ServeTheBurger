@@ -2,12 +2,13 @@ extends Control
 
 @onready var audio_manager =get_node("/root/Node/Audio Manager")
 @onready var collectionBtn = $"Collection Panel/Collection Button"
-@onready var collection_canvas = $"Collection Canvas"
+@onready var collection_canvas = $"Collection Canvas/ColorRect"
 
-@onready var screen= $"Computer Panel/Computer screen"
+@onready var screen= $"Collection Canvas/Computer Panel/Computer screen"
 
 @onready var player_area = get_node("/root/Node/Game/Left Hand/Detect Btn")
 
+	
 func _on_collection_button_pressed():
 	if !Global.game_over && Global.game_start:
 		print("pressed")
