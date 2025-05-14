@@ -1,10 +1,10 @@
 ![image](https://github.com/user-attachments/assets/200949a0-6c7a-4ceb-bd11-4da54543cb21)
 
-##About
+## About
 
 ![image](https://github.com/user-attachments/assets/fdf584ae-460a-4ab4-9271-132ce8399773)
 
-<Serve The Burger> is causal game where you move plate with mouse click&drag and stack up the ingredients falling from the top. Stack ingredients up as many as you can, serve burgers as many as you can!
+**Serve The Burger** is causal game where you move plate with mouse click&drag and stack up the ingredients falling from the top. Stack ingredients up as many as you can, serve burgers as many as you can!
 
 <br>
 
