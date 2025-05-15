@@ -4,11 +4,22 @@
 
 ![image](https://github.com/user-attachments/assets/fdf584ae-460a-4ab4-9271-132ce8399773)
 
-**Serve The Burger** is causal game where you move plate with mouse click&drag and stack up the ingredients falling from the top. Stack ingredients up as many as you can, serve burgers as many as you can!
+**Serve The Burger** is a casual game where the player catches falling burger ingredient objects and places them on a plate to complete the burger. The burger ingredients are unlocked by achieving challenge conditions, and the plates can be purchased using money earned in the shop. The game is built with HTML and published on itch.io.
 
 <br>
 
-## How To Play
+## Information
+
+- Engine: Godot
+- Platform: WebgL
+- Team Size: 1
+- Time Frame: 3 weeks
+
+<br>
+
+## Introduction
+
+### How To Play
 
 ![image](https://img.itch.zone/aW1nLzE1ODYyODc2LmdpZg==/original/i8lKPb.gif)
 ![image](https://img.itch.zone/aW1nLzE1ODYyODk1LmdpZg==/original/KXbTvg.gif)
@@ -22,7 +33,7 @@
 
 <br>
 
-## Collection & Shop and more Details
+### Collection & Shop and more Details
 
 ![image](https://github.com/user-attachments/assets/e06c82be-43f7-47b0-8881-3b87d3cfeedf)
 
