@@ -1,0 +1,1010 @@
+[gd_scene load_steps=17 format=3 uid="uid://dupgrk8l4ex7q"]
+
+[ext_resource type="Texture2D" uid="uid://xcyrtptpxawu" path="res://Splash(old)/_img/godot icon.png" id="1_h8rnw"]
+[ext_resource type="Texture2D" uid="uid://dbqo05bbbtlxp" path="res://Splash(old)/_img/made with.png" id="2_1s6m5"]
+[ext_resource type="Texture2D" uid="uid://dpbta48e76f2m" path="res://Splash(old)/_img/burble, alphabet.png" id="3_a324a"]
+[ext_resource type="Texture2D" uid="uid://bgxsg3qput18t" path="res://Splash(old)/_img/bg1.png" id="4_3nv2n"]
+[ext_resource type="Texture2D" uid="uid://b7316n4ad8wok" path="res://Splash(old)/_img/bg2.png" id="5_wl7lf"]
+[ext_resource type="Texture2D" uid="uid://c1l726m5wo6a" path="res://Splash(old)/_img/bg3.png" id="6_ptsyq"]
+[ext_resource type="Texture2D" uid="uid://d2bnjeofou04k" path="res://Splash(old)/_img/original2.png" id="7_4lt70"]
+[ext_resource type="Texture2D" uid="uid://b3p3pr4m4ujaw" path="res://Splash(old)/_img/orignial.png" id="8_2o52o"]
+[ext_resource type="Texture2D" uid="uid://brv7mdx4ydrsg" path="res://Splash(old)/_img/outline.png" id="9_n708t"]
+[ext_resource type="Texture2D" uid="uid://bt4ys5am2b22o" path="res://Splash(old)/_img/reflection-1.png" id="10_dii15"]
+[ext_resource type="AudioStream" uid="uid://f458mikivesd" path="res://Splash(old)/_sfx/rolling_edited2.wav" id="11_r1yy4"]
+[ext_resource type="AudioStream" uid="uid://ccj67stvwfbo8" path="res://Splash(old)/_sfx/water.wav" id="12_5i1ag"]
+
+[sub_resource type="GDScript" id="GDScript_0fo77"]
+script/source = "extends Control
+
+@onready var anim = $\"BG Color/AnimationPlayer\"
+@onready var rolling_sfx = $\"AudioStreamPlayer2D-rolling\"
+@onready var water_sfx = $\"AudioStreamPlayer2D-water\"
+
+var splash_done
+var splash_started
+
+func _ready():
+	anim.play(\"rolling\")
+	
+func _process(delta):
+	if splash_done:
+		get_tree().change_scene_to_file(\"res://scenes/menu.tscn\")
+	if splash_started:
+		rolling_sfx.play()
+		water_sfx.play()
+		splash_started = false
+		
+
+
+func _on_animation_player_animation_finished(anim_name):
+	splash_done = true
+
+
+func _on_animation_player_animation_started(anim_name):
+	splash_started = true
+"
+
+[sub_resource type="Animation" id="Animation_f4xbs"]
+resource_name = "rolling"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("splash/ball/body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.6, 2.3, 2.7, 4, 6.1, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-2.87979, -1.57079, 0.0, 1.309, 0.785397, 0.0, 6.19128, 6.59493]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("splash/ball/body:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("splash/ball/bg1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.606768, 0.706768, 0.806768, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("splash/ball/bg2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("splash/ball/bg3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false, true, false, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("splash/ball/burble:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-125.697, -166.765), Vector2(-125.697, -184.724), Vector2(-125.697, -166.765), Vector2(-125.697, -184.724), Vector2(-125.697, -166.765), Vector2(-125.697, -184.724), Vector2(-125.697, -166.765), Vector2(-125.697, -184.724), Vector2(-125.697, -166.765), Vector2(-125.697, -184.724), Vector2(-125.697, -166.765)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("splash/ball/burble2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-81.3333, -200.118), Vector2(-81.3333, -174.462), Vector2(-81.3333, -200.118), Vector2(-81.3333, -174.462), Vector2(-81.3333, -200.118), Vector2(-81.3333, -174.462), Vector2(-81.3333, -200.118), Vector2(-81.3333, -174.462), Vector2(-81.3333, -200.118), Vector2(-81.3333, -174.462), Vector2(-81.3333, -200.118)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("splash/ball/burble3:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(29.5757, -189.855), Vector2(27.1111, -212.946), Vector2(29.5757, -189.855), Vector2(27.1111, -212.946), Vector2(29.5757, -189.855), Vector2(27.1111, -212.946), Vector2(29.5757, -189.855), Vector2(27.1111, -212.946), Vector2(29.5757, -189.855), Vector2(27.1111, -212.946), Vector2(29.5757, -189.855)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("splash/ball/burble4:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(59.1515, -215.511), Vector2(59.1515, -184.724), Vector2(59.1515, -215.511), Vector2(59.1515, -184.724), Vector2(59.1515, -215.511), Vector2(59.1515, -184.724), Vector2(59.1515, -215.511), Vector2(59.1515, -184.724), Vector2(59.1515, -215.511), Vector2(59.1515, -184.724), Vector2(59.1515, -215.511)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("splash/ball/burble5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(140.485, -159.068), Vector2(142.949, -128.281), Vector2(140.485, -159.068), Vector2(142.949, -128.281), Vector2(140.485, -159.068), Vector2(142.949, -128.281), Vector2(140.485, -159.068), Vector2(142.949, -128.281), Vector2(140.485, -159.068), Vector2(142.949, -128.281), Vector2(140.485, -159.068)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("splash/ball/burble6:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.9, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 148.805), Vector2(0, 148.805), Vector2(59.1515, 92.3619), Vector2(98.5858, -64.1403), Vector2(103.516, -207.814)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("splash/ball/burble6:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("splash/ball/burble7:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("splash/ball/burble7:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.9, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.46463, 146.24), Vector2(2.46463, 146.24), Vector2(44.3636, 118.018), Vector2(174.99, -10.2625), Vector2(199.636, -120.584)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("splash/ball/burble8:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("splash/ball/burble8:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.9, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.46463, 148.805), Vector2(2.46463, 148.805), Vector2(12.3232, 118.018), Vector2(36.9697, -28.2218), Vector2(2.46463, -215.511)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("splash/ball/burble6:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.7, 2.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1), Vector2(1, 1), Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("splash/ball/burble7:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.7, 2.7, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1), Vector2(1, 1), Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("splash/ball/burble8:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.7, 2.7, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1), Vector2(1, 1), Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("splash/ball:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0, 2.3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-668, 31), Vector2(-138, 19), Vector2(-224, 19)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("splash/ball/burble9:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-111.429, 193.452), Vector2(-111.429, 172.619), Vector2(-111.429, 193.452), Vector2(-111.429, 172.619), Vector2(-111.429, 193.452), Vector2(-111.429, 172.619), Vector2(-111.429, 193.452), Vector2(-111.429, 172.619), Vector2(-111.429, 193.452), Vector2(-111.429, 172.619), Vector2(-111.429, 193.452)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("splash/ball/burble10:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-140, 160.714), Vector2(-140, 184.524), Vector2(-140, 160.714), Vector2(-140, 184.524), Vector2(-140, 160.714), Vector2(-140, 184.524), Vector2(-140, 160.714), Vector2(-140, 184.524), Vector2(-140, 160.714), Vector2(-140, 184.524), Vector2(-140, 160.714)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("splash/ball/burble11:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(128.571, 199.405), Vector2(108.571, 184.524), Vector2(128.571, 199.405), Vector2(108.571, 184.524), Vector2(128.571, 199.405), Vector2(108.571, 184.524), Vector2(128.571, 199.405), Vector2(108.571, 184.524), Vector2(128.571, 199.405), Vector2(108.571, 184.524), Vector2(128.571, 199.405)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("splash/ball/burble12:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(142.857, 178.571), Vector2(151.429, 157.738), Vector2(142.857, 178.571), Vector2(151.429, 157.738), Vector2(142.857, 178.571), Vector2(151.429, 157.738), Vector2(142.857, 178.571), Vector2(151.429, 157.738), Vector2(142.857, 178.571), Vector2(151.429, 157.738), Vector2(142.857, 178.571)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("splash/ball/burble13:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.8, 3.2, 3.6, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(128.571, 178.571), Vector2(128.571, 193.452), Vector2(128.571, 178.571), Vector2(128.571, 193.452), Vector2(128.571, 178.571), Vector2(128.571, 193.452), Vector2(128.571, 178.571), Vector2(128.571, 193.452), Vector2(128.571, 178.571), Vector2(128.571, 193.452), Vector2(128.571, 178.571)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("splash/ball/body2:visible")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("splash/ball/body2:rotation")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(2.3, 2.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.309, 0.785398]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("splash/margot ade/m:rotation")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.4, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("splash/margot ade/a:rotation")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.5, 2.6, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("splash/margot ade/r:rotation")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.6, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("splash/margot ade/g:rotation")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0, 2.6, 2.7, 2.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("splash/margot ade/o:rotation")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("splash/margot ade/t:rotation")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0, 2.8, 2.9, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("splash/margot ade/A:rotation")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0, 2.9, 3, 3.1, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("splash/margot ade/d:rotation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0, 3, 3.1, 3.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("splash/margot ade/e:rotation")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("splash/margot ade-shadow/m_:rotation")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0, 2.3, 2.4, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("splash/margot ade-shadow/a_:rotation")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0, 2.4, 2.5, 2.6, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("splash/margot ade-shadow/r_:rotation")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.6, 2.7, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("splash/margot ade-shadow/g_:rotation")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0, 2.6, 2.7, 2.8, 2.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("splash/margot ade-shadow/o_:rotation")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0, 2.7, 2.8, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("splash/margot ade-shadow/t_:rotation")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0, 2.8, 2.9, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("splash/margot ade-shadow/A_:rotation")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0, 2.9, 3, 3.1, 3.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("splash/margot ade-shadow/d_:rotation")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0, 3, 3.1, 3.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("splash/margot ade-shadow/e_:rotation")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0, 3.1, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.261799, -0.261799, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmuf4"]
+_data = {
+"rolling": SubResource("Animation_f4xbs")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4a7vs"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_0fo77")
+
+[node name="BG Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.486275)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG Color"]
+libraries = {
+"": SubResource("AnimationLibrary_mmuf4")
+}
+
+[node name="splash" type="Control" parent="BG Color"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="made with control" type="Control" parent="BG Color/splash"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 264.0
+offset_right = 20.0
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="icon" type="TextureRect" parent="BG Color/splash/made with control"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -7.0
+offset_right = 135.0
+offset_bottom = 79.0
+scale = Vector2(0.425, 0.38893)
+texture = ExtResource("1_h8rnw")
+
+[node name="icon_" type="TextureRect" parent="BG Color/splash/made with control"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 35.0
+offset_top = 29.0
+offset_right = 135.0
+offset_bottom = 115.0
+scale = Vector2(0.404497, 0.102103)
+texture = ExtResource("1_h8rnw")
+
+[node name="made with" type="TextureRect" parent="BG Color/splash/made with control"]
+layout_mode = 0
+offset_left = -42.0
+offset_top = 7.0
+offset_right = 170.0
+offset_bottom = 59.0
+scale = Vector2(0.359934, 0.345949)
+texture = ExtResource("2_1s6m5")
+
+[node name="made with_" type="TextureRect" parent="BG Color/splash/made with control"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -41.0
+offset_top = 31.0
+offset_right = 171.0
+offset_bottom = 83.0
+scale = Vector2(0.357809, 0.123864)
+texture = ExtResource("2_1s6m5")
+
+[node name="margot ade" type="Node2D" parent="BG Color/splash"]
+position = Vector2(102, 19)
+
+[node name="m" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(-120.95, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(50, 414, 42, 38)
+
+[node name="a" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(-76.95, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(109, 420, 36, 29)
+
+[node name="r" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(-44.95, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(161, 418, 20, 33)
+
+[node name="g" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(-20.95, 3.672)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(195, 420, 26, 48)
+
+[node name="o" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(8.05, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(232, 421, 24, 27)
+
+[node name="t" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(36.0499, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(268, 411, 25, 36)
+
+[node name="A" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(76.05, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(349, 403, 26, 43)
+
+[node name="d" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(104.05, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(378, 407, 23, 38)
+
+[node name="e" type="Sprite2D" parent="BG Color/splash/margot ade"]
+position = Vector2(131.05, -1.328)
+scale = Vector2(1.05, 1.008)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(404, 419, 22, 28)
+
+[node name="margot ade-shadow" type="Node2D" parent="BG Color/splash"]
+visible = false
+position = Vector2(86, 91)
+scale = Vector2(1, 0.48)
+
+[node name="m_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-120.95, -1.328)
+scale = Vector2(1.25158, 0.334979)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(50, 414, 42, 38)
+
+[node name="a_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-76.95, -1.328)
+scale = Vector2(0.985098, 0.386493)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(109, 420, 36, 29)
+
+[node name="r_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-44.95, -1.328)
+scale = Vector2(1.40086, 0.365569)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(161, 418, 20, 33)
+
+[node name="g_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-20.95, 3.672)
+scale = Vector2(1.09095, 0.387843)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(195, 420, 26, 48)
+
+[node name="o_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(8.05, -1.328)
+scale = Vector2(1.1459, 0.502733)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(232, 421, 24, 27)
+
+[node name="t_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(36.0499, -1.328)
+scale = Vector2(1.09558, 0.503296)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(268, 411, 25, 36)
+
+[node name="A_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(76.05, -1.328)
+scale = Vector2(1.12112, 0.37433)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(349, 403, 26, 43)
+
+[node name="d_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(104.05, -1.328)
+scale = Vector2(1.10337, 0.335135)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(378, 407, 23, 38)
+
+[node name="e_" type="Sprite2D" parent="BG Color/splash/margot ade-shadow"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(131.05, -1.328)
+scale = Vector2(1.09838, 0.381263)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(404, 419, 22, 28)
+
+[node name="ball" type="Node2D" parent="BG Color/splash"]
+position = Vector2(-224, 19)
+scale = Vector2(0.35, 0.336)
+
+[node name="Panel" type="Panel" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.498039)
+offset_left = -223.851
+offset_top = 211.309
+offset_right = 79.1489
+offset_bottom = 250.309
+scale = Vector2(0.88483, 0.809217)
+theme_override_styles/panel = SubResource("StyleBoxFlat_4a7vs")
+
+[node name="bg4" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.494118)
+texture = ExtResource("4_3nv2n")
+
+[node name="bg5" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.494118)
+texture = ExtResource("5_wl7lf")
+
+[node name="bg6" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.494118)
+texture = ExtResource("6_ptsyq")
+
+[node name="body2" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+position = Vector2(-8.58911, -11.9814)
+rotation = 0.785398
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("7_4lt70")
+
+[node name="body" type="Sprite2D" parent="BG Color/splash/ball"]
+position = Vector2(-8.57141, -11.9047)
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("8_2o52o")
+
+[node name="bg1" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.203922)
+texture = ExtResource("4_3nv2n")
+
+[node name="bg2" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.203922)
+texture = ExtResource("5_wl7lf")
+
+[node name="bg3" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.203922)
+texture = ExtResource("6_ptsyq")
+
+[node name="outline" type="Sprite2D" parent="BG Color/splash/ball"]
+position = Vector2(0.000244141, -11.9048)
+scale = Vector2(0.605715, 0.602731)
+texture = ExtResource("9_n708t")
+
+[node name="refelction" type="Sprite2D" parent="BG Color/splash/ball"]
+texture = ExtResource("10_dii15")
+
+[node name="burble" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(-125.697, -166.765)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(136, 196, 30, 35)
+
+[node name="burble2" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(-81.3333, -200.118)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(229, 190, 24, 30)
+
+[node name="burble3" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(29.5757, -189.855)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(335, 197, 15, 20)
+
+[node name="burble4" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(59.1515, -215.511)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble5" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(140.485, -159.068)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble9" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(-111.429, 193.452)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble10" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(-140, 160.714)
+scale = Vector2(0.897823, 0.592818)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble11" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(128.571, 199.405)
+scale = Vector2(0.489722, 0.465785)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble12" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(142.857, 178.571)
+scale = Vector2(0.489722, 0.465785)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble13" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(128.571, 178.571)
+scale = Vector2(0.489722, 0.465785)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble6" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(103.516, -207.814)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble7" type="Sprite2D" parent="BG Color/splash/ball"]
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(199.636, -120.584)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(422, 199, 21, 27)
+
+[node name="burble8" type="Sprite2D" parent="BG Color/splash/ball"]
+visible = false
+modulate = Color(1, 1, 1, 0.631373)
+position = Vector2(2.46463, -215.511)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_a324a")
+region_enabled = true
+region_rect = Rect2(229, 190, 24, 30)
+
+[node name="AudioStreamPlayer2D-rolling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_r1yy4")
+volume_db = 20.0
+autoplay = true
+
+[node name="AudioStreamPlayer2D-water" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_5i1ag")
+volume_db = 10.0
+autoplay = true
+
+[connection signal="animation_finished" from="BG Color/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="BG Color/AnimationPlayer" to="." method="_on_animation_player_animation_started"]

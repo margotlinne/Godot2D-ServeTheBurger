@@ -1,19 +1,19 @@
 [gd_scene load_steps=17 format=3 uid="uid://db7vxwy6lqi3t"]
 
 [ext_resource type="Script" path="res://Script/Splash.gd" id="1_350vg"]
-[ext_resource type="Texture2D" uid="uid://cp6yedtltme35" path="res://image/splash/eye1.png" id="4_c5t0r"]
-[ext_resource type="Texture2D" uid="uid://dkh8bmor0bb72" path="res://image/splash/eye2.png" id="5_ndc0k"]
-[ext_resource type="Texture2D" uid="uid://divxp8jq44dv0" path="res://image/splash/1-1.png" id="5_xs7fe"]
-[ext_resource type="Texture2D" uid="uid://dy2lxmxt6qs73" path="res://image/splash/mouth.png" id="6_lbiq4"]
-[ext_resource type="Texture2D" uid="uid://bgxsg3qput18t" path="res://image/splash/bg1.png" id="7_2t2xq"]
-[ext_resource type="Texture2D" uid="uid://b7316n4ad8wok" path="res://image/splash/bg2.png" id="8_1gimf"]
-[ext_resource type="Texture2D" uid="uid://c1l726m5wo6a" path="res://image/splash/bg3.png" id="9_dubhp"]
-[ext_resource type="Texture2D" uid="uid://dpbta48e76f2m" path="res://image/splash/burble, alphabet.png" id="10_pki6b"]
-[ext_resource type="Texture2D" uid="uid://brv7mdx4ydrsg" path="res://image/splash/outline.png" id="11_6pgnh"]
-[ext_resource type="Texture2D" uid="uid://bt4ys5am2b22o" path="res://image/splash/reflection-1.png" id="11_6rirf"]
-[ext_resource type="Texture2D" uid="uid://c0abxwyb82soq" path="res://image/splash/pressed.png" id="13_c6451"]
+[ext_resource type="Texture2D" uid="uid://bgxsg3qput18t" path="res://Splash(old)/_img/bg1.png" id="2_t1ga2"]
+[ext_resource type="Texture2D" uid="uid://b7316n4ad8wok" path="res://Splash(old)/_img/bg2.png" id="3_6g4gj"]
+[ext_resource type="Texture2D" uid="uid://c1l726m5wo6a" path="res://Splash(old)/_img/bg3.png" id="4_05cut"]
+[ext_resource type="Texture2D" uid="uid://divxp8jq44dv0" path="res://Splash(old)/_img/1-1.png" id="5_1asty"]
+[ext_resource type="Texture2D" uid="uid://cp6yedtltme35" path="res://Splash(old)/_img/eye1.png" id="6_3qkx5"]
+[ext_resource type="Texture2D" uid="uid://dkh8bmor0bb72" path="res://Splash(old)/_img/eye2.png" id="7_nn4vp"]
+[ext_resource type="Texture2D" uid="uid://dy2lxmxt6qs73" path="res://Splash(old)/_img/mouth.png" id="8_718g2"]
+[ext_resource type="Texture2D" uid="uid://dpbta48e76f2m" path="res://Splash(old)/_img/burble, alphabet.png" id="9_rsiy2"]
+[ext_resource type="Texture2D" uid="uid://brv7mdx4ydrsg" path="res://Splash(old)/_img/outline.png" id="10_y3qtg"]
+[ext_resource type="Texture2D" uid="uid://bt4ys5am2b22o" path="res://Splash(old)/_img/reflection-1.png" id="11_s0uch"]
+[ext_resource type="Texture2D" uid="uid://c0abxwyb82soq" path="res://Splash(old)/_img/pressed.png" id="12_8ucli"]
 [ext_resource type="AudioStream" uid="uid://dfm51geac8sha" path="res://resources/sfx/rolliing_ball.wav" id="14_a46x6"]
-[ext_resource type="AudioStream" uid="uid://ccj67stvwfbo8" path="res://resources/sfx/water.wav" id="15_qyoig"]
+[ext_resource type="AudioStream" uid="uid://ccj67stvwfbo8" path="res://Splash(old)/_sfx/water.wav" id="14_wg0ty"]
 
 [sub_resource type="Animation" id="Animation_f4xbs"]
 resource_name = "rolling"
@@ -545,152 +545,152 @@ scale = Vector2(0.35, 0.336)
 
 [node name="bg1" type="Sprite2D" parent="BG Color/ball"]
 visible = false
-texture = ExtResource("7_2t2xq")
+texture = ExtResource("2_t1ga2")
 
 [node name="bg2" type="Sprite2D" parent="BG Color/ball"]
-texture = ExtResource("8_1gimf")
+texture = ExtResource("3_6g4gj")
 
 [node name="bg3" type="Sprite2D" parent="BG Color/ball"]
 visible = false
-texture = ExtResource("9_dubhp")
+texture = ExtResource("4_05cut")
 
 [node name="body" type="Sprite2D" parent="BG Color/ball"]
 rotation = 6.28054
-texture = ExtResource("5_xs7fe")
+texture = ExtResource("5_1asty")
 
 [node name="eye1" type="Sprite2D" parent="BG Color/ball"]
 visible = false
 position = Vector2(0, -6.10352e-05)
 scale = Vector2(0.640808, 0.640075)
-texture = ExtResource("4_c5t0r")
+texture = ExtResource("6_3qkx5")
 
 [node name="eye2" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-3.05176e-05, -1.28285)
 rotation = 6.28054
 scale = Vector2(0.640808, 0.640075)
-texture = ExtResource("5_ndc0k")
+texture = ExtResource("7_nn4vp")
 
 [node name="mouth" type="Sprite2D" parent="BG Color/ball"]
 visible = false
 position = Vector2(-3.05176e-05, -1.28285)
 rotation = 6.27969
 scale = Vector2(0.640808, 0.640075)
-texture = ExtResource("6_lbiq4")
+texture = ExtResource("8_718g2")
 
 [node name="m" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-1199.97, 39.8158)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(50, 414, 42, 38)
 
 [node name="a" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-1064.39, 43.1756)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(109, 420, 36, 29)
 
 [node name="r" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-964.757, 40.842)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(161, 418, 20, 33)
 
 [node name="g" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-873.565, 49.3332)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(195, 420, 26, 48)
 
 [node name="o" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-782.374, 36.7371)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(232, 421, 24, 27)
 
 [node name="t" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-693.646, 29.3214)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(268, 411, 25, 36)
 
 [node name="A" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-506.333, 36.7372)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(349, 403, 26, 43)
 
 [node name="d" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-422.535, 33.9396)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(378, 407, 23, 38)
 
 [node name="e" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(-334.206, 38.4842)
 scale = Vector2(3, 3)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(404, 419, 22, 28)
 
 [node name="outline" type="Sprite2D" parent="BG Color/ball"]
 position = Vector2(0.000244141, -11.9048)
 scale = Vector2(0.605715, 0.602731)
-texture = ExtResource("11_6pgnh")
+texture = ExtResource("10_y3qtg")
 
 [node name="refelction" type="Sprite2D" parent="BG Color/ball"]
-texture = ExtResource("11_6rirf")
+texture = ExtResource("11_s0uch")
 
 [node name="pressing parts" type="Sprite2D" parent="BG Color/ball"]
 rotation = 6.28054
-texture = ExtResource("13_c6451")
+texture = ExtResource("12_8ucli")
 
 [node name="burble" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(-125.697, -184.724)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(136, 196, 30, 35)
 
 [node name="burble2" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(-81.3333, -174.462)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(229, 190, 24, 30)
 
 [node name="burble3" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(27.1111, -212.946)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(335, 197, 15, 20)
 
 [node name="burble4" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(59.1515, -184.724)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
 [node name="burble5" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(142.949, -128.281)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
 [node name="burble9" type="Sprite2D" parent="BG Color/ball"]
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(-111.429, 172.619)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -698,7 +698,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(-140, 184.524)
 scale = Vector2(0.897823, 0.592818)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -706,7 +706,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(108.571, 184.524)
 scale = Vector2(0.489722, 0.465785)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -714,7 +714,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(151.429, 157.738)
 scale = Vector2(0.489722, 0.465785)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -722,7 +722,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(128.571, 193.452)
 scale = Vector2(0.489722, 0.465785)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -730,7 +730,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(103.516, -207.814)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -738,7 +738,7 @@ region_rect = Rect2(422, 199, 21, 27)
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(199.636, -120.584)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(422, 199, 21, 27)
 
@@ -747,7 +747,7 @@ visible = false
 modulate = Color(1, 1, 1, 0.631373)
 position = Vector2(2.46463, -215.511)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("10_pki6b")
+texture = ExtResource("9_rsiy2")
 region_enabled = true
 region_rect = Rect2(229, 190, 24, 30)
 
@@ -757,7 +757,7 @@ volume_db = -20.0
 autoplay = true
 
 [node name="AudioStreamPlayer2D-water" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_qyoig")
+stream = ExtResource("14_wg0ty")
 autoplay = true
 
 [connection signal="animation_finished" from="BG Color/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
