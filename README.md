@@ -1,62 +1,43 @@
-![image](https://github.com/user-attachments/assets/200949a0-6c7a-4ceb-bd11-4da54543cb21)
-
-## About
-
-![image](https://github.com/user-attachments/assets/fdf584ae-460a-4ab4-9271-132ce8399773)
-
-**Serve The Burger** is a casual game where the player catches falling burger ingredient objects and places them on a plate to complete the burger. The burger ingredients are unlocked by achieving challenge conditions, and the plates can be purchased using money earned in the shop. The game is built with HTML and published on itch.io.
-
-<br>
-
-## Information
-
-- Engine: Godot
-- Platform: WebgL
-- Team Size: 1
-- Time Frame: 3 weeks
-
-<br>
-
-## Introduction
-
-### How To Play
+# Serve The Burger
 
 ![image](https://img.itch.zone/aW1nLzE1ODYyODc2LmdpZg==/original/i8lKPb.gif)
 ![image](https://img.itch.zone/aW1nLzE1ODYyODk1LmdpZg==/original/KXbTvg.gif)
 ![image](https://img.itch.zone/aW1nLzE1ODYyOTAwLmdpZg==/original/FRJP3I.gif)
 
-- Use mouse. Click hand or arm holding plate, and drag while clicking it where you want to move the plate. 
+### <a href="https://www.youtube.com/watch?v=KsG8NTa3uyE&list=PLVgVcpUV3wTMd91EiLjE9PvgdMCfvKSws&index=12">▶️Play Video</a> <a href="https://margotlinne.itch.io/serve-the-burger">🎮Play Here</a>
 
-- If it's over 5 layers, you can click <finish> button to finish the burger. Right hand will appear with the top bun, and click again to make it fall. Don't forget to catch it!
+## About
 
-- If it's too high almost reaching the top edge of the screen, it'll warn you by showing red warning sign. Quickly finish burger and make new burger before you fail(game over) by touching the limit.
+위에서 떨어지는 햄버거 재료를 접시 위에 놓치지 않고 안전하게 담아내어 완성하는 게임입니다. 재료를 접시 위에 받지 못하고 하나라도 놓친다면 게임 오버입니다. 
 
 <br>
 
-### Collection & Shop and more Details
+Catch the falling burger ingredients and stack them safely on the plate. Miss even one, and it's game over.
 
-![image](https://github.com/user-attachments/assets/e06c82be-43f7-47b0-8881-3b87d3cfeedf)
+<br>
 
-- If you click the monitor icon on top right, you can see ingredients collection that you've collected. Check collection requirements to unlock the ingredient.
+## Information
 
-![image](https://github.com/user-attachments/assets/4096015e-abc5-4dea-8f28-837b08aa2e05)
+- **Engine**: Godot
+- **Platform**: html
+- **Team Size**: 1
+- **Time Frame**: 3 weeks
 
-- With coins that you've earned from serving burgers, you can buy plate you want. Each plate has its own particle that shows when ingredients are stacked.
+<br>
 
-![image](https://github.com/user-attachments/assets/fa7c4309-019d-477f-bde9-5c6a42a291b3)
+## Overview
 
-- You'll see coin jar is gonna filled up with coins as you earn them!
+- 🧑‍🍳 떨어지는 음식을 접시 위에 받아내세요.
 
-![image](https://github.com/user-attachments/assets/0d80d66d-2e9e-467f-80c9-721422466dea) ![image](https://github.com/user-attachments/assets/cb09d056-9ce0-4ea3-8475-2db59c08f7f3)
+   Catch the falling food on the plate.
 
+- 🤑 햄버거 층 수가 높을 수록 돈을 더 많이 받습니다.
+  
+  The higher your burger stack, the more money you earn.
 
-- If ingredients land in the middle point of the bottom bun. You'll get gold coin if your all ingredients are prefectly stacked up. 💛
-
-- Every 10 layers will give you blue coins. 💙
-
-![image](https://github.com/user-attachments/assets/c4a43a94-de53-4e5c-ad2e-f93e55330bd4)
-
-- This is <default> blue particle, see what others look like with different plate 🤫
+- ❗ 잠겨 있는 햄버거 재료 종류들을 다양한 방식으로 해금하고 모은 돈으로 여러 종류의 접시를 구매할 수 있습니다.
+  
+  Unlock various types of burger ingredients in different ways and use the money you earn to buy a variety of plates.
 
 <br>
 
@@ -68,7 +49,3 @@
 ![image](https://github.com/user-attachments/assets/f244eb1b-b653-4685-be27-9d604992cd66)
 ![image](https://github.com/user-attachments/assets/f36b7413-4655-4f2f-8bfd-5fa952d7d67f)
 ![image](https://github.com/user-attachments/assets/d23cb051-3c17-4ed2-8362-78a995ecbd6c)
-
-<br>
-
-#### Check play video <a href="https://www.youtube.com/watch?v=KsG8NTa3uyE&list=PLVgVcpUV3wTMd91EiLjE9PvgdMCfvKSws&index=11">here</a>
